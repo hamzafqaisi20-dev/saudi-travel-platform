@@ -1,0 +1,269 @@
+<script setup>
+import { ref, computed } from 'vue';
+import { Head, Link } from '@inertiajs/vue3';
+import AppLayout from '@/Layouts/AppLayout.vue';
+import FlightSearchWidget from '@/Components/FlightSearchWidget.vue';
+import { flightOffers, sampleAirportCodes } from '@/data/mockData';
+import { useLocale } from '@/composables/useLocale';
+import { Plane, Filter, Clock, ShieldCheck, ArrowRightLeft, ArrowRight, CheckCircle2, SlidersHorizontal } from 'lucide-vue-next';
+import AircraftIcon from '@/Components/AircraftIcon.vue';
+import CurrencyBadge from '@/Components/CurrencyBadge.vue';
+import SaudiRiyalIcon from '@/Components/SaudiRiyalIcon.vue';
+
+const { isAr } = useLocale();
+
+// Filters state
+const selectedAirline = ref('all');
+const selectedClass = ref('all');
+const maxPrice = ref(2500);
+const sortBy = ref('price_asc'); // 'price_asc' | 'duration' | 'earliest'
+
+const filteredFlights = computed(() => {
+    return flightOffers.filter(f => {
+        if (selectedAirline.value !== 'all' && f.airlineCode !== selectedAirline.value) return false;
+        if (f.priceSAR > maxPrice.value) return false;
+        return true;
+    }).sort((a, b) => {
+        if (sortBy.value === 'price_asc') return a.priceSAR - b.priceSAR;
+        if (sortBy.value === 'price_desc') return b.priceSAR - a.priceSAR;
+        return 0;
+    });
+});
+
+const activeModalFlight = ref(null);
+</script>
+
+<template>
+    <AppLayout>
+        <Head :title="isAr ? 'حجز الطيران - أجنحة السعودية' : 'Flight Booking - SaudiWings'" />
+
+        <!-- Page Header Banner -->
+        <section class="bg-gradient-to-br from-[#0D1527] to-[#1A2845] text-white py-14 sm:py-20 relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="max-w-2xl">
+                    <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 text-xs font-bold mb-4 border border-blue-500/30">
+                        <Plane class="w-3.5 h-3.5" />
+                        {{ isAr ? 'رحلات الطيران الفاخرة' : 'PREMIUM AIR TRAVEL' }}
+                    </span>
+                    <h1 class="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
+                        {{ isAr ? 'احجز رحلتك القادمة عبر سماء المملكة' : 'Fly Across The Kingdom in Pure Comfort' }}
+                    </h1>
+                    <p class="text-xs sm:text-sm text-slate-300 font-medium mt-3 leading-relaxed">
+                        {{ isAr 
+                            ? 'استعرض رحلات الخطوط السعودية، طيران الرياض، والناقلين الإقليميين بأسعار توضيحية وتجربة مستخدم لا مثيل لها.'
+                            : 'Explore illustrative flight schedules and bespoke services across Saudi Arabia’s world-class airport infrastructure.' }}
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search Bar Overlay -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20">
+            <FlightSearchWidget />
+        </div>
+
+        <!-- Main Flights Results & Filter Section -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+            <!-- Prototype Disclaimer Notice -->
+            <div class="mb-8 p-4 rounded-2xl bg-amber-50 border border-amber-200/80 text-xs text-amber-900 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <ShieldCheck class="w-4 h-4 text-amber-600 shrink-0" />
+                    <span>
+                        {{ isAr 
+                            ? 'ملاحظة توضيحية: هذه العروض والمواعيد والأسعار هي بيانات تجريبية (Mock Data) للاستعراض، ولا تشكل نظام حجز حي أو شراء فعلي.' 
+                            : 'Demonstration Notice: Displayed fares and schedules are realistic mock data for UI showcase purposes only. No actual tickets are issued.' }}
+                    </span>
+                </div>
+                <span class="px-2.5 py-1 rounded-full bg-amber-200/60 font-bold text-amber-800 text-[10px]">
+                    Phase 1 Demo
+                </span>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                <!-- Sidebar Filters (1 col) -->
+                <div class="bg-white rounded-3xl p-6 card-soft-shadow border border-slate-100 h-fit space-y-6">
+                    <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+                        <h3 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+                            <SlidersHorizontal class="w-4 h-4 text-[#1E6BFF]" />
+                            {{ isAr ? 'تصفية النتائج' : 'Filter Flights' }}
+                        </h3>
+                        <button
+                            @click="selectedAirline = 'all'; maxPrice = 2500; sortBy = 'price_asc'"
+                            class="text-xs text-[#1E6BFF] hover:underline"
+                        >
+                            {{ isAr ? 'إعادة ضبط' : 'Reset' }}
+                        </button>
+                    </div>
+
+                    <!-- Airline Filter -->
+                    <div class="space-y-2 text-xs">
+                        <label class="font-bold text-slate-700 block">{{ isAr ? 'شركة الطيران' : 'Airline' }}</label>
+                        <select v-model="selectedAirline" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl font-bold text-slate-900">
+                            <option value="all">{{ isAr ? 'جميع خطوط الطيران' : 'All Airlines' }}</option>
+                            <option value="SV">{{ isAr ? 'الخطوط السعودية (SV)' : 'Saudia (SV)' }}</option>
+                            <option value="RX">{{ isAr ? 'طيران الرياض (RX)' : 'Riyadh Air (RX)' }}</option>
+                            <option value="XY">{{ isAr ? 'طيران ناس (XY)' : 'flynas (XY)' }}</option>
+                        </select>
+                    </div>
+
+                    <!-- Max Price Slider -->
+                    <div class="space-y-2 text-xs">
+                        <div class="flex justify-between font-bold text-slate-700 items-center">
+                            <span>{{ isAr ? 'الحد الأقصى للسعر:' : 'Max Fare:' }}</span>
+                            <CurrencyBadge :amount="maxPrice" size="sm" />
+                        </div>
+                        <input
+                            type="range"
+                            min="300"
+                            max="3000"
+                            step="100"
+                            v-model.number="maxPrice"
+                            class="w-full accent-[#1E6BFF] cursor-pointer"
+                        />
+                    </div>
+
+                    <!-- Sort By -->
+                    <div class="space-y-2 text-xs">
+                        <label class="font-bold text-slate-700 block">{{ isAr ? 'الترتيب حسب' : 'Sort By' }}</label>
+                        <select v-model="sortBy" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl font-bold text-slate-900">
+                            <option value="price_asc">{{ isAr ? 'الأقل سعراً أولاً' : 'Lowest Fare First' }}</option>
+                            <option value="price_desc">{{ isAr ? 'الأعلى سعراً أولاً' : 'Highest Fare First' }}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Flight Results List (3 cols) -->
+                <div class="lg:col-span-3 space-y-4">
+                    <div class="flex items-center justify-between text-xs text-slate-500 pb-2">
+                        <span>
+                            {{ isAr 
+                                ? `تم العثور على ${filteredFlights.length} رحلة نموذجية` 
+                                : `Showing ${filteredFlights.length} sample flight offers` }}
+                        </span>
+                        <span class="font-medium text-slate-400 inline-flex items-center gap-1.5">
+                            <span>{{ isAr ? 'جميع الأسعار تشمل الضرائب بالعملة الرسمية' : 'All sample fares in' }}</span>
+                            <SaudiRiyalIcon className="h-3.5 w-auto inline-block" color="#94A3B8" />
+                        </span>
+                    </div>
+
+                    <!-- Flight Item Cards -->
+                    <div
+                        v-for="flight in filteredFlights"
+                        :key="flight.id"
+                        class="bg-white rounded-3xl p-6 card-soft-shadow card-hover border border-slate-100 flex flex-col md:flex-row items-center justify-between gap-6"
+                    >
+                        <!-- Airline & Flight Info -->
+                        <div class="flex items-center gap-4 w-full md:w-auto">
+                            <div class="w-12 h-12 rounded-2xl bg-blue-50 text-[#1E6BFF] flex items-center justify-center font-black text-sm shrink-0">
+                                {{ flight.airlineCode }}
+                            </div>
+                            <div>
+                                <h4 class="font-extrabold text-slate-900 text-sm">
+                                    {{ isAr ? flight.airline.ar : flight.airline.en }}
+                                </h4>
+                                <span class="text-xs text-slate-400 font-mono">{{ flight.flightNumber }}</span>
+                                <span class="inline-block ms-2 px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-600">
+                                    {{ isAr ? flight.cabinClass.ar : flight.cabinClass.en }}
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Schedule & Route Vector -->
+                        <div class="flex items-center justify-between gap-6 w-full md:w-auto flex-1 max-w-md px-2">
+                            <div class="text-center sm:text-start">
+                                <span class="text-2xl font-black text-slate-900 font-mono block">{{ flight.origin.code }}</span>
+                                <span class="text-xs text-slate-500 font-medium block">{{ isAr ? flight.origin.city.ar : flight.origin.city.en }}</span>
+                                <span class="text-[11px] text-slate-400 font-mono block">{{ flight.departureTime }}</span>
+                            </div>
+
+                            <div class="flex-1 flex flex-col items-center">
+                                <span class="text-[10px] font-bold text-slate-400 flex items-center gap-1 mb-1">
+                                    <Clock class="w-3 h-3" />
+                                    {{ flight.duration }}
+                                </span>
+                                <div class="w-full flex items-center gap-1">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-[#1E6BFF]"></div>
+                                    <div class="flex-1 border-t border-dashed border-slate-300 relative">
+                                        <AircraftIcon className="w-4 h-4 text-[#1E6BFF] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" :angle="isAr ? -90 : 90" />
+                                    </div>
+                                    <div class="w-1.5 h-1.5 rounded-full bg-slate-900"></div>
+                                </div>
+                                <span class="text-[10px] font-bold text-emerald-600 mt-1">
+                                    {{ isAr ? flight.stops.ar : flight.stops.en }}
+                                </span>
+                            </div>
+
+                            <div class="text-center sm:text-end">
+                                <span class="text-2xl font-black text-slate-900 font-mono block">{{ flight.destination.code }}</span>
+                                <span class="text-xs text-slate-500 font-medium block">{{ isAr ? flight.destination.city.ar : flight.destination.city.en }}</span>
+                                <span class="text-[11px] text-slate-400 font-mono block">{{ flight.arrivalTime }}</span>
+                            </div>
+                        </div>
+
+                        <!-- Pricing & CTA -->
+                        <div class="flex items-center justify-between md:flex-col md:items-end w-full md:w-auto pt-4 md:pt-0 border-t md:border-t-0 border-slate-100 gap-3">
+                            <div class="text-start md:text-end">
+                                <span class="text-[10px] uppercase font-bold text-slate-400 block mb-0.5">{{ isAr ? 'السعر' : 'Fare' }}</span>
+                                <CurrencyBadge :amount="flight.priceSAR" size="lg" />
+                            </div>
+
+                            <button
+                                type="button"
+                                @click="activeModalFlight = flight"
+                                class="px-6 py-2.5 rounded-full bg-[#0D1527] hover:bg-[#1E6BFF] text-white text-xs font-bold transition-all shadow-md active:scale-95 cursor-pointer"
+                            >
+                                {{ isAr ? 'حجز تجريبي' : 'Book Mock Flight' }}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mock Booking Modal -->
+        <div v-if="activeModalFlight" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-lg w-full card-soft-shadow border border-slate-100 space-y-6">
+                <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+                    <h3 class="text-lg font-black text-slate-900">
+                        {{ isAr ? 'تأكيد الحجز الاستعراضي' : 'Simulated Flight Confirmation' }}
+                    </h3>
+                    <button @click="activeModalFlight = null" class="text-slate-400 hover:text-slate-700 text-lg">✕</button>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-blue-50 text-xs text-blue-900 space-y-2 border border-blue-100">
+                    <p class="font-bold flex items-center gap-1.5 text-blue-700">
+                        <CheckCircle2 class="w-4 h-4" />
+                        {{ isAr ? 'تم تسجيل اهتمامك بالرحلة بنجاح!' : 'Simulated selection registered successfully!' }}
+                    </p>
+                    <p>
+                        {{ isAr 
+                            ? 'في المرحلة الأولى، هذه التجربة مخصصة للعرض التقني والتصميمي، ولا يتم خصم أي مبالغ من بطاقتك.' 
+                            : 'In Phase One, this workflow showcases UI interactions only. No payment gateway is connected and no funds are deducted.' }}
+                    </p>
+                </div>
+
+                <div class="space-y-2 text-xs">
+                    <div class="flex justify-between py-1 border-b border-slate-100">
+                        <span class="text-slate-400">{{ isAr ? 'رقم الرحلة:' : 'Flight Number:' }}</span>
+                        <span class="font-mono font-bold">{{ activeModalFlight.flightNumber }}</span>
+                    </div>
+                    <div class="flex justify-between py-1 border-b border-slate-100">
+                        <span class="text-slate-400">{{ isAr ? 'المسار:' : 'Route:' }}</span>
+                        <span class="font-bold">{{ activeModalFlight.origin.code }} → {{ activeModalFlight.destination.code }}</span>
+                    </div>
+                    <div class="flex justify-between py-1 border-b border-slate-100 items-center">
+                        <span class="text-slate-400">{{ isAr ? 'إجمالي السعر التقديري:' : 'Estimated Fare:' }}</span>
+                        <CurrencyBadge :amount="activeModalFlight.priceSAR" size="md" />
+                    </div>
+                </div>
+
+                <button
+                    @click="activeModalFlight = null"
+                    class="w-full py-3 rounded-full bg-[#1E6BFF] text-white text-xs font-bold hover:bg-blue-600 transition-colors"
+                >
+                    {{ isAr ? 'العودة لصفحة الرحلات' : 'Back to Flights' }}
+                </button>
+            </div>
+        </div>
+    </AppLayout>
+</template>
