@@ -26,7 +26,7 @@ const submitContact = () => {
 
 <template>
     <AppLayout>
-        <Head :title="isAr ? 'عن المنصة والتواصل - أجنحة السعودية' : 'About & Contact - SaudiWings'" />
+        <Head :title="isAr ? 'عن المنصة والتواصل - InfoTravel' : 'About & Contact - InfoTravel'" />
 
         <!-- Header -->
         <section class="bg-gradient-to-br from-[#0D1527] to-[#1A2845] text-white py-14 sm:py-20">

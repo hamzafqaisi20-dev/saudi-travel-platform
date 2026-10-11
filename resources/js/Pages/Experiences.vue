@@ -13,7 +13,7 @@ const activeModal = ref(null);
 
 <template>
     <AppLayout>
-        <Head :title="isAr ? 'التجارب والفعاليات - أجنحة السعودية' : 'Experiences & Events - SaudiWings'" />
+        <Head :title="isAr ? 'التجارب والفعاليات - InfoTravel' : 'Experiences & Events - InfoTravel'" />
 
         <!-- Header -->
         <section class="bg-gradient-to-br from-[#0D1527] to-[#1A2845] text-white py-14 sm:py-20">

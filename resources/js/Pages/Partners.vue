@@ -10,7 +10,7 @@ const { isAr } = useLocale();
 
 <template>
     <AppLayout>
-        <Head :title="isAr ? 'شركاء السفر والمصادر - أجنحة السعودية' : 'Travel Partners & Resources - SaudiWings'" />
+        <Head :title="isAr ? 'شركاء السفر والمصادر - InfoTravel' : 'Travel Partners & Resources - InfoTravel'" />
 
         <!-- Header -->
         <section class="bg-gradient-to-br from-[#0D1527] to-[#1A2845] text-white py-14 sm:py-20">

@@ -17,14 +17,14 @@ const { isAr, toggleLocale } = useLocale();
                         <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-[#0D1527] to-[#1E6BFF] flex items-center justify-center text-white border border-white/20 shadow-lg shadow-blue-500/25">
                             <AircraftIcon className="w-7 h-7" variant="white" :angle="-45" />
                         </div>
-                        <span class="text-2xl font-black tracking-tight text-white">
-                            Saudi<span class="text-[#1E6BFF]">Wings</span>
+                        <span class="text-2xl font-black tracking-tight text-white inline-flex items-center" dir="ltr">
+                            <span>Info</span><span class="text-[#1E6BFF]">Travel</span>
                         </span>
                     </div>
                     <p class="text-sm text-slate-400 leading-relaxed max-w-sm">
                         {{ isAr 
-                            ? 'المنصة الرقمية المتطورة لاكتشاف وجهات المملكة العربية السعودية وحجز الرحلات الفاخرة، معززة بالذكاء الاصطناعي لتقديم تجارب سفر استثنائية.'
-                            : 'The premier travel technology showcase celebrating Saudi Arabia’s world-class destinations and luxury flight experiences, powered by smart AI itinerary design.' }}
+                            ? 'المنصة الرقمية المتطورة لاكتشاف وجهات المملكة العربية السعودية وحجز الرحلات الفاخرة عبر InfoTravel، معززة بالذكاء الاصطناعي لتقديم تجارب سفر استثنائية.'
+                            : 'The premier smart travel platform celebrating Saudi Arabia’s world-class destinations and luxury flight experiences, powered by InfoTravel AI.' }}
                     </p>
                     <div class="pt-2">
                         <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
@@ -98,7 +98,7 @@ const { isAr, toggleLocale } = useLocale();
 
             <!-- Bottom Copyright -->
             <div class="mt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-                <p>© {{ new Date().getFullYear() }} SaudiWings Travel Tech. {{ isAr ? 'جميع الحقوق محفوظة.' : 'All rights reserved.' }}</p>
+                <p>© {{ new Date().getFullYear() }} InfoTravel. {{ isAr ? 'جميع الحقوق محفوظة.' : 'All rights reserved.' }}</p>
                 <div class="flex items-center gap-6">
                     <Link href="/about" class="hover:text-slate-400">{{ isAr ? 'سياسة الخصوصية' : 'Privacy Policy' }}</Link>
                     <Link href="/about" class="hover:text-slate-400">{{ isAr ? 'الشروط والأحكام' : 'Terms of Service' }}</Link>

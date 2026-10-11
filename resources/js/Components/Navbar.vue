@@ -43,10 +43,10 @@ const isActive = (href) => {
                         </div>
                         <div class="flex flex-col">
                             <span class="text-base sm:text-lg font-extrabold tracking-tight text-slate-900 leading-tight inline-flex items-center" dir="ltr">
-                                <span>Saudi</span><span class="text-[#1E6BFF]">Wings</span>
+                                <span>Info</span><span class="text-[#1E6BFF]">Travel</span>
                             </span>
                             <span class="text-[9px] font-medium text-slate-400 tracking-wider">
-                                {{ isAr ? 'أجنحة السعودية للسفر' : 'PREMIUM TRAVEL TECH' }}
+                                {{ isAr ? 'منصة السفر الذكية' : 'SMART TRAVEL PLATFORM' }}
                             </span>
                         </div>
                     </Link>

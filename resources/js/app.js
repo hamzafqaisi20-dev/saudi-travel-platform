@@ -5,7 +5,7 @@ import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 
-const appName = 'SaudiWings | أجنحة السعودية';
+const appName = 'InfoTravel | منصة السفر الذكية';
 
 createInertiaApp({
     title: (title) => (title ? `${title} - ${appName}` : appName),

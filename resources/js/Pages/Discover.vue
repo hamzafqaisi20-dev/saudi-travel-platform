@@ -40,7 +40,7 @@ const seasons = [
 
 <template>
     <AppLayout>
-        <Head :title="isAr ? 'اكتشف السعودية - أجنحة السعودية' : 'Discover Saudi Arabia - SaudiWings'" />
+        <Head :title="isAr ? 'اكتشف السعودية - InfoTravel' : 'Discover Saudi Arabia - InfoTravel'" />
 
         <!-- Cinematic Hero Header -->
         <section class="relative bg-slate-950 text-white min-h-[460px] flex items-center overflow-hidden">

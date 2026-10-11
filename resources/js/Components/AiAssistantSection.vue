@@ -11,8 +11,8 @@ const messages = ref([
     {
         sender: 'bot',
         text: isAr.value
-            ? 'مرحباً بك! أنا مساعد السفر الذكي لمنصة أجنحة السعودية. يمكنني تصميم مسار سياحي مخصص لك، واقتراح أرقى الفنادق والرحلات الجوية بين الرياض والعلا والبحر الأحمر وجدة.'
-            : 'Welcome! I am SaudiWings AI Travel Concierge. I can create a customized luxury itinerary for you, suggest flights, and recommend the finest destinations across Saudi Arabia.'
+            ? 'مرحباً بك! أنا مساعد السفر الذكي لمنصة InfoTravel. يمكنني تصميم مسار سياحي مخصص لك، واقتراح أرقى الفنادق والرحلات الجوية بين الرياض والعلا والبحر الأحمر وجدة.'
+            : 'Welcome! I am InfoTravel AI Concierge. I can create a customized luxury itinerary for you, suggest flights, and recommend the finest destinations across Saudi Arabia.'
     }
 ]);
 
@@ -137,7 +137,7 @@ const generateQuickPlan = async () => {
                         </div>
                         <div>
                             <h4 class="font-extrabold text-sm flex items-center gap-2">
-                                SaudiWings AI Concierge
+                                InfoTravel AI Concierge
                                 <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
                             </h4>
                             <span class="text-[11px] text-slate-300">{{ isAr ? 'مساعد افتراضي مدعوم بالذكاء الاصطناعي' : 'Smart Travel Assistant' }}</span>

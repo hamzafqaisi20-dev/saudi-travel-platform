@@ -19,7 +19,7 @@ const { isAr } = useLocale();
 
 <template>
     <AppLayout>
-        <Head :title="isAr ? 'الرئيسية - أجنحة السعودية' : 'Home - SaudiWings Travel Tech'" />
+        <Head :title="isAr ? 'الرئيسية - InfoTravel' : 'Home - InfoTravel Smart Tech'" />
 
         <!-- Reference Inspired Cinematic Hero Section -->
         <HeroSection />

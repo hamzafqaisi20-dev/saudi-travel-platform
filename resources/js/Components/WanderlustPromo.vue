@@ -52,12 +52,12 @@ const { isAr } = useLocale();
                     <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black text-[#0D1527] uppercase tracking-tight leading-[1.08]">
                         <template v-if="isAr">
                             أطلق شغفك للاستكشاف<br/>
-                            مع <span class="text-[#1E6BFF]">أجنحة السعودية</span>
+                            مع <span class="text-[#1E6BFF]">InfoTravel</span>
                         </template>
                         <template v-else>
                             UNLEASH<br/>
                             WANDERLUST WITH<br/>
-                            <span class="text-[#1E6BFF]">SAUDIWINGS</span>
+                            <span class="text-[#1E6BFF]">INFOTRAVEL</span>
                         </template>
                     </h2>
                 </div>

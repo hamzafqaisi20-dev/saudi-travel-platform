@@ -6,7 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
-    <title inertia>{{ config('app.name', 'SaudiWings | أجنحة السعودية') }}</title>
+    <title inertia>{{ config('app.name', 'InfoTravel | منصة السفر الذكية') }}</title>
 
     <!-- Google Fonts: Tajawal & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

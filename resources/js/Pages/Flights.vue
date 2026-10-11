@@ -35,7 +35,7 @@ const activeModalFlight = ref(null);
 
 <template>
     <AppLayout>
-        <Head :title="isAr ? 'حجز الطيران - أجنحة السعودية' : 'Flight Booking - SaudiWings'" />
+        <Head :title="isAr ? 'حجز الطيران - InfoTravel' : 'Flight Booking - InfoTravel'" />
 
         <!-- Page Header Banner -->
         <section class="bg-gradient-to-br from-[#0D1527] to-[#1A2845] text-white py-14 sm:py-20 relative overflow-hidden">
