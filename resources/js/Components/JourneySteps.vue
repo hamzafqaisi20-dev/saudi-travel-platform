@@ -46,9 +46,9 @@ const { isAr } = useLocale();
             </div>
 
             <!-- Step 2: Book A Ticket (Highlight Tall Blue Card with Aviation Visual - Exactly matching image) -->
-            <div class="relative bg-gradient-to-br from-[#1E6BFF] to-[#1250C4] text-white rounded-[2.5rem] p-8 lg:p-10 shadow-2xl shadow-blue-500/25 overflow-hidden flex flex-col justify-between min-h-[400px] lg:-translate-y-2 group">
+            <div class="relative bg-gradient-to-br from-[#1E6BFF] to-[#1250C4] text-white rounded-[2.5rem] p-7 sm:p-8 lg:p-9 shadow-2xl shadow-blue-500/25 overflow-hidden flex flex-col justify-between min-h-[410px] lg:-translate-y-2 group">
                 <!-- Aviation Window / Clouds Visual (Complements Flight Theme Perfectly) -->
-                <div class="absolute top-0 ltr:right-0 rtl:left-0 w-40 h-40 lg:w-48 lg:h-48 ltr:rounded-bl-[4.5rem] rtl:rounded-br-[4.5rem] overflow-hidden border-b-4 ltr:border-l-4 rtl:border-r-4 border-white/20 shadow-inner">
+                <div class="absolute top-0 ltr:right-0 rtl:left-0 w-36 h-36 sm:w-40 sm:h-40 lg:w-44 lg:h-44 ltr:rounded-bl-[4rem] rtl:rounded-br-[4rem] overflow-hidden border-b-4 ltr:border-l-4 rtl:border-r-4 border-white/20 shadow-inner z-0 pointer-events-none">
                     <img
                         src="/images/aviation_window.jpg"
                         alt="Flight soaring above clouds"
@@ -57,18 +57,26 @@ const { isAr } = useLocale();
                     <div class="absolute inset-0 bg-blue-900/20 mix-blend-multiply"></div>
                 </div>
 
-                <div class="relative z-10 space-y-4 max-w-[65%]">
-                    <h3 class="text-2xl sm:text-3xl font-black text-white leading-tight">
-                        {{ isAr ? 'احجز تذكرتك بسهولة' : 'Book A Ticket' }}
-                    </h3>
-                    <p class="text-xs sm:text-sm text-blue-100/90 leading-relaxed font-medium">
-                        {{ isAr 
-                            ? 'قارن خيارات الرحلات بين الخطوط السعودية وطيران الرياض مع أسعار تنافسية ومواعيد طيران دقيقة.' 
-                            : 'Compare direct flight itineraries across Saudia and Riyadh Air with competitive fares and punctual schedules.' }}
-                    </p>
+                <!-- Card Content -->
+                <div class="relative z-10 flex flex-col justify-between flex-1">
+                    <!-- Title Area: Positioned cleanly beside the corner photo cutout without overlapping -->
+                    <div class="max-w-[48%] sm:max-w-[50%] min-h-[110px] sm:min-h-[125px] flex flex-col justify-start">
+                        <h3 class="text-xl sm:text-2xl font-black text-white leading-tight">
+                            {{ isAr ? 'احجز تذكرتك بسهولة' : 'Book A Ticket' }}
+                        </h3>
+                    </div>
+
+                    <!-- Description Area: Sits comfortably below the photo arch, spanning full width -->
+                    <div class="pt-3 pb-4">
+                        <p class="text-xs sm:text-sm text-blue-100/95 leading-relaxed font-medium">
+                            {{ isAr 
+                                ? 'قارن خيارات الرحلات بين الخطوط السعودية وطيران الرياض مع أسعار تنافسية ومواعيد طيران دقيقة.' 
+                                : 'Compare direct flight itineraries across Saudia and Riyadh Air with competitive fares and punctual schedules.' }}
+                        </p>
+                    </div>
                 </div>
 
-                <div class="relative z-10 pt-6 border-t border-white/20 flex items-center justify-between">
+                <div class="relative z-10 pt-5 border-t border-white/20 flex items-center justify-between mt-2">
                     <Link
                         href="/flights"
                         class="inline-flex items-center gap-2 text-xs sm:text-sm font-black text-white tracking-wider hover:translate-x-1 rtl:hover:-translate-x-1 transition-transform group/link"
