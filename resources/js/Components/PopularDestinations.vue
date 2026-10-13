@@ -24,6 +24,7 @@ const selectedCategory = ref('all');
 
 const categories = computed(() => [
     { id: 'all', label: { ar: 'كافة الوجهات', en: 'All Wonders' } },
+    { id: 'spiritual', label: { ar: 'مقدسات وروحانيات', en: 'Sacred & Spiritual' } },
     { id: 'heritage', label: { ar: 'تراث وفخامة', en: 'Heritage & Luxury' } },
     { id: 'islands', label: { ar: 'جزر وشواطئ', en: 'Islands & Coast' } },
     { id: 'capital', label: { ar: 'عواصم وترفيه', en: 'Capital & Cities' } },
@@ -32,7 +33,8 @@ const categories = computed(() => [
 
 const filteredDestinations = computed(() => {
     if (selectedCategory.value === 'all') return destinations;
-    if (selectedCategory.value === 'heritage') return destinations.filter(d => d.id === 'alula');
+    if (selectedCategory.value === 'spiritual') return destinations.filter(d => d.id === 'makkah' || d.id === 'madinah');
+    if (selectedCategory.value === 'heritage') return destinations.filter(d => d.id === 'alula' || d.id === 'madinah');
     if (selectedCategory.value === 'islands') return destinations.filter(d => d.id === 'red-sea' || d.id === 'jeddah');
     if (selectedCategory.value === 'capital') return destinations.filter(d => d.id === 'riyadh');
     if (selectedCategory.value === 'nature') return destinations.filter(d => d.id === 'abha');
@@ -264,8 +266,8 @@ onUnmounted(() => {
 
                 <p class="text-xs sm:text-sm lg:text-base text-slate-500 font-medium mt-2 leading-relaxed">
                     {{ isAr 
-                        ? 'أطلق شغفك للاستكشاف مع InfoTravel بين كنوز العلا النبطية، وجزر البحر الأحمر البكر، وعواصم المستقبل المضيئة.' 
-                        : 'Unleash your wanderlust with InfoTravel across ancient Nabataean wonders, pristine azure islands, and futuristic metropolis.' }}
+                        ? 'أطلق شغفك للاستكشاف مع InfoTravel بين أطهر بقاع الأرض في مكة المكرمة والمدينة المنورة، وكنوز العلا النبطية، وجزر البحر الأحمر البكر.' 
+                        : 'Unleash your wanderlust with InfoTravel across holy sanctuaries of Makkah and Madinah, ancient Nabataean wonders, and pristine azure islands.' }}
                 </p>
             </div>
 

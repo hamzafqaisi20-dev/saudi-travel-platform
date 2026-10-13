@@ -1,5 +1,45 @@
 export const destinations = [
     {
+        id: 'makkah',
+        code: 'QCA',
+        title: { ar: 'مكة المكرمة — قِبلة المسلمين ومهوى الأفئدة', en: 'Makkah — The Holy City & Spiritual Sanctuary' },
+        category: { ar: 'مقدسات وروحانيات', en: 'Sacred & Spiritual' },
+        location: { ar: 'مكة المكرمة، الحجاز', en: 'Makkah Al-Mukarramah, Western Region' },
+        rating: 4.99,
+        reviewsCount: 8950,
+        priceFrom: 450,
+        image: '/images/destinations/makkah.jpg',
+        badge: { ar: 'قِبلة المسلمين', en: 'Holiest Sanctuary' },
+        description: {
+            ar: 'أقدس بقاع الأرض، تحتضن المسجد الحرام والكعبة المشرفة ومشاعر الحج المقدسة ومعالم السيرة النبوية الشريفة وأبراج البيت.',
+            en: 'The holiest sanctuary in Islam, home to the Sacred Mosque, the Kaaba, Abraj Al-Bait, and revered prophetic milestones.'
+        },
+        highlights: {
+            ar: ['المسجد الحرام والكعبة المشرفة', 'برج الساعة ومتحف برج الساعة', 'جبل النور وغار حراء الثقافي', 'معرض عمارة الحرمين الشريفين'],
+            en: ['The Grand Mosque & Holy Kaaba', 'Abraj Al-Bait Clock Tower', 'Jabal Al-Nour & Hira Cultural District', 'Two Holy Mosques Architecture Exhibition']
+        }
+    },
+    {
+        id: 'madinah',
+        code: 'MED',
+        title: { ar: 'المدينة المنورة — طيبة الطيبة ومدينة السلام', en: 'Madinah — The Radiant City of Peace' },
+        category: { ar: 'مقدسات وروحانيات', en: 'Sacred & Spiritual' },
+        location: { ar: 'المدينة المنورة، الحجاز', en: 'Madinah Al-Munawwarah, Western Region' },
+        rating: 4.98,
+        reviewsCount: 7620,
+        priceFrom: 420,
+        image: '/images/destinations/madinah.jpg',
+        badge: { ar: 'طيبة الطيبة', en: 'City of the Prophet' },
+        description: {
+            ar: 'مدينة المصطفى ﷺ، مهد السكينة والطمأنينة، تحتضن المسجد النبوي الشريف والروضة المباركة ومسجد قباء وجبل أحد وبساتين النخيل.',
+            en: 'The sanctuary of tranquility, home to the Prophet’s Mosque, the Blessed Rawdah, Quba Mosque, and peaceful date palm oases.'
+        },
+        highlights: {
+            ar: ['المسجد النبوي الشريف والروضة المباركة', 'مسجد قباء أول مسجد في الإسلام', 'جبل أحد ومقبرة الشهداء', 'متحف دار المدينة وممشى قباء'],
+            en: ['The Prophet’s Mosque & Blessed Rawdah', 'Quba Mosque', 'Mount Uhud & Martyrs Landmark', 'Dar Al-Madinah Heritage Museum']
+        }
+    },
+    {
         id: 'alula',
         code: 'ULH',
         title: { ar: 'العلا — سحر التاريخ النبطي', en: 'AlUla — Living Museum of Antiquity' },
@@ -165,6 +205,38 @@ export const flightOffers = [
         cabinClass: { ar: 'الدرجة الاقتصادية', en: 'Economy Class' },
         priceSAR: 380,
         tag: { ar: 'رحلة صباحية', en: 'Morning Flight' }
+    },
+    {
+        id: 'FL-105',
+        airline: { ar: 'الخطوط السعودية', en: 'Saudia' },
+        airlineCode: 'SV',
+        flightNumber: 'SV 1432',
+        origin: { code: 'RUH', city: { ar: 'الرياض', en: 'Riyadh' }, airport: { ar: 'مطار الملك خالد الدولي', en: 'King Khalid Int. Airport' } },
+        destination: { code: 'MED', city: { ar: 'المدينة المنورة', en: 'Madinah' }, airport: { ar: 'مطار الأمير محمد بن عبدالعزيز الدولي', en: 'Prince Mohammad Bin Abdulaziz Int. Airport' } },
+        departureTime: '07:15',
+        arrivalTime: '08:45',
+        duration: '1h 30m',
+        stops: { ar: 'مباشرة', en: 'Direct' },
+        aircraft: 'Airbus A321neo',
+        cabinClass: { ar: 'درجة الضيافة', en: 'Guest Class' },
+        priceSAR: 360,
+        tag: { ar: 'رحلات طيبة الطيبة', en: 'Pilgrim & Sacred Route' }
+    },
+    {
+        id: 'FL-106',
+        airline: { ar: 'طيران ناس', en: 'flynas' },
+        airlineCode: 'XY',
+        flightNumber: 'XY 512',
+        origin: { code: 'RUH', city: { ar: 'الرياض', en: 'Riyadh' }, airport: { ar: 'مطار الملك خالد الدولي', en: 'King Khalid Int. Airport' } },
+        destination: { code: 'JED', city: { ar: 'جدة / مكة المكرمة', en: 'Jeddah / Makkah' }, airport: { ar: 'مطار الملك عبدالعزيز الدولي', en: 'King Abdulaziz Int. Airport' } },
+        departureTime: '13:20',
+        arrivalTime: '15:05',
+        duration: '1h 45m',
+        stops: { ar: 'مباشرة', en: 'Direct' },
+        aircraft: 'Airbus A320neo',
+        cabinClass: { ar: 'الدرجة الاقتصادية المميزة', en: 'Premium Economy' },
+        priceSAR: 320,
+        tag: { ar: 'رحلات العمرة الميسرة', en: 'Umrah Gateway Route' }
     }
 ];
 
@@ -239,9 +311,28 @@ export const travelPartners = [
             {
                 name: { ar: 'ويبوك (Webook)', en: 'Webook' },
                 badge: { ar: 'منصة التذاكر الرسمية', en: 'Official Mega-Events Ticketing' },
-                desc: { ar: 'المنصة الرسمية لحجز تذاكر موسم الرياض والفعاليات الترفيهية والرياضية الكبرى.', en: 'Official ticketing gateway for Riyadh Season, sports bouts, and entertainment.' },
+                desc: { ar: 'المنصة الرسمية لحجز تذاكر الفعاليات الترفيهية والرياضية الكبرى بالمملكة.', en: 'Official ticketing gateway for mega-events, sports bouts, and entertainment.' },
                 url: 'https://webook.com/en',
                 type: 'ticketing'
+            }
+        ]
+    },
+    {
+        category: { ar: 'خدمات الحج والعمرة والنقل السريع', en: 'Hajj, Umrah & High-Speed Transit' },
+        items: [
+            {
+                name: { ar: 'منصة نُسك (Nusuk)', en: 'Nusuk' },
+                badge: { ar: 'البوابة الرسمية لضيوف الرحمن', en: 'Official Umrah & Pilgrimage Portal' },
+                desc: { ar: 'المنصة الحكومية الموحدة لإصدار تصاريح العمرة وزيارة الروضة الشريفة وباقات الحرمين الشريفين.', en: 'Official unified Saudi platform for Umrah permits, Rawdah visits, and pilgrim services.' },
+                url: 'https://www.nusuk.sa/',
+                type: 'pilgrimage'
+            },
+            {
+                name: { ar: 'قطار الحرمين السريع (HHR)', en: 'Haramain High-Speed Railway' },
+                badge: { ar: 'الربط السككي فائق السرعة', en: 'High-Speed Rail 300 km/h' },
+                desc: { ar: 'ربط مكة المكرمة بالمدينة المنورة ومطار الملك عبدالعزيز بجدة برحلات مريحة بسرعة 300 كم/س.', en: 'High-speed electric train connecting Makkah, Madinah, and Jeddah King Abdulaziz Airport.' },
+                url: 'https://sar.com.sa/',
+                type: 'transit'
             }
         ]
     }
@@ -249,15 +340,43 @@ export const travelPartners = [
 
 export const experiences = [
     {
-        id: 'riyadh-season',
-        title: { ar: 'موسم الرياض — عاصمة الترفيه العالمية', en: 'Riyadh Season — Global Entertainment Epicenter' },
-        location: { ar: 'بوليفارد سيتي والمربع، الرياض', en: 'Boulevard City & Murabba, Riyadh' },
-        image: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=80',
-        tag: { ar: 'فعاليات ومهرجانات', en: 'Major Festivals' },
-        date: { ar: 'أكتوبر — مارس سنوياً', en: 'October — March Annually' },
+        id: 'umrah-trip',
+        title: { ar: 'رحلة العمرة وزيارة المسجد الحرام', en: 'Spiritual Umrah & The Grand Mosque' },
+        location: { ar: 'المسجد الحرام، مكة المكرمة', en: 'The Grand Mosque, Makkah' },
+        image: '/images/destinations/umrah.jpg',
+        tag: { ar: 'مناسك وروحانيات', en: 'Spiritual & Umrah' },
+        date: { ar: 'متاح طوال العام', en: 'Year-Round Availability' },
         desc: {
-            ar: 'أضخم موسم ترفيهي في المنطقة، يضم مناطق عالمية ومطاعم حاصلة على نجوم ميشلان ونزالات الملاكمة العالمية.',
-            en: 'Mega-entertainment festival spanning Boulevard World, international theater, Michelin dining, and championship sports.'
+            ar: 'تجربة إيمانية متكاملة لأداء مناسك العمرة في رحاب الكعبة المشرفة والمسجد الحرام، مع أرقى خدمات الضيافة والتنقل الميسر.',
+            en: 'A deeply fulfilling spiritual journey to perform Umrah at the Holy Kaaba and Grand Mosque, featuring luxury hospitality and seamless arrangements.'
+        },
+        portal: {
+            name: 'Nusuk',
+            url: 'https://www.nusuk.sa/',
+            notice: {
+                ar: 'تصاريح العمرة وزيارة الحرم تصدر رسمياً عبر منصة نُسك (Nusuk) التابعة لوزارة الحج والعمرة. توفر أجنحة السعودية باقات الطيران والإقامة الفاخرة وقطار الحرمين.',
+                en: 'Official Umrah permits are issued through the official Nusuk portal by the Ministry of Hajj & Umrah. SaudiWings provides flights, luxury stays, and Haramain Train transfers.'
+            }
+        }
+    },
+    {
+        id: 'madinah-ziyarah',
+        title: { ar: 'سكينة المدينة المنورة وزيارة مسجد النبي ﷺ', en: 'Peaceful Madinah & The Prophet’s Mosque' },
+        location: { ar: 'المسجد النبوي، المدينة المنورة', en: 'The Prophet’s Mosque, Madinah' },
+        image: '/images/destinations/madinah_ziyarah.jpg',
+        tag: { ar: 'سكينة وتراث نبوي', en: 'Peace & Sacred Heritage' },
+        date: { ar: 'متاح طوال العام', en: 'Year-Round Availability' },
+        desc: {
+            ar: 'الصلاة في الروضة الشريفة والسلام على رسول الله ﷺ، وزيارة مسجد قباء وجبل أحد وبساتين نخيل العجوة في أجواء ملؤها الطمأنينة.',
+            en: 'Praying in the Blessed Rawdah, greeting the Prophet ﷺ, visiting Quba Mosque, Mount Uhud, and historical prophetic landmarks.'
+        },
+        portal: {
+            name: 'Nusuk',
+            url: 'https://www.nusuk.sa/',
+            notice: {
+                ar: 'تصاريح زيارة الروضة الشريفة تصدر رسمياً عبر منصة نُسك (Nusuk). توفر أجنحة السعودية باقات الفنادق المطلة على الحرم النبوي وقطار الحرمين.',
+                en: 'Rawdah permits are booked via the Nusuk platform. SaudiWings provides luxury hotels overlooking the Prophet’s Mosque and high-speed rail transfers.'
+            }
         }
     },
     {
@@ -270,6 +389,14 @@ export const experiences = [
         desc: {
             ar: 'أمسيات كلاسيكية عالمية داخل مسرح مرايا، ومهرجان المناطيد الساحر فوق جبال العلا الصخرية الخلابة.',
             en: 'Iconic musical recitals in Maraya mirror hall, stargazing retreats, and hot-air balloon festivals over sandstone canyons.'
+        },
+        portal: {
+            name: 'Experience AlUla',
+            url: 'https://www.experiencealula.com/',
+            notice: {
+                ar: 'تذاكر فعاليات العلا تحجز رسمياً عبر منصة اكتشف العلا الرسمية وموقع ويبوك. توفر أجنحة السعودية باقات الطيران والمنتجعات الفاخرة.',
+                en: 'Official ticketing is managed via Experience AlUla and Webook. SaudiWings provides flight packages and luxury resort arrangements.'
+            }
         }
     },
     {
@@ -282,25 +409,22 @@ export const experiences = [
         desc: {
             ar: 'استكشاف أكثر من 300 نوع من الشعاب المرجانية الحية النادرة في مياه دافئة وشفافة بنقاء مذهل.',
             en: 'Guided expeditions through untouched underwater gardens teeming with rare corals, sea turtles, and pristine biodiversity.'
-        }
-    },
-    {
-        id: 'diriyah-arts',
-        title: { ar: 'بينالي الدرعية للفن المعاصر', en: 'Diriyah Contemporary Art Biennale' },
-        location: { ar: 'حي جاكس، الدرعية التاريخية', en: 'JAX District, Diriyah' },
-        image: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1200&q=80',
-        tag: { ar: 'معارض وفنون معاصرة', en: 'Contemporary Art Exhibitions' },
-        date: { ar: 'موسمي', en: 'Seasonal Showcases' },
-        desc: {
-            ar: 'منصة إبداعية عالمية تجمع رواد الفن المعاصر في حي جاكس الإبداعي المحاذي لمهد الدولة السعودية.',
-            en: 'Transforming industrial heritage spaces into world-class contemporary art pavilions and dialogue spaces.'
+        },
+        portal: {
+            name: 'Red Sea Global',
+            url: 'https://www.redseaglobal.com/',
+            notice: {
+                ar: 'حجوزات منتجعات البحر الأحمر البيئية ورحلات الطيران المائي تنظم رسمياً بالتنسيق مع البحر الأحمر الدولية.',
+                en: 'Red Sea resort stays and seaplane transfers are coordinated directly with Red Sea Global partners.'
+            }
         }
     }
 ];
 
 export const sampleAirportCodes = [
     { code: 'RUH', city: { ar: 'الرياض', en: 'Riyadh' }, name: { ar: 'مطار الملك خالد الدولي', en: 'King Khalid Int. Airport' } },
-    { code: 'JED', city: { ar: 'جدة', en: 'Jeddah' }, name: { ar: 'مطار الملك عبدالعزيز الدولي', en: 'King Abdulaziz Int. Airport' } },
+    { code: 'JED', city: { ar: 'جدة / مكة المكرمة', en: 'Jeddah / Makkah Gateway' }, name: { ar: 'مطار الملك عبدالعزيز الدولي', en: 'King Abdulaziz Int. Airport' } },
+    { code: 'MED', city: { ar: 'المدينة المنورة', en: 'Madinah' }, name: { ar: 'مطار الأمير محمد بن عبدالعزيز الدولي', en: 'Prince Mohammad Bin Abdulaziz Int. Airport' } },
     { code: 'ULH', city: { ar: 'العلا', en: 'AlUla' }, name: { ar: 'مطار العلا الدولي', en: 'AlUla Int. Airport' } },
     { code: 'RSI', city: { ar: 'البحر الأحمر', en: 'The Red Sea' }, name: { ar: 'مطار البحر الأحمر الدولي', en: 'Red Sea Int. Airport' } },
     { code: 'DMM', city: { ar: 'الدمام', en: 'Dammam' }, name: { ar: 'مطار الملك فهد الدولي', en: 'King Fahd Int. Airport' } },

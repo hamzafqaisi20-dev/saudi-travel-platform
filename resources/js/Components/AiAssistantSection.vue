@@ -11,8 +11,8 @@ const messages = ref([
     {
         sender: 'bot',
         text: isAr.value
-            ? 'مرحباً بك! أنا مساعد السفر الذكي لمنصة InfoTravel. يمكنني تصميم مسار سياحي مخصص لك، واقتراح أرقى الفنادق والرحلات الجوية بين الرياض والعلا والبحر الأحمر وجدة.'
-            : 'Welcome! I am InfoTravel AI Concierge. I can create a customized luxury itinerary for you, suggest flights, and recommend the finest destinations across Saudi Arabia.'
+            ? 'مرحباً بك! أنا مساعد السفر الذكي لمنصة InfoTravel. يمكنني تصميم مسار سياحي مخصص لك، واقتراح أرقى الفنادق والرحلات الجوية لرحلات العمرة في مكة المكرمة، وزيارة المدينة المنورة، والعلا، والبحر الأحمر، والرياض، وأبها.'
+            : 'Welcome! I am InfoTravel AI Concierge. I can create a customized luxury or spiritual itinerary for you, suggest flights, and recommend the finest destinations across Saudi Arabia.'
     }
 ]);
 
@@ -20,9 +20,10 @@ const userInput = ref('');
 const isTyping = ref(false);
 
 const samplePrompts = [
+    { ar: 'تصاريح العمرة والروضة عبر نُسك', en: 'Umrah & Rawdah permits via Nusuk' },
     { ar: 'خطط لي رحلة 3 أيام في العلا', en: 'Plan a 3-day luxury trip in AlUla' },
     { ar: 'أفضل منتجعات جزر البحر الأحمر', en: 'Best resorts in The Red Sea islands' },
-    { ar: 'فعاليات موسم الرياض ومطل البجيري', en: 'Riyadh Season highlights & Bujairi Terrace' },
+    { ar: 'فعاليات موسم الرياض ومطل البجيري', en: 'Riyadh Season & Bujairi Terrace' },
     { ar: 'شروط التأشيرة السياحية السعودية', en: 'Saudi tourist eVisa requirements' }
 ];
 
@@ -247,10 +248,13 @@ const generateQuickPlan = async () => {
                     <div>
                         <label class="block font-bold text-slate-700 mb-1">{{ isAr ? 'الوجهة المستهدفة' : 'Target Destination' }}</label>
                         <select v-model="selectedDestination" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl font-bold text-slate-900 focus:outline-none">
+                            <option value="Makkah">{{ isAr ? 'مكة المكرمة (The Holy Kaaba & Umrah)' : 'Makkah Al-Mukarramah' }}</option>
+                            <option value="Madinah">{{ isAr ? 'المدينة المنورة (Prophet’s Mosque & Rawdah)' : 'Madinah Al-Munawwarah' }}</option>
                             <option value="AlUla">{{ isAr ? 'العلا (Hegra & Maraya)' : 'AlUla' }}</option>
-                            <option value="RedSea">{{ isAr ? 'جزر البحر الأحمر (St. Regis)' : 'The Red Sea' }}</option>
+                            <option value="RedSea">{{ isAr ? 'جزر البحر الأحمر (St. Regis & Nujuma)' : 'The Red Sea' }}</option>
                             <option value="Riyadh">{{ isAr ? 'الرياض والدرعية (Diriyah & Boulevard)' : 'Riyadh' }}</option>
                             <option value="Jeddah">{{ isAr ? 'جدة والبلد التاريخي (Al Balad)' : 'Jeddah' }}</option>
+                            <option value="Abha">{{ isAr ? 'أبها وعسير (Misty Peaks & Rijal Almaa)' : 'Abha & Asir' }}</option>
                         </select>
                     </div>
 
@@ -267,6 +271,7 @@ const generateQuickPlan = async () => {
                         <div>
                             <label class="block font-bold text-slate-700 mb-1">{{ isAr ? 'طابع السفر' : 'Travel Style' }}</label>
                             <select v-model="selectedStyle" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl font-bold text-slate-900 focus:outline-none">
+                                <option value="Spiritual & Umrah">{{ isAr ? 'مناسك وروحانيات' : 'Spiritual & Umrah' }}</option>
                                 <option value="Luxury & Culture">{{ isAr ? 'فخامة وتراث' : 'Luxury & Culture' }}</option>
                                 <option value="Adventure & Desert">{{ isAr ? 'مغامرات وطبيعة' : 'Adventure & Nature' }}</option>
                                 <option value="Family & Entertainment">{{ isAr ? 'عائلي وترفيه' : 'Family & Leisure' }}</option>

@@ -110,6 +110,78 @@ class MockAiTravelPlannerService implements AiTravelPlannerInterface
                     'estimatedCost' => '2,800 - 5,400',
                     'bestSeason' => 'November - April',
                 ]
+            ],
+            'Makkah' => [
+                'ar' => [
+                    'title' => 'مكة المكرمة: رحلة العمرة والروحانية في رحاب الكعبة المشرفة',
+                    'highlight' => 'أداء مناسك العمرة، الصلاة في المسجد الحرام، وزيارة جبل النور وغار حراء ومعرض عمارة الحرمين الشريفين.',
+                    'days' => [
+                        ['day' => 1, 'title' => 'مناسك العمرة والسكينة في الحرم', 'activities' => ['الإحرام والوصول إلى المسجد الحرام لأداء طواف وسعي العمرة', 'شرب ماء زمزم المبارك وصلاة النوافل في الحجر وصحن المطاف', 'الإقامة الفاخرة في أبراج البيت المطلة على الكعبة المشرفة']],
+                        ['day' => 2, 'title' => 'جبل النور وغار حراء الثقافي', 'activities' => ['زيارة حي حراء الثقافي والمتحف التفاعلي للقرآن الكريم والوحي', 'جولة تعريفية حول جبل ثور والمشاعر المقدسة (منى ومزدلفة وعرفات)', 'عشاء فاخر في مطاعم أبراج وقف الملك عبدالعزيز']],
+                        ['day' => 3, 'title' => 'تاريخ عمارة الحرمين والتنقل السلس', 'activities' => ['زيارة مجمع الملك عبدالعزيز لكسوة الكعبة المشرفة', 'استكشاف معرض عمارة الحرمين الشريفين والمخطوطات النادرة', 'الانتقال بقطار الحرمين السريع فائق السرعة إلى المدينة المنورة أو جدة']]
+                    ],
+                    'estimatedCost' => '1,800 - 4,500',
+                    'bestSeason' => 'على مدار العام (تفضيل نوفمبر - فبراير)',
+                ],
+                'en' => [
+                    'title' => 'Holy Makkah: Spiritual Umrah & Grand Mosque Journey',
+                    'highlight' => 'Perform Umrah, pray before the Holy Kaaba, visit Jabal Al-Nour, Hira Cultural District, and Clock Tower.',
+                    'days' => [
+                        ['day' => 1, 'title' => 'Umrah Pilgrimage & The Holy Kaaba', 'activities' => ['Ihram entry and performing the blessed Tawaf & Sa\'i at the Grand Mosque', 'Supplication and drinking Zamzam water in the serene precincts', 'Check-in to luxury suite overlooking the Kaaba at Abraj Al-Bait']],
+                        ['day' => 2, 'title' => 'Hira Cultural District & Revelation History', 'activities' => ['Visit Hira Cultural District and interactive Revelation Museum', 'Historical overview of Mount Thawr and sacred pilgrimage sites (Mina, Arafat)', 'Fine Arabic hospitality dining at the Clock Royal Towers']],
+                        ['day' => 3, 'title' => 'Holy Mosques Architecture & High-Speed Rail', 'activities' => ['Guided tour of Kiswah Factory (Kaaba Cloth Embroidery Center)', 'Two Holy Mosques Architecture Exhibition & rare manuscripts', 'High-speed Haramain Express Rail journey onward to Madinah or Jeddah Airport']]
+                    ],
+                    'estimatedCost' => '1,800 - 4,500',
+                    'bestSeason' => 'Year-round (Best Nov - Feb)',
+                ]
+            ],
+            'Madinah' => [
+                'ar' => [
+                    'title' => 'المدينة المنورة: سكينة طيبة الطيبة ومسجد النبي ﷺ',
+                    'highlight' => 'الصلاة في الروضة الشريفة، وزيارة مسجد قباء وجبل أحد وممشى قباء وبساتين نخيل العجوة المباركة.',
+                    'days' => [
+                        ['day' => 1, 'title' => 'سلام السكينة والصلاة في الروضة الشريفة', 'activities' => ['الوصول والصلاة في المسجد النبوي والسلام على رسول الله ﷺ وصاحبيه', 'الصلاة في الروضة المباركة (بتصريح رسمي ميسر عبر منصة نُسك)', 'استراحة هادئة في باحة الحرم والاستمتاع بالمظلات العملاقة']],
+                        ['day' => 2, 'title' => 'مسجد قباء وممشى النخيل التاريخي', 'activities' => ['زيارة مسجد قباء (أول مسجد أُسس على التقوى) وصلاة ركعتين فيه', 'المشي في ممشى قباء الحضري وتذوق تمور العجوة والنعناع المديني', 'زيارة متحف دار المدينة للتراث المعماري والحضاري']],
+                        ['day' => 3, 'title' => 'جبل أحد والأسواق التراثية', 'activities' => ['زيارة جبل أحد ومقبرة شهداء أحد وجبل الرماة واستحضار السيرة النبوية', 'تسوق تمور المدينة وأرقى الهدايا التذكارية من سوق التمور المركزي', 'أمسية هادئة في حدائق المدينة قبل المغادرة عبر قطار الحرمين']]
+                    ],
+                    'estimatedCost' => '1,600 - 3,900',
+                    'bestSeason' => 'على مدار العام (تفضيل أكتوبر - أبريل)',
+                ],
+                'en' => [
+                    'title' => 'Madinah Al-Munawwarah: Serenity of the Prophet’s City',
+                    'highlight' => 'Pray in the Blessed Rawdah, visit Quba Mosque, Mount Uhud, and lush prophetic date groves.',
+                    'days' => [
+                        ['day' => 1, 'title' => 'Peace & Prayer in the Prophet’s Mosque', 'activities' => ['Arrival and prayer at the Prophet’s Mosque (Al-Masjid An-Nabawi)', 'Prayer in the Blessed Rawdah (reserved seamlessly via Nusuk portal)', 'Peaceful contemplation under the iconic giant automated umbrellas']],
+                        ['day' => 2, 'title' => 'Quba Mosque & Historic Date Oases', 'activities' => ['Visit and prayer in historic Quba Mosque (the first mosque in Islam)', 'Scenic stroll along Quba Boulevard with Ajwa date & mint tasting', 'Dar Al-Madinah Heritage Museum showcasing urban prophetic history']],
+                        ['day' => 3, 'title' => 'Mount Uhud & Cultural Souqs', 'activities' => ['Tour of Mount Uhud, Archers’ Hill, and Martyrs Memorial', 'Selection of premium Medina Ajwa dates and handmade local keepsakes', 'Relaxed evening tea before Haramain High-Speed Train departure']]
+                    ],
+                    'estimatedCost' => '1,600 - 3,900',
+                    'bestSeason' => 'Year-round (Best Oct - Apr)',
+                ]
+            ],
+            'Abha' => [
+                'ar' => [
+                    'title' => 'أبها وعسير: سحر الضباب والقمم الجبلية الخضراء',
+                    'highlight' => 'استمتع بأجواء السحاب الباردة، وقرية رجال ألمع التراثية العالمية، وركوب التلفريك في السودة.',
+                    'days' => [
+                        ['day' => 1, 'title' => 'سحر الضباب في قمم السودة', 'activities' => ['جولة في منتزه السودة الوطني أعلى قمة جبلية في المملكة', 'تجربة التلفريك المعلق بين قمم السحاب والوديان السحيقة', 'عشاء عسيري تقليدي بطعم الحنيذ والمشغوثة الأصيلة']],
+                        ['day' => 2, 'title' => 'قرية رجال ألمع التراثية العالمية', 'activities' => ['زيارة قصور رجال ألمع الحجرية الملونة المسجلة في اليونسكو', 'استكشاف فن القط العسيري النسائي التراثي المصنف عالمياً', 'احتساء الشاي بالحبق الجبلي في مطلات الجبل الأخضر']],
+                        ['day' => 3, 'title' => 'شارع الفن وبحيرة سد أبها', 'activities' => ['نزهة صباحية حول بحيرة سد أبها والحدائق المعلقة', 'جولة تسوق وتصوير في شارع الفن ومقاهي المدينة العصرية', 'تسوق عسل السدر الطبيعي والتوابل الجنوبية من السوق الشعبي']]
+                    ],
+                    'estimatedCost' => '1,500 - 3,200',
+                    'bestSeason' => 'مايو - سبتمبر (صيفاً معتدل ومنعش)',
+                ],
+                'en' => [
+                    'title' => 'Abha & Asir: Capital of Mist & Highland Peaks',
+                    'highlight' => 'Crisp mountain breezes, UNESCO Rijal Almaa stone village, Al Souda cable cars, and Asiri art.',
+                    'days' => [
+                        ['day' => 1, 'title' => 'Al Souda Mist & Cloudline Peaks', 'activities' => ['Explore Al Souda National Park, Saudi Arabia’s highest peak', 'Scenic cable car ride descending through green cliffs', 'Traditional Asiri feast featuring authentic smoked Haneeth']],
+                        ['day' => 2, 'title' => 'Rijal Almaa UNESCO Heritage Village', 'activities' => ['Guided exploration of Rijal Almaa gingerbread-style stone towers', 'Discover UNESCO-recognized Al-Qatt Al-Asiri feminine wall art', 'Highland sunset tea overlooking misty Green Mountain']],
+                        ['day' => 3, 'title' => 'Art Street & Abha Dam Oasis', 'activities' => ['Morning walk around tranquil Abha Dam reservoir gardens', 'Coffee and photography along the jacaranda-lined Art Street', 'Sourcing pure highland Sidr honey and mountain herbs from the souq']]
+                    ],
+                    'estimatedCost' => '1,500 - 3,200',
+                    'bestSeason' => 'May - September (Pleasantly cool summer)',
+                ]
             ]
         ];
 
@@ -145,16 +217,28 @@ class MockAiTravelPlannerService implements AiTravelPlannerInterface
         $normalized = mb_strtolower(trim($message));
 
         if ($locale === 'en') {
+            if (str_contains($normalized, 'umrah') || str_contains($normalized, 'makkah') || str_contains($normalized, 'mecca') || str_contains($normalized, 'madinah') || str_contains($normalized, 'medina') || str_contains($normalized, 'rawdah') || str_contains($normalized, 'nusuk')) {
+                return [
+                    'reply' => "Welcome to your spiritual pilgrimage journey! Official Umrah and Blessed Rawdah permits are issued through the government's official Nusuk portal (nusuk.sa). We assist you with premium flights to Jeddah (JED) or Madinah (MED), 5-star hotels overlooking the Holy Mosques, and high-speed Haramain High-Speed Train transfers connecting Makkah and Madinah in just 2 hours.",
+                    'suggestions' => ['Plan 3-Day Umrah Itinerary', 'Madinah Rawdah Visit Guide', 'Haramain Train Booking Info', 'Open Official Nusuk Portal']
+                ];
+            }
             if (str_contains($normalized, 'flight') || str_contains($normalized, 'book') || str_contains($normalized, 'ticket')) {
                 return [
-                    'reply' => "I can help you explore premium flight options between key Saudi hubs (Riyadh RUH, Jeddah JED, Dammam DMM, AlUla ULH, and Red Sea RSI). We highlight routes operated by Saudia, Riyadh Air, and leading regional carriers. What is your preferred departure date?",
-                    'suggestions' => ['Flights to Riyadh (RUH)', 'Flights to AlUla (ULH)', 'Red Sea Flights (RSI)', 'Check Mock Fares']
+                    'reply' => "I can help you explore premium flight options between key Saudi hubs (Riyadh RUH, Jeddah/Makkah JED, Madinah MED, Dammam DMM, AlUla ULH, and Red Sea RSI). We highlight routes operated by Saudia, Riyadh Air, and leading regional carriers. What is your preferred departure date?",
+                    'suggestions' => ['Flights to Riyadh (RUH)', 'Flights to Madinah (MED)', 'Flights to AlUla (ULH)', 'Red Sea Flights (RSI)']
                 ];
             }
             if (str_contains($normalized, 'alula') || str_contains($normalized, 'hegra')) {
                 return [
                     'reply' => "AlUla is Saudi Arabia's premier heritage and luxury escape! Best visited from October to April. Highlights include Hegra's tombs, the mirror-clad Maraya concert hall, and Elephant Rock. Would you like a 3-day luxury itinerary?",
                     'suggestions' => ['Generate 3-Day AlUla Itinerary', 'Show Luxury Resorts in AlUla', 'Find Flights to AlUla']
+                ];
+            }
+            if (str_contains($normalized, 'abha') || str_contains($normalized, 'asir')) {
+                return [
+                    'reply' => "Abha and the misty Asir highlands offer cool refreshing temperatures year-round, UNESCO Rijal Almaa gingerbread stone palaces, and Al Souda cable cars soaring through clouds. Perfect for nature lovers and summer escapes!",
+                    'suggestions' => ['Generate 3-Day Abha Plan', 'Rijal Almaa Heritage Village', 'Flights to Abha (AHB)']
                 ];
             }
             if (str_contains($normalized, 'visa') || str_contains($normalized, 'entry') || str_contains($normalized, 'passport')) {
@@ -164,22 +248,34 @@ class MockAiTravelPlannerService implements AiTravelPlannerInterface
                 ];
             }
             return [
-                'reply' => "Welcome to SaudiWings AI Concierge! I can craft tailored luxury itineraries, suggest flights across Saudi Arabia, explain visa guidelines, and recommend seasonal events like Riyadh Season or Winter at Tantora. How can I assist your journey today?",
-                'suggestions' => ['Plan a 3-day trip to AlUla', 'Best luxury destinations in Saudi', 'Flights from Dubai to Riyadh', 'Red Sea Island Resorts']
+                'reply' => "Welcome to SaudiWings AI Concierge! I can craft tailored itineraries for spiritual Umrah, ancient AlUla, pristine Red Sea islands, and cosmopolitan Riyadh, plus flight advice and official portal links. How may I assist you today?",
+                'suggestions' => ['Plan 3-Day Umrah in Makkah', 'Plan a 3-day trip to AlUla', 'Red Sea Island Resorts', 'Best destinations in Saudi']
             ];
         }
 
         // Arabic responses
+        if (str_contains($normalized, 'عمرة') || str_contains($normalized, 'مكة') || str_contains($normalized, 'حرم') || str_contains($normalized, 'كعبة') || str_contains($normalized, 'نسك') || str_contains($normalized, 'نُسك') || str_contains($normalized, 'روضة') || str_contains($normalized, 'مدينة') || str_contains($normalized, 'قطار الحرمين')) {
+            return [
+                'reply' => "أهلاً بك في رحلتك الإيمانية المباركة! تصاريح العمرة وزيارة الروضة الشريفة تصدر رسمياً عبر منصة نُسك (Nusuk) التابعة لوزارة الحج والعمرة. توفر منصتنا باقات الطيران والإقامة الفاخرة المطلة على الحرمين، وتذاكر قطار الحرمين السريع الرابط بين مكة والمدينة وجدة في ساعتين فقط. كيف تحب أن نرتب مسارك الإيماني؟",
+                'suggestions' => ['إنشاء مسار العمرة في مكة (3 أيام)', 'مسار زيارة المدينة المنورة', 'حجز قطار الحرمين السريع', 'رابط منصة نُسك الرسمية']
+            ];
+        }
         if (str_contains($normalized, 'طيران') || str_contains($normalized, 'حجز') || str_contains($normalized, 'تذكرة') || str_contains($normalized, 'رحلات')) {
             return [
-                'reply' => "يسعدني مساعدتك في استكشاف خيارات الطيران الفاخرة بين أهم مطارات المملكة (الرياض RUH، جدة JED، الدمام DMM، العلا ULH، والبحر الأحمر RSI) عبر الخطوط السعودية وطيران الرياض والناقلين الإقليميين. ما هي وجهتك وتاريخ سفرك المفضل؟",
-                'suggestions' => ['رحلات إلى الرياض (RUH)', 'رحلات إلى العلا (ULH)', 'رحلات البحر الأحمر (RSI)', 'استعراض عروض الطيران النموذجية']
+                'reply' => "يسعدني مساعدتك في استكشاف خيارات الطيران الفاخرة بين أهم مطارات المملكة (الرياض RUH، جدة ومكة JED، المدينة المنورة MED، الدمام DMM، العلا ULH، والبحر الأحمر RSI) عبر الخطوط السعودية وطيران الرياض والناقلين الإقليميين. ما هي وجهتك وتاريخ سفرك المفضل؟",
+                'suggestions' => ['رحلات إلى الرياض (RUH)', 'رحلات إلى المدينة (MED)', 'رحلات إلى العلا (ULH)', 'رحلات البحر الأحمر (RSI)']
             ];
         }
         if (str_contains($normalized, 'علا') || str_contains($normalized, 'العلا') || str_contains($normalized, 'مدائن')) {
             return [
                 'reply' => "العلا هي تحفة التاريخ والطبيعة في المملكة! أنسب وقت لزيارتها هو بين أكتوبر وأبريل. تشمل أبرز معالمها: الحجر (مدائن صالح)، مسرح مرايا العاكس، وجبل الفيل، مع أرقى المنتجعات العالمية مثل بانيان تري وهابيتاس. هل ترغب في إعداد برنامج سياحي لمدة 3 أيام؟",
                 'suggestions' => ['إنشاء مسار 3 أيام في العلا', 'منتجعات وادي عشار الفاخرة', 'رحلات الطيران إلى العلا']
+            ];
+        }
+        if (str_contains($normalized, 'أبها') || str_contains($normalized, 'ابها') || str_contains($normalized, 'عسير') || str_contains($normalized, 'سودة')) {
+            return [
+                'reply' => "أبها وعسير عاصمة الضباب والقمم الخضراء! تتميز بأجواء باردة ومنعشة صيفاً، وتلفريك السودة وقرية رجال ألمع الحجرية التراثية العالمية المسجلة باليونسكو وفن القط العسيري. هل ترغب في تخطيط مسار جبلي منعش؟",
+                'suggestions' => ['إنشاء مسار أبها وعسير (3 أيام)', 'استكشاف قرية رجال ألمع', 'رحلات الطيران إلى أبها']
             ];
         }
         if (str_contains($normalized, 'فيزا') || str_contains($normalized, 'تأشيرة') || str_contains($normalized, 'دخول')) {
@@ -190,8 +286,8 @@ class MockAiTravelPlannerService implements AiTravelPlannerInterface
         }
 
         return [
-            'reply' => "أهلاً بك في المساعد الذكي لمنصة أجنحة السعودية! أنا هنا لمساعدتك في تخطيط مسار سفر استثنائي، واستكشاف أفضل الوجهات السعودية (العلا، الرياض، البحر الأحمر، جدة، أبها)، وتقديم إرشادات الطيران والتأشيرات. كيف تود أن نبدأ رحلتك؟",
-            'suggestions' => ['خطط لي رحلة 3 أيام في العلا', 'أفضل المنتجعات في البحر الأحمر', 'أبرز فعاليات موسم الرياض', 'عروض الرحلات الداخلية']
+            'reply' => "أهلاً بك في المساعد الذكي لمنصة أجنحة السعودية! أنا هنا لمساعدتك في تخطيط مسار سفر استثنائي، واستكشاف أقدس وأجمل الوجهات (مكة المكرمة، المدينة المنورة، العلا، الرياض، البحر الأحمر، أبها، وجدة)، وتقديم إرشادات الطيران والتأشيرات الرسمية. كيف تود أن نبدأ رحلتك؟",
+            'suggestions' => ['خطط لي رحلة عمرة في مكة', 'خطط لي رحلة 3 أيام في العلا', 'أفضل المنتجعات في البحر الأحمر', 'أبرز فعاليات موسم الرياض']
         ];
     }
 }

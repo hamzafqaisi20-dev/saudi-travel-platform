@@ -159,6 +159,20 @@ const handleSearch = () => {
             <span class="font-bold text-slate-600">{{ isAr ? 'المسارات المقترحة:' : 'Popular Routes:' }}</span>
             <button
                 type="button"
+                @click="origin = 'RUH'; destination = 'MED'"
+                class="px-2.5 py-1 rounded-full bg-slate-100 hover:bg-blue-50 hover:text-[#1E6BFF] transition-colors"
+            >
+                {{ isAr ? 'الرياض ⇄ المدينة المنورة' : 'RUH ⇄ MED (Madinah)' }}
+            </button>
+            <button
+                type="button"
+                @click="origin = 'RUH'; destination = 'JED'"
+                class="px-2.5 py-1 rounded-full bg-slate-100 hover:bg-blue-50 hover:text-[#1E6BFF] transition-colors"
+            >
+                {{ isAr ? 'الرياض ⇄ جدة (مكة)' : 'RUH ⇄ JED (Makkah)' }}
+            </button>
+            <button
+                type="button"
                 @click="origin = 'RUH'; destination = 'ULH'"
                 class="px-2.5 py-1 rounded-full bg-slate-100 hover:bg-blue-50 hover:text-[#1E6BFF] transition-colors"
             >
@@ -170,13 +184,6 @@ const handleSearch = () => {
                 class="px-2.5 py-1 rounded-full bg-slate-100 hover:bg-blue-50 hover:text-[#1E6BFF] transition-colors"
             >
                 {{ isAr ? 'الرياض ⇄ البحر الأحمر' : 'RUH ⇄ RSI (Red Sea)' }}
-            </button>
-            <button
-                type="button"
-                @click="origin = 'JED'; destination = 'RUH'"
-                class="px-2.5 py-1 rounded-full bg-slate-100 hover:bg-blue-50 hover:text-[#1E6BFF] transition-colors"
-            >
-                {{ isAr ? 'جدة ⇄ الرياض' : 'JED ⇄ RUH' }}
             </button>
         </div>
     </div>

@@ -21,15 +21,15 @@ const activeModal = ref(null);
                 <div class="max-w-3xl space-y-3">
                     <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 text-xs font-bold border border-blue-500/30">
                         <Sparkles class="w-3.5 h-3.5" />
-                        {{ isAr ? 'مواسم وتجارب المملكة الاستثنائية' : 'SAUDI MEGA SEASONS & EXPERIENCES' }}
+                        {{ isAr ? 'مواسم ورحلات المملكة الاستثنائية' : 'SAUDI JOURNEYS, SEASONS & EXPERIENCES' }}
                     </span>
                     <h1 class="text-3xl sm:text-5xl font-black tracking-tight">
-                        {{ isAr ? 'عِش الحماس والترفيه في أكبر مواسم المنطقة' : 'Unmatched Festivals, Heritage & Wonder' }}
+                        {{ isAr ? 'عِش الروحانية والروائع في أبهى رحلات المملكة' : 'Sacred Journeys, Festivals & Coastal Wonders' }}
                     </h1>
                     <p class="text-xs sm:text-sm text-slate-300 font-medium leading-relaxed">
                         {{ isAr 
-                            ? 'اكتشف فعاليات موسم الرياض، وليالي مسرح مرايا في شتاء طنطورة، وتجارب الغوص بين شعاب البحر الأحمر البكر.' 
-                            : 'Immerse in globally acclaimed seasons, contemporary art biennials, and private marine adventures across Saudi Arabia.' }}
+                            ? 'اكتشف رحلات العمرة وزيارة الحرمين الشريفين، وليالي مسرح مرايا في شتاء طنطورة، وتجارب الغوص بين شعاب البحر الأحمر البكر.' 
+                            : 'Immerse in spiritual Umrah journeys, sacred landmarks of Madinah, contemporary cultural seasons, and private marine adventures.' }}
                     </p>
                 </div>
             </div>
@@ -84,16 +84,16 @@ const activeModal = ref(null);
                                 class="px-4 py-2 rounded-full bg-[#1E6BFF] hover:bg-blue-600 text-white text-xs font-bold flex items-center gap-1.5 transition-colors cursor-pointer"
                             >
                                 <Ticket class="w-3.5 h-3.5" />
-                                <span>{{ isAr ? 'استعراض التذاكر' : 'Ticket Preview' }}</span>
+                                <span>{{ isAr ? (exp.id.includes('umrah') || exp.id.includes('madinah') ? 'تفاصيل وتصاريح الرحلة' : 'استعراض التذاكر') : (exp.id.includes('umrah') || exp.id.includes('madinah') ? 'Permits & Journey' : 'Ticket Preview') }}</span>
                             </button>
 
                             <a
-                                href="https://webook.com/en"
+                                :href="exp.portal?.url || 'https://www.nusuk.sa/'"
                                 target="_blank"
                                 rel="noopener"
                                 class="text-xs font-bold text-slate-500 hover:text-slate-900 flex items-center gap-1"
                             >
-                                <span>Webook</span>
+                                <span>{{ exp.portal?.name || (isAr ? 'البوابة الرسمية' : 'Official Portal') }}</span>
                                 <ExternalLink class="w-3 h-3" />
                             </a>
                         </div>
@@ -109,13 +109,13 @@ const activeModal = ref(null);
                     <h3 class="font-black text-slate-900 text-base">
                         {{ isAr ? activeModal.title.ar : activeModal.title.en }}
                     </h3>
-                    <button @click="activeModal = null" class="text-slate-400 hover:text-slate-700 text-lg">✕</button>
+                    <button @click="activeModal = null" class="text-slate-400 hover:text-slate-700 text-lg cursor-pointer">✕</button>
                 </div>
 
-                <div class="p-4 rounded-2xl bg-amber-50 text-xs text-amber-900 border border-amber-200">
+                <div class="p-4 rounded-2xl bg-amber-50 text-xs text-amber-900 border border-amber-200 leading-relaxed">
                     {{ isAr 
-                        ? 'تنبيه: حجز تذاكر الفعاليات يتم رسمياً عبر منصة ويبوك (Webook) المعتمدة للهيئة العامة للترفيه. توفر أجنحة السعودية باقات الطيران والإقامة المتكاملة.' 
-                        : 'Notice: Official ticketing for mega-events is processed through official gateways such as Webook. SaudiWings provides curated flight and hospitality pairing.' }}
+                        ? (activeModal.portal?.notice?.ar || 'تنبيه: الحجوزات والتصاريح تصدر عبر المنصات الرسمية المعتمدة بالمملكة. توفر أجنحة السعودية باقات الطيران والإقامة المتكاملة.') 
+                        : (activeModal.portal?.notice?.en || 'Notice: Official bookings and permits are issued through authorized Saudi gateways. SaudiWings provides curated flight and hospitality pairing.') }}
                 </div>
 
                 <div class="space-y-2 text-xs text-slate-600">
@@ -131,12 +131,12 @@ const activeModal = ref(null);
 
                 <div class="pt-2 flex gap-3">
                     <a
-                        href="https://webook.com/en"
+                        :href="activeModal.portal?.url || 'https://www.nusuk.sa/'"
                         target="_blank"
                         rel="noopener"
                         class="flex-1 py-3 text-center rounded-full bg-[#0D1527] text-white text-xs font-bold hover:bg-[#1E6BFF] transition-colors"
                     >
-                        {{ isAr ? 'الانتقال إلى Webook الرسمي' : 'Open Official Webook' }}
+                        {{ isAr ? `الانتقال إلى منصة ${activeModal.portal?.name || 'الرسمية'}` : `Open Official ${activeModal.portal?.name || 'Gateway'}` }}
                     </a>
                 </div>
             </div>

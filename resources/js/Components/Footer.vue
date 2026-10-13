@@ -54,6 +54,8 @@ const { isAr, toggleLocale } = useLocale();
                         {{ isAr ? 'أهم الوجهات' : 'Top Destinations' }}
                     </h3>
                     <ul class="space-y-2.5 text-sm">
+                        <li><Link href="/destinations?id=makkah" class="hover:text-white transition-colors">{{ isAr ? 'مكة المكرمة' : 'Holy Makkah' }}</Link></li>
+                        <li><Link href="/destinations?id=madinah" class="hover:text-white transition-colors">{{ isAr ? 'المدينة المنورة' : 'Madinah Al-Munawwarah' }}</Link></li>
                         <li><Link href="/destinations?id=alula" class="hover:text-white transition-colors">{{ isAr ? 'العلا التاريخية' : 'Historic AlUla' }}</Link></li>
                         <li><Link href="/destinations?id=red-sea" class="hover:text-white transition-colors">{{ isAr ? 'جزر البحر الأحمر' : 'The Red Sea Islands' }}</Link></li>
                         <li><Link href="/destinations?id=riyadh" class="hover:text-white transition-colors">{{ isAr ? 'الرياض والدرعية' : 'Riyadh & Diriyah' }}</Link></li>

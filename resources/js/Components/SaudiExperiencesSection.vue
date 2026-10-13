@@ -14,13 +14,13 @@ const { isAr } = useLocale();
             <div>
                 <span class="text-xs font-bold uppercase tracking-widest text-[#1E6BFF] flex items-center gap-1.5 mb-1">
                     <Sparkles class="w-4 h-4" />
-                    {{ isAr ? 'التجارب والمواسم الترفيهية' : 'SAUDI EXPERIENCES & ENTERTAINMENT' }}
+                    {{ isAr ? 'التجارب والرحلات الاستثنائية' : 'SAUDI EXPERIENCES & SACRED JOURNEYS' }}
                 </span>
                 <h2 class="text-2xl sm:text-4xl font-black text-[#0D1527] tracking-tight">
-                    {{ isAr ? 'فعاليات ومواسم لا تُنسى في قلب المملكة' : 'Iconic Seasons, Heritage & Festivals' }}
+                    {{ isAr ? 'رحلات ومواسم لا تُنسى في قلب المملكة' : 'Sacred Journeys, Heritage & Iconic Seasons' }}
                 </h2>
                 <p class="text-xs sm:text-sm text-slate-500 font-medium mt-1">
-                    {{ isAr ? 'من موسم الرياض ومسرح مرايا بالعلا إلى سباقات الفورمولا وغوص البحر الأحمر' : 'From mega Riyadh Season spectacles to AlUla stargazing and pristine coral diving' }}
+                    {{ isAr ? 'من رحاب العمرة في مكة المكرمة وسكينة المدينة المنورة إلى مسرح مرايا بالعلا وغوص البحر الأحمر' : 'From spiritual Umrah in Makkah and serene Madinah to AlUla stargazing and pristine coral diving' }}
                 </p>
             </div>
 
@@ -28,7 +28,7 @@ const { isAr } = useLocale();
                 href="/experiences"
                 class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#1E6BFF] hover:underline"
             >
-                <span>{{ isAr ? 'عرض جميع الفعاليات' : 'View All Experiences' }}</span>
+                <span>{{ isAr ? 'عرض جميع التجارب والرحلات' : 'View All Experiences' }}</span>
                 <component :is="isAr ? ArrowLeft : ArrowRight" class="w-4 h-4" />
             </Link>
         </div>
@@ -83,7 +83,7 @@ const { isAr } = useLocale();
                         href="/experiences"
                         class="w-full py-2.5 rounded-full border border-slate-200 hover:border-[#1E6BFF] hover:text-[#1E6BFF] text-slate-700 text-xs font-bold flex items-center justify-center gap-1.5 transition-colors"
                     >
-                        <span>{{ isAr ? 'استكشف الفعالية' : 'Discover Event' }}</span>
+                        <span>{{ isAr ? (exp.id.includes('umrah') || exp.id.includes('madinah') ? 'استكشف الرحلة' : 'استكشف الفعالية') : 'Discover Journey' }}</span>
                         <component :is="isAr ? ArrowLeft : ArrowRight" class="w-3.5 h-3.5" />
                     </Link>
                 </div>

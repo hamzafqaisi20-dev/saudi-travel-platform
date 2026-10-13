@@ -4,13 +4,21 @@ import { Head, Link } from '@inertiajs/vue3';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import { destinations } from '@/data/mockData';
 import { useLocale } from '@/composables/useLocale';
-import { Compass, Sparkles, MapPin, Calendar, ArrowRight, ArrowLeft, Sun, Mountain, Palmtree, Landmark } from 'lucide-vue-next';
+import { Compass, Sparkles, MapPin, Calendar, ArrowRight, ArrowLeft, Sun, Mountain, Palmtree, Landmark, Heart } from 'lucide-vue-next';
 
 const { isAr } = useLocale();
 
 const activeTab = ref('all');
 
 const seasons = [
+    {
+        title: { ar: 'موسم العمرة والروحانيات (طوال العام)', en: 'Spiritual Umrah & Pilgrimage (Year-Round)' },
+        tag: { ar: 'مكة المكرمة والمدينة المنورة', en: 'Sacred Sanctuaries & Nusuk' },
+        desc: {
+            ar: 'أجواء إيمانية في رحاب المسجد الحرام والمسجد النبوي، مع سهولة استخراج التصاريح عبر منصة نُسك والتنقل بقطار الحرمين السريع.',
+            en: 'Deeply fulfilling spiritual journeys to the Two Holy Mosques, seamlessly booked via official Nusuk portal and Haramain Rail.'
+        }
+    },
     {
         title: { ar: 'موسم الشتاء والربيع (أكتوبر — أبريل)', en: 'Winter & Spring (Oct — Apr)' },
         tag: { ar: 'الموسم الذهبي للصحراء والتراث', en: 'Golden Season for Heritage' },
@@ -81,7 +89,28 @@ const seasons = [
                 </h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+                <!-- Spiritual & Sacred -->
+                <div class="bg-white rounded-3xl p-6 card-soft-shadow card-hover border border-slate-100 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4">
+                            <Heart class="w-6 h-6" />
+                        </div>
+                        <h3 class="text-lg font-black text-slate-900 mb-2">
+                            {{ isAr ? 'المقدسات والروحانيات' : 'Sacred Sanctuaries' }}
+                        </h3>
+                        <p class="text-xs text-slate-500 leading-relaxed">
+                            {{ isAr ? 'مكة المكرمة قِبلة المسلمين، والمدينة المنورة مهد السلام، ورحاب الحرمين الشريفين وقطار الحرمين السريع.' : 'Holiest sanctuaries of Makkah and Madinah, the Two Holy Mosques, and high-speed rail.' }}
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-50 mt-4">
+                        <Link href="/destinations?id=makkah" class="text-xs font-bold text-[#1E6BFF] flex items-center gap-1">
+                            <span>{{ isAr ? 'استكشف المقدسات' : 'Explore Sanctuaries' }}</span>
+                            <component :is="isAr ? ArrowLeft : ArrowRight" class="w-3.5 h-3.5" />
+                        </Link>
+                    </div>
+                </div>
+
                 <!-- Heritage -->
                 <div class="bg-white rounded-3xl p-6 card-soft-shadow card-hover border border-slate-100 flex flex-col justify-between">
                     <div>

@@ -21,7 +21,11 @@ const filteredDestinations = computed(() => {
             d.title.en.toLowerCase().includes(q) ||
             d.code.toLowerCase().includes(q) ||
             d.location.ar.toLowerCase().includes(q) ||
-            d.location.en.toLowerCase().includes(q);
+            d.location.en.toLowerCase().includes(q) ||
+            d.category.ar.toLowerCase().includes(q) ||
+            d.category.en.toLowerCase().includes(q) ||
+            d.description.ar.toLowerCase().includes(q) ||
+            d.highlights.ar.some(h => h.toLowerCase().includes(q));
 
         return matchesCategory && matchesSearch;
     });
@@ -40,12 +44,12 @@ const filteredDestinations = computed(() => {
                         {{ isAr ? 'دليل الوجهات السعودية الشامل' : 'SAUDI DESTINATIONS CATALOG' }}
                     </span>
                     <h1 class="text-3xl sm:text-5xl font-black tracking-tight">
-                        {{ isAr ? 'استكشف أجمل مدن ومحميات المملكة' : 'Iconic Sanctuaries Across The Realm' }}
+                        {{ isAr ? 'استكشف أقدس وأجمل مدن ومحميات المملكة' : 'Sacred Sanctuaries & Wonders Across The Realm' }}
                     </h1>
                     <p class="text-xs sm:text-sm text-slate-300 font-medium">
                         {{ isAr 
-                            ? 'دليل استرشادي يجمع بين التراث النبطي والمنتجعات الفاخرة وقمم الجبال الخضراء مع رحلات طيران مباشرة.' 
-                            : 'Explore our comprehensive directory of Saudi destinations featuring heritage sites, luxury coastlines, and mountain peaks.' }}
+                            ? 'دليل استرشادي يجمع بين روحانية مكة والمدينة والتراث النبطي والمنتجعات الفاخرة وقمم الجبال الخضراء مع رحلات طيران مباشرة.' 
+                            : 'Explore our comprehensive directory of Saudi destinations featuring holy sanctuaries, heritage sites, luxury coastlines, and mountain peaks.' }}
                     </p>
                 </div>
             </div>
@@ -60,7 +64,7 @@ const filteredDestinations = computed(() => {
                     <input
                         type="text"
                         v-model="searchQuery"
-                        :placeholder="isAr ? 'ابحث باسم المدينة أو كود المطار (مثال: العلا، RUH)...' : 'Search by city or airport code (e.g. AlUla, RUH)...'"
+                        :placeholder="isAr ? 'ابحث باسم المدينة أو كود المطار (مثال: مكة، العلا، MED)...' : 'Search by city or airport code (e.g. Makkah, AlUla, MED)...'"
                         class="w-full ps-11 pe-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-xs sm:text-sm focus:outline-none focus:border-[#1E6BFF]"
                     />
                 </div>
@@ -74,6 +78,22 @@ const filteredDestinations = computed(() => {
                         :class="selectedCategory === 'all' ? 'bg-[#1E6BFF] text-white shadow-md' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'"
                     >
                         {{ isAr ? 'جميع الوجهات' : 'All Places' }}
+                    </button>
+                    <button
+                        type="button"
+                        @click="selectedCategory = 'makkah'"
+                        class="px-4 py-2 rounded-full font-bold transition-all cursor-pointer shrink-0"
+                        :class="selectedCategory === 'makkah' ? 'bg-[#1E6BFF] text-white shadow-md' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'"
+                    >
+                        {{ isAr ? 'مكة المكرمة' : 'Makkah' }}
+                    </button>
+                    <button
+                        type="button"
+                        @click="selectedCategory = 'madinah'"
+                        class="px-4 py-2 rounded-full font-bold transition-all cursor-pointer shrink-0"
+                        :class="selectedCategory === 'madinah' ? 'bg-[#1E6BFF] text-white shadow-md' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'"
+                    >
+                        {{ isAr ? 'المدينة المنورة' : 'Madinah' }}
                     </button>
                     <button
                         type="button"
@@ -106,6 +126,14 @@ const filteredDestinations = computed(() => {
                         :class="selectedCategory === 'jeddah' ? 'bg-[#1E6BFF] text-white shadow-md' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'"
                     >
                         {{ isAr ? 'جدة' : 'Jeddah' }}
+                    </button>
+                    <button
+                        type="button"
+                        @click="selectedCategory = 'abha'"
+                        class="px-4 py-2 rounded-full font-bold transition-all cursor-pointer shrink-0"
+                        :class="selectedCategory === 'abha' ? 'bg-[#1E6BFF] text-white shadow-md' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'"
+                    >
+                        {{ isAr ? 'أبها' : 'Abha' }}
                     </button>
                 </div>
             </div>
