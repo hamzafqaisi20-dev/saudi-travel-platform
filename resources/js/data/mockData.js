@@ -91,12 +91,12 @@ export const destinations = [
         image: 'https://images.unsplash.com/photo-1586724237569-f3d0c1dee8c6?auto=format&fit=crop&w=1200&q=80',
         badge: { ar: 'قلب المملكة', en: 'Kingdom Capital' },
         description: {
-            ar: 'عاصمة ناطحات السحاب المضيئة، ومطل البجيري الراقي، وأكبر مناطق الترفيه في الشرق الأوسط خلال موسم الرياض.',
-            en: 'Futuristic architectural skyline, Bujairi Terrace fine dining overlooking UNESCO Diriyah, and Riyadh Season.'
+            ar: 'عاصمة ناطحات السحاب المضيئة، ومطل البجيري الراقي، ومركز الملك عبدالله المالي، وعبق التراث في الدرعية التاريخية.',
+            en: 'Futuristic architectural skyline, Bujairi Terrace fine dining overlooking UNESCO Diriyah, KAFD, and authentic Najdi heritage.'
         },
         highlights: {
-            ar: ['حي الطريف بالدرعية', 'برج المملكة', 'بوليفارد سيتي', 'حافة العالم'],
-            en: ['At-Turaif Diriyah', 'Kingdom SkyBridge', 'Boulevard City', 'Edge of the World']
+            ar: ['حي الطريف بالدرعية', 'برج المملكة', 'مركز الملك عبدالله المالي (KAFD)', 'حافة العالم'],
+            en: ['At-Turaif Diriyah', 'Kingdom SkyBridge', 'KAFD Financial District', 'Edge of the World']
         }
     },
     {

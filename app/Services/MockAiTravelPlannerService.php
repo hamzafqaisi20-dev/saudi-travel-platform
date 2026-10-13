@@ -42,22 +42,22 @@ class MockAiTravelPlannerService implements AiTravelPlannerInterface
             'Riyadh' => [
                 'ar' => [
                     'title' => 'الرياض: نبض الحاضر وعراقة التاريخ في الدرعية',
-                    'highlight' => 'استمتع بأفخم المطاعم، وفعاليات موسم الرياض، وحي الطريف بالدرعية، وإطلالة حافة العالم.',
+                    'highlight' => 'استمتع بأفخم المطاعم، وحي الطريف بالدرعية، ومركز الملك عبدالله المالي، وإطلالة حافة العالم.',
                     'days' => [
                         ['day' => 1, 'title' => 'أصالة الدرعية وتاريخ نجد', 'activities' => ['جولة حي الطريف المسجل في اليونسكو', 'تناول وجبة غداء نجدية في مطل البجيري الراقي', 'زيارة قصر المصمك وسوق الزل التراثي']],
                         ['day' => 2, 'title' => 'أفق العاصمة وناطحات السحاب', 'activities' => ['إطلالة بانورامية من جسر برج المملكة المعلق', 'تسوق في مركز الفيصلية وشارع التحلية', 'سهرة عشاء في منطقة المربع أو فيا رياض الفاخرة']],
-                        ['day' => 3, 'title' => 'مغامرة حافة العالم وموسم الرياض', 'activities' => ['رحلة سفاري صباحية إلى جبل فهرين (حافة العالم)', 'استكشاف بوليفارد سيتي وفعاليات الموسم العالمية', 'أمسية موسيقية ومأكولات عالمية']]
+                        ['day' => 3, 'title' => 'مغامرة حافة العالم ومركز الملك عبدالله المالي', 'activities' => ['رحلة سفاري صباحية إلى جبل فهرين (حافة العالم)', 'جولة في مركز الملك عبدالله المالي (KAFD) وأبراجه العصرية', 'أمسية راقية ومأكولات عالمية في مطل البجيري']]
                     ],
                     'estimatedCost' => '3,500 - 6,200',
                     'bestSeason' => 'نوفمبر - مارس',
                 ],
                 'en' => [
                     'title' => 'Riyadh: Pulse of the Metropolis & Historic Diriyah',
-                    'highlight' => 'Experience luxury dining, Riyadh Season attractions, UNESCO At-Turaif, and Edge of the World.',
+                    'highlight' => 'Experience luxury dining, KAFD architectural marvels, UNESCO At-Turaif, and Edge of the World.',
                     'days' => [
                         ['day' => 1, 'title' => 'Diriyah Heritage & Bujairi Terrace', 'activities' => ['Walk through the historic mud-brick UNESCO site of At-Turaif', 'Michelin-grade dining at Bujairi Terrace overlooking the ruins', 'Al Masmak Fortress & Souq Al-Zal authentic antiquities']],
                         ['day' => 2, 'title' => 'Skyline & Modern Cosmopolitan Life', 'activities' => ['Panoramic view from Kingdom Centre Sky Bridge', 'Luxury shopping along Tahlia Street and VIA Riyadh', 'Fine dining at contemporary Saudi fusion restaurants']],
-                        ['day' => 3, 'title' => 'Edge of the World & City Nightlife', 'activities' => ['Morning desert 4x4 expedition to the Edge of the World (Jebel Fihrayn)', 'Evening immersion at Boulevard City entertainment district', 'Live cultural shows and rooftop lounges']]
+                        ['day' => 3, 'title' => 'Edge of the World & KAFD Metropolis', 'activities' => ['Morning desert 4x4 expedition to the Edge of the World (Jebel Fihrayn)', 'Evening architecture & dining walk through King Abdullah Financial District (KAFD)', 'Cultural lounges and authentic hospitality at Bujairi Terrace']]
                     ],
                     'estimatedCost' => '3,500 - 6,200',
                     'bestSeason' => 'November - March',
@@ -287,7 +287,7 @@ class MockAiTravelPlannerService implements AiTravelPlannerInterface
 
         return [
             'reply' => "أهلاً بك في المساعد الذكي لمنصة أجنحة السعودية! أنا هنا لمساعدتك في تخطيط مسار سفر استثنائي، واستكشاف أقدس وأجمل الوجهات (مكة المكرمة، المدينة المنورة، العلا، الرياض، البحر الأحمر، أبها، وجدة)، وتقديم إرشادات الطيران والتأشيرات الرسمية. كيف تود أن نبدأ رحلتك؟",
-            'suggestions' => ['خطط لي رحلة عمرة في مكة', 'خطط لي رحلة 3 أيام في العلا', 'أفضل المنتجعات في البحر الأحمر', 'أبرز فعاليات موسم الرياض']
+            'suggestions' => ['خطط لي رحلة عمرة في مكة', 'خطط لي رحلة 3 أيام في العلا', 'أفضل المنتجعات في البحر الأحمر', 'أبرز معالم الرياض التاريخية']
         ];
     }
 }

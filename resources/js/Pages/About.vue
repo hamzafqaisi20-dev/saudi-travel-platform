@@ -74,8 +74,8 @@ const submitContact = () => {
                     </h3>
                     <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">
                         {{ isAr 
-                            ? 'ربط المسافر بأهم الوجهات: العلا، البحر الأحمر، الرياض، وجدة، مع تغطية الفعاليات والمواسم.' 
-                            : 'Connecting luxury flight routes with Saudi mega-events like Riyadh Season and Winter at Tantora.' }}
+                            ? 'ربط المسافر بأقدس وأبرز الوجهات: مكة، المدينة، العلا، البحر الأحمر، الرياض، وعسير مع تغطية المهرجانات الثقافية والتراثية.' 
+                            : 'Connecting luxury flight routes with sacred pilgrimages and cultural heritage destinations like Winter at Tantora.' }}
                     </p>
                 </div>
 

@@ -23,7 +23,7 @@ const seasons = [
         title: { ar: 'موسم الشتاء والربيع (أكتوبر — أبريل)', en: 'Winter & Spring (Oct — Apr)' },
         tag: { ar: 'الموسم الذهبي للصحراء والتراث', en: 'Golden Season for Heritage' },
         desc: {
-            ar: 'أفضل الأوقات لزيارة العلا، والرياض، والدرعية، وحضور شتاء طنطورة وموسم الرياض بأجواء معتدلة ممتعة.',
+            ar: 'أفضل الأوقات لزيارة العلا، والرياض، والدرعية، وحضور شتاء طنطورة وفعاليات الصحراء بأجواء معتدلة ممتعة.',
             en: 'Ideal for AlUla, Riyadh, Diriyah, and outdoor desert stargazing under pleasant cool temperatures.'
         }
     },
@@ -184,7 +184,7 @@ const seasons = [
                             {{ isAr ? 'العاصمة والفعاليات الكبرى' : 'Cosmopolitan Hubs' }}
                         </h3>
                         <p class="text-xs text-slate-500 leading-relaxed">
-                            {{ isAr ? 'ناطحات السحاب، ومطاعم ميشلان، وبوليفارد سيتي في موسم الرياض تضع العاصمة في صدارة الترفيه.' : 'World-class Michelin gastronomy, iconic high-rises, and non-stop entertainment spectacles.' }}
+                            {{ isAr ? 'ناطحات السحاب الشاهقة، ومطاعم ميشلان في مطل البجيري، ومركز الملك عبدالله المالي تضع العاصمة في صدارة الحداثة والفخامة.' : 'World-class Michelin gastronomy at Bujairi Terrace, iconic high-rises, and KAFD financial architecture.' }}
                         </p>
                     </div>
                     <div class="pt-4 border-t border-slate-50 mt-4">

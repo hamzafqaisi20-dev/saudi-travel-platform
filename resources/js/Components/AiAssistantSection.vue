@@ -23,7 +23,7 @@ const samplePrompts = [
     { ar: 'تصاريح العمرة والروضة عبر نُسك', en: 'Umrah & Rawdah permits via Nusuk' },
     { ar: 'خطط لي رحلة 3 أيام في العلا', en: 'Plan a 3-day luxury trip in AlUla' },
     { ar: 'أفضل منتجعات جزر البحر الأحمر', en: 'Best resorts in The Red Sea islands' },
-    { ar: 'فعاليات موسم الرياض ومطل البجيري', en: 'Riyadh Season & Bujairi Terrace' },
+    { ar: 'معالم الرياض ومطل البجيري بالدرعية', en: 'Riyadh Landmarks & Bujairi Terrace' },
     { ar: 'شروط التأشيرة السياحية السعودية', en: 'Saudi tourist eVisa requirements' }
 ];
 
@@ -252,7 +252,7 @@ const generateQuickPlan = async () => {
                             <option value="Madinah">{{ isAr ? 'المدينة المنورة (Prophet’s Mosque & Rawdah)' : 'Madinah Al-Munawwarah' }}</option>
                             <option value="AlUla">{{ isAr ? 'العلا (Hegra & Maraya)' : 'AlUla' }}</option>
                             <option value="RedSea">{{ isAr ? 'جزر البحر الأحمر (St. Regis & Nujuma)' : 'The Red Sea' }}</option>
-                            <option value="Riyadh">{{ isAr ? 'الرياض والدرعية (Diriyah & Boulevard)' : 'Riyadh' }}</option>
+                            <option value="Riyadh">{{ isAr ? 'الرياض والدرعية (Diriyah & KAFD)' : 'Riyadh' }}</option>
                             <option value="Jeddah">{{ isAr ? 'جدة والبلد التاريخي (Al Balad)' : 'Jeddah' }}</option>
                             <option value="Abha">{{ isAr ? 'أبها وعسير (Misty Peaks & Rijal Almaa)' : 'Abha & Asir' }}</option>
                         </select>
