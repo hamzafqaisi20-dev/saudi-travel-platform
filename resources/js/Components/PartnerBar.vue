@@ -4,8 +4,8 @@ import { useLocale } from '@/composables/useLocale';
 
 const { isAr } = useLocale();
 
-// Track selected partner tab (defaults to first partner)
-const selectedPartner = ref('Saudia');
+// Initially no tab is selected so all tabs are white until clicked
+const selectedPartner = ref(null);
 
 const partners = [
     { name: 'Saudia', label: { ar: 'الخطوط السعودية', en: 'Saudia' }, href: 'https://www.saudia.com' },

@@ -47,42 +47,56 @@ const { isAr } = useLocale();
                 </div>
             </div>
 
-            <!-- Step 2: Book A Ticket (Highlight Tall Blue Card with Aviation Visual) -->
-            <div class="relative bg-gradient-to-br from-[#1E6BFF] to-[#1250C4] text-white rounded-[2.5rem] p-8 lg:p-10 shadow-2xl shadow-blue-500/25 overflow-hidden flex flex-col justify-between min-h-[400px] lg:-translate-y-2 group">
-                <!-- Aviation Window / Clouds Visual (Complements Flight Theme Perfectly) -->
-                <div class="absolute top-0 ltr:right-0 rtl:left-0 w-40 h-40 lg:w-48 lg:h-48 ltr:rounded-bl-[4.5rem] rtl:rounded-br-[4.5rem] overflow-hidden border-b-4 ltr:border-l-4 rtl:border-r-4 border-white/20 shadow-inner">
-                    <img
-                        src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=600&q=80"
-                        alt="Flight soaring above clouds"
-                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div class="absolute inset-0 bg-blue-900/20 mix-blend-multiply"></div>
-                </div>
+            <!-- Step 2: Book A Ticket (Highlight Luxury Electric Blue Card - Re-formatted cleanly) -->
+            <div class="relative bg-gradient-to-br from-[#1E6BFF] via-[#1A5ED8] to-[#0F42A6] text-white rounded-3xl p-8 lg:p-9 shadow-2xl shadow-blue-500/25 overflow-hidden flex flex-col justify-between min-h-[360px] lg:-translate-y-2 border border-blue-400/20 group">
+                <!-- Subtle luxury decorative ambient glow -->
+                <div class="absolute -top-16 -end-16 w-44 h-44 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+                <div class="absolute -bottom-16 -start-16 w-44 h-44 bg-blue-900/40 rounded-full blur-2xl pointer-events-none"></div>
 
-                <div class="relative z-10 space-y-4 max-w-[65%]">
-                    <div class="flex items-center gap-3">
+                <div class="relative z-10 space-y-5">
+                    <!-- Top Bar: Step Number & Ticket Icon -->
+                    <div class="flex items-center justify-between">
                         <div class="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-md text-white flex items-center justify-center border border-white/20 shadow-sm">
-                            <AircraftIcon className="w-6 h-6 text-white" :angle="isAr ? -45 : 45" variant="white" />
+                            <Ticket class="w-6 h-6" />
                         </div>
-                        <span class="text-xs font-black tracking-widest text-blue-200 uppercase bg-white/10 px-2.5 py-1 rounded-full border border-white/15">02</span>
+                        <span class="text-xs font-black tracking-widest text-blue-100 uppercase bg-white/15 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
+                            02
+                        </span>
                     </div>
 
-                    <h3 class="text-2xl sm:text-3xl font-black text-white leading-tight">
-                        {{ isAr ? 'احجز تذكرتك بسهولة' : 'Book A Ticket' }}
-                    </h3>
-                    <p class="text-xs sm:text-sm text-blue-100/90 leading-relaxed font-medium">
-                        {{ isAr 
-                            ? 'قارن خيارات الرحلات بين الخطوط السعودية وطيران الرياض مع أسعار تنافسية ومواعيد طيران دقيقة.' 
-                            : 'Compare direct flight itineraries across Saudia and Riyadh Air with competitive fares and punctual schedules.' }}
-                    </p>
+                    <!-- Title & Description -->
+                    <div class="space-y-2">
+                        <h3 class="text-2xl sm:text-3xl font-black text-white leading-tight">
+                            {{ isAr ? 'احجز تذكرتك بسهولة' : 'Book A Ticket' }}
+                        </h3>
+                        <p class="text-xs sm:text-sm text-blue-100/90 leading-relaxed font-medium">
+                            {{ isAr 
+                                ? 'قارن خيارات الرحلات بين الخطوط السعودية وطيران الرياض مع أسعار تنافسية ومواعيد طيران دقيقة.' 
+                                : 'Compare direct flight itineraries across Saudia and Riyadh Air with competitive fares and punctual schedules.' }}
+                        </p>
+                    </div>
+
+                    <!-- Airline Partner Pills & Perks -->
+                    <div class="flex flex-wrap gap-2 pt-1">
+                        <span class="px-2.5 py-1 rounded-xl bg-white/15 text-white text-[11px] font-bold border border-white/15">
+                            {{ isAr ? 'الخطوط السعودية' : 'Saudia' }}
+                        </span>
+                        <span class="px-2.5 py-1 rounded-xl bg-white/15 text-white text-[11px] font-bold border border-white/15">
+                            {{ isAr ? 'طيران الرياض' : 'Riyadh Air' }}
+                        </span>
+                        <span class="px-2.5 py-1 rounded-xl bg-white/10 text-blue-100 text-[11px] font-medium border border-white/10">
+                            {{ isAr ? 'تأكيد فوري' : 'Instant Booking' }}
+                        </span>
+                    </div>
                 </div>
 
-                <div class="relative z-10 pt-6 border-t border-white/20 flex items-center justify-between">
+                <!-- Card Footer Link -->
+                <div class="relative z-10 pt-6 border-t border-white/20 flex items-center justify-between mt-4">
                     <Link
                         href="/flights"
                         class="inline-flex items-center gap-2 text-xs sm:text-sm font-black text-white tracking-wider hover:translate-x-1 rtl:hover:-translate-x-1 transition-transform group/link"
                     >
-                        <span>{{ isAr ? 'احجز التذكرة الآن' : 'LEARN MORE' }}</span>
+                        <span>{{ isAr ? 'احجز التذكرة الآن' : 'BOOK YOUR FLIGHT' }}</span>
                         <component :is="isAr ? ArrowLeft : ArrowRight" class="w-4 h-4" />
                     </Link>
                 </div>

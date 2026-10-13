@@ -3,8 +3,7 @@ import { ref } from 'vue';
 import { router } from '@inertiajs/vue3';
 import { useLocale } from '@/composables/useLocale';
 import { sampleAirportCodes } from '@/data/mockData';
-import { Search, ArrowRightLeft, Calendar, Users, CheckCircle2, Plus, X, Sparkles } from 'lucide-vue-next';
-import AircraftIcon from '@/Components/AircraftIcon.vue';
+import { Search, ArrowRightLeft, Calendar, Users, CheckCircle2, Plus, X, Sparkles, Compass, MapPin, HelpCircle } from 'lucide-vue-next';
 
 const { isAr } = useLocale();
 
@@ -76,33 +75,55 @@ const handleSearch = () => {
 
 <template>
     <div class="w-full bg-white rounded-3xl p-6 sm:p-8 card-soft-shadow border border-slate-100">
-        <!-- Trip Type Tabs -->
-        <div class="flex items-center gap-2 sm:gap-4 mb-6 border-b border-slate-100 pb-4">
+        <!-- Trip Type Tabs with Clear Subtitles & Clarification -->
+        <div class="flex flex-wrap items-center gap-2 sm:gap-3 mb-6 border-b border-slate-100 pb-4">
+            <!-- 1. Round Trip Tab -->
             <button
                 type="button"
                 @click="tripType = 'round'"
-                class="px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer"
-                :class="tripType === 'round' ? 'bg-[#1E6BFF] text-white shadow-md shadow-blue-500/20' : 'text-slate-600 hover:bg-slate-100'"
+                class="px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-2"
+                :class="tripType === 'round' 
+                    ? 'bg-[#1E6BFF] text-white shadow-md shadow-blue-500/20' 
+                    : 'text-slate-600 hover:bg-slate-100'"
             >
-                {{ isAr ? 'ذهاب وعودة' : 'Round Trip' }}
+                <span>{{ isAr ? 'ذهاب وعودة' : 'Round Trip' }}</span>
+                <span class="text-[10px] opacity-75 font-medium border-s border-current/25 ps-1.5">
+                    {{ isAr ? 'مدينتان مع عودة' : '2-Way' }}
+                </span>
             </button>
+
+            <!-- 2. One Way Tab -->
             <button
                 type="button"
                 @click="tripType = 'oneway'"
-                class="px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer"
-                :class="tripType === 'oneway' ? 'bg-[#1E6BFF] text-white shadow-md shadow-blue-500/20' : 'text-slate-600 hover:bg-slate-100'"
+                class="px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-2"
+                :class="tripType === 'oneway' 
+                    ? 'bg-[#1E6BFF] text-white shadow-md shadow-blue-500/20' 
+                    : 'text-slate-600 hover:bg-slate-100'"
             >
-                {{ isAr ? 'اتجاه واحد' : 'One Way' }}
+                <span>{{ isAr ? 'اتجاه واحد' : 'One Way' }}</span>
+                <span class="text-[10px] opacity-75 font-medium border-s border-current/25 ps-1.5">
+                    {{ isAr ? 'ذهاب فقط' : '1-Way' }}
+                </span>
             </button>
+
+            <!-- 3. Multi-City Tab (Highlighted with Clear Explanation Badge) -->
             <button
                 type="button"
                 @click="tripType = 'multi'"
-                class="px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-1.5"
-                :class="tripType === 'multi' ? 'bg-[#1E6BFF] text-white shadow-md shadow-blue-500/20' : 'text-slate-600 hover:bg-slate-100'"
+                class="px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-2"
+                :class="tripType === 'multi' 
+                    ? 'bg-[#1E6BFF] text-white shadow-md shadow-blue-500/20' 
+                    : 'text-slate-600 hover:bg-slate-100'"
             >
                 <span>{{ isAr ? 'وجهات متعددة' : 'Multi-City' }}</span>
-                <span class="text-[10px] px-1.5 py-0.2 rounded-full" :class="tripType === 'multi' ? 'bg-white/20 text-white' : 'bg-blue-100 text-[#1E6BFF]'">
-                    {{ isAr ? 'مسار متتابع' : 'Multi-Leg' }}
+                <span 
+                    class="text-[10px] px-2 py-0.5 rounded-full font-black tracking-wide"
+                    :class="tripType === 'multi' 
+                        ? 'bg-amber-400 text-slate-900 shadow-xs' 
+                        : 'bg-blue-100 text-[#1E6BFF]'"
+                >
+                    {{ isAr ? 'عدة محطات متتالية' : 'Multi-Leg' }}
                 </span>
             </button>
         </div>
@@ -199,7 +220,7 @@ const handleSearch = () => {
                 </select>
             </div>
 
-            <!-- Submit CTA Button -->
+            <!-- Submit CTA Button (Clean Text Without Aircraft Icon Inside as requested) -->
             <div>
                 <button
                     type="button"
@@ -207,8 +228,7 @@ const handleSearch = () => {
                     :disabled="isSearching"
                     class="w-full py-3.5 px-4 rounded-2xl bg-[#1E6BFF] hover:bg-blue-600 text-white font-extrabold text-sm flex items-center justify-center gap-2 shadow-lg shadow-blue-500/25 active:scale-98 transition-all cursor-pointer disabled:opacity-75"
                 >
-                    <AircraftIcon v-if="!isSearching" className="w-5 h-5 text-white" :angle="isAr ? -45 : 45" />
-                    <svg v-else class="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24">
+                    <svg v-if="isSearching" class="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24">
                         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle>
                         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
                     </svg>
@@ -219,27 +239,30 @@ const handleSearch = () => {
 
         <!-- ======================= DEDICATED MULTI-CITY BUILDER VIEW ======================= -->
         <div v-else class="space-y-4">
-            <!-- Clear Multi-City Clarification Banner -->
-            <div class="p-4 rounded-2xl bg-blue-50/70 border border-blue-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-[#1E6BFF] text-white flex items-center justify-center shrink-0 shadow-sm">
-                        <AircraftIcon className="w-5 h-5 text-white" :angle="isAr ? -45 : 45" />
-                    </div>
-                    <div>
-                        <h4 class="text-xs sm:text-sm font-black text-slate-900">
-                            {{ isAr ? 'تخطيط رحلات متعددة الوجهات (Multi-City Itinerary)' : 'Multi-City Route Planner' }}
-                        </h4>
-                        <p class="text-[11px] sm:text-xs text-slate-600 font-medium mt-0.5">
+            <!-- Clear Multi-City Clarification Guidance Box -->
+            <div class="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-blue-50/90 via-indigo-50/50 to-blue-50/90 border border-blue-200/90 shadow-xs">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+                    <div class="space-y-1">
+                        <div class="flex items-center gap-2">
+                            <span class="px-2.5 py-0.5 rounded-md bg-[#1E6BFF] text-white text-[11px] font-black">
+                                {{ isAr ? 'توضيح تبويب الوجهات المتعددة' : 'Multi-City Guide' }}
+                            </span>
+                            <h4 class="text-xs sm:text-sm font-black text-slate-900">
+                                {{ isAr ? 'حجز مسار رحلات متتابع بين أكثر من مدينة في تذكرة واحدة' : 'Sequential Stops Across Cities on 1 Ticket' }}
+                            </h4>
+                        </div>
+                        <p class="text-xs text-slate-600 font-medium leading-relaxed">
                             {{ isAr 
-                                ? 'خطط للتنقل بين عدة مدن ومطارات في تذكرة واحدة متسلسلة بكل سهولة ومرونة.' 
-                                : 'Coordinate sequential flight legs across multiple Saudi destinations in one unified ticket.' }}
+                                ? 'هذا التبويب مخصص للمسافرين الراغبين في زيارة أكثر من وجهة (مثال: من الرياض إلى العلا، ثم بعد أيام من العلا إلى جدة) مع تحديد موعد منفصل لكل محطة دون الحاجة لتذكرة عودة إلى نقطة البداية.' 
+                                : 'Plan multi-stop itineraries with independent dates for each stopover (e.g. Riyadh to AlUla, then AlUla to Jeddah) in one connected ticket.' }}
                         </p>
                     </div>
+                    <div class="flex items-center gap-2 self-start md:self-auto shrink-0">
+                        <span class="text-xs font-bold text-[#1E6BFF] bg-white px-3 py-1.5 rounded-xl border border-blue-200 shadow-xs">
+                            {{ isAr ? `المسار: ${multiSegments.length} محطات سفر` : `${multiSegments.length} Flight Legs` }}
+                        </span>
+                    </div>
                 </div>
-                <span class="inline-flex items-center gap-1.5 text-xs font-black text-[#1E6BFF] bg-white px-3 py-1.5 rounded-full border border-blue-200/70 shadow-xs self-start sm:self-auto">
-                    <span class="w-2 h-2 rounded-full bg-[#1E6BFF]"></span>
-                    {{ isAr ? `${multiSegments.length} محطات محددة` : `${multiSegments.length} Flight Legs` }}
-                </span>
             </div>
 
             <!-- Segment Rows -->
@@ -247,14 +270,14 @@ const handleSearch = () => {
                 <div
                     v-for="(seg, idx) in multiSegments"
                     :key="seg.id"
-                    class="p-4 rounded-2xl bg-slate-50/90 hover:bg-slate-50 border border-slate-200/80 transition-all hover:border-[#1E6BFF]/40"
+                    class="p-4 sm:p-5 rounded-2xl bg-slate-50/90 hover:bg-slate-50 border border-slate-200/80 transition-all hover:border-[#1E6BFF]/40"
                 >
                     <div class="flex items-center justify-between mb-3">
                         <div class="flex items-center gap-2">
                             <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black bg-[#1E6BFF] text-white shadow-xs">
-                                {{ isAr ? `الرحلة ${idx + 1}` : `Leg ${idx + 1}` }}
+                                {{ isAr ? `المحطة ${idx + 1} (الرحلة ${idx + 1})` : `Stop ${idx + 1} (Flight ${idx + 1})` }}
                             </span>
-                            <span class="text-xs font-bold text-slate-400">
+                            <span class="text-xs font-bold text-slate-500">
                                 {{ seg.origin }} ➔ {{ seg.destination }}
                             </span>
                         </div>
@@ -329,13 +352,13 @@ const handleSearch = () => {
                     class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border-2 border-dashed border-[#1E6BFF]/40 text-[#1E6BFF] hover:bg-blue-50/70 font-bold text-xs sm:text-sm transition-all cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                     <Plus class="w-4 h-4" />
-                    <span>{{ isAr ? 'إضافة محطة رحلة أخرى (+)' : 'Add Another Flight (+)' }}</span>
+                    <span>{{ isAr ? 'إضافة محطة رحلة أخرى (+)' : 'Add Another Stop (+)' }}</span>
                     <span v-if="multiSegments.length >= 4" class="text-[10px] text-slate-400">
                         ({{ isAr ? 'الحد الأقصى 4' : 'Max 4' }})
                     </span>
                 </button>
 
-                <!-- Class & Travelers + Search CTA Button -->
+                <!-- Class & Travelers + Search CTA Button (Without Aircraft Icon) -->
                 <div class="flex flex-col sm:flex-row items-center gap-3">
                     <div class="w-full sm:w-auto bg-slate-50 rounded-xl p-2.5 border border-slate-200/80 flex items-center gap-2">
                         <Users class="w-4 h-4 text-slate-400 shrink-0" />
@@ -352,8 +375,7 @@ const handleSearch = () => {
                         :disabled="isSearching"
                         class="w-full sm:w-auto py-3 px-6 rounded-xl bg-[#1E6BFF] hover:bg-blue-600 text-white font-extrabold text-sm flex items-center justify-center gap-2 shadow-lg shadow-blue-500/25 active:scale-98 transition-all cursor-pointer"
                     >
-                        <AircraftIcon v-if="!isSearching" className="w-4 h-4 text-white" :angle="isAr ? -45 : 45" />
-                        <svg v-else class="animate-spin h-4 w-4 text-white" viewBox="0 0 24 24">
+                        <svg v-if="isSearching" class="animate-spin h-4 w-4 text-white" viewBox="0 0 24 24">
                             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle>
                             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
                         </svg>
