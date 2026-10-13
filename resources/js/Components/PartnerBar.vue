@@ -1,10 +1,10 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 import { useLocale } from '@/composables/useLocale';
 
 const { isAr } = useLocale();
 
-// Initially no tab is selected so all tabs are white until clicked
+// No partner is selected by default; all tabs are white
 const selectedPartner = ref(null);
 
 const partners = [
@@ -15,12 +15,39 @@ const partners = [
     { name: 'Webook', label: { ar: 'ويبوك', en: 'Webook' }, href: 'https://webook.com' },
 ];
 
-const handlePartnerClick = (partner) => {
-    selectedPartner.value = partner.name;
-    if (typeof window !== 'undefined' && partner.href) {
-        window.open(partner.href, '_blank', 'noopener,noreferrer');
-    }
+const resetSelected = () => {
+    selectedPartner.value = null;
 };
+
+const handlePartnerClick = (partner) => {
+    // 1. Turn blue on click for clear visual feedback
+    selectedPartner.value = partner.name;
+
+    // 2. Open link after brief visual feedback
+    setTimeout(() => {
+        if (typeof window !== 'undefined' && partner.href) {
+            window.open(partner.href, '_blank', 'noopener,noreferrer');
+        }
+        // 3. Reset color to white so upon returning there is no blue left
+        setTimeout(() => {
+            selectedPartner.value = null;
+        }, 400);
+    }, 150);
+};
+
+onMounted(() => {
+    if (typeof window !== 'undefined') {
+        window.addEventListener('focus', resetSelected);
+        window.addEventListener('pageshow', resetSelected);
+    }
+});
+
+onUnmounted(() => {
+    if (typeof window !== 'undefined') {
+        window.removeEventListener('focus', resetSelected);
+        window.removeEventListener('pageshow', resetSelected);
+    }
+});
 </script>
 
 <template>

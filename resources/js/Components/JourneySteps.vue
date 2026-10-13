@@ -2,7 +2,6 @@
 import { Link } from '@inertiajs/vue3';
 import { useLocale } from '@/composables/useLocale';
 import { Compass, Ticket, CreditCard, ArrowRight, ArrowLeft } from 'lucide-vue-next';
-import AircraftIcon from '@/Components/AircraftIcon.vue';
 
 const { isAr } = useLocale();
 </script>
@@ -21,7 +20,7 @@ const { isAr } = useLocale();
             </p>
         </div>
 
-        <!-- 3 Step Cards (Exact Reference Arrangement: White Card, Tall Electric Blue Card with photo cutout, White Card) -->
+        <!-- 3 Step Cards (Clean luxury cards without numbers 1, 2, 3 and without airplane icon) -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-center">
             <!-- Step 1: Find Your Destination (White soft card) -->
             <div class="bg-white rounded-3xl p-8 card-soft-shadow card-hover border border-slate-100 flex flex-col justify-between min-h-[320px]">
@@ -29,7 +28,6 @@ const { isAr } = useLocale();
                     <div class="w-12 h-12 rounded-2xl bg-blue-50 text-[#1E6BFF] flex items-center justify-center">
                         <Compass class="w-6 h-6" />
                     </div>
-                    <span class="text-xs font-bold text-slate-400 uppercase tracking-widest block">01</span>
                     <h3 class="text-xl font-black text-slate-900">
                         {{ isAr ? 'اختر وجهتك المفضلة' : 'Find Your Destination' }}
                     </h3>
@@ -47,21 +45,16 @@ const { isAr } = useLocale();
                 </div>
             </div>
 
-            <!-- Step 2: Book A Ticket (Highlight Luxury Electric Blue Card - Re-formatted cleanly) -->
-            <div class="relative bg-gradient-to-br from-[#1E6BFF] via-[#1A5ED8] to-[#0F42A6] text-white rounded-3xl p-8 lg:p-9 shadow-2xl shadow-blue-500/25 overflow-hidden flex flex-col justify-between min-h-[360px] lg:-translate-y-2 border border-blue-400/20 group">
+            <!-- Step 2: Book A Ticket (Highlight Luxury Electric Blue Card - Clean, no numbers, ticket icon) -->
+            <div class="relative bg-gradient-to-br from-[#1E6BFF] via-[#1A5ED8] to-[#0F42A6] text-white rounded-3xl p-8 lg:p-9 shadow-2xl shadow-blue-500/25 overflow-hidden flex flex-col justify-between min-h-[340px] lg:-translate-y-2 border border-blue-400/20 group">
                 <!-- Subtle luxury decorative ambient glow -->
                 <div class="absolute -top-16 -end-16 w-44 h-44 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
                 <div class="absolute -bottom-16 -start-16 w-44 h-44 bg-blue-900/40 rounded-full blur-2xl pointer-events-none"></div>
 
                 <div class="relative z-10 space-y-5">
-                    <!-- Top Bar: Step Number & Ticket Icon -->
-                    <div class="flex items-center justify-between">
-                        <div class="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-md text-white flex items-center justify-center border border-white/20 shadow-sm">
-                            <Ticket class="w-6 h-6" />
-                        </div>
-                        <span class="text-xs font-black tracking-widest text-blue-100 uppercase bg-white/15 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
-                            02
-                        </span>
+                    <!-- Icon Container (Ticket Icon, no airplane, no 02 number) -->
+                    <div class="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-md text-white flex items-center justify-center border border-white/20 shadow-sm">
+                        <Ticket class="w-6 h-6" />
                     </div>
 
                     <!-- Title & Description -->
@@ -102,13 +95,12 @@ const { isAr } = useLocale();
                 </div>
             </div>
 
-            <!-- Step 3: Pay & Start Journey (White soft card) -->
+            <!-- Step 3: Pay & Start Journey (White soft card - Clean, no numbers) -->
             <div class="bg-white rounded-3xl p-8 card-soft-shadow card-hover border border-slate-100 flex flex-col justify-between min-h-[320px]">
                 <div class="space-y-4">
                     <div class="w-12 h-12 rounded-2xl bg-blue-50 text-[#1E6BFF] flex items-center justify-center">
                         <CreditCard class="w-6 h-6" />
                     </div>
-                    <span class="text-xs font-bold text-slate-400 uppercase tracking-widest block">03</span>
                     <h3 class="text-xl font-black text-slate-900">
                         {{ isAr ? 'انطلق في رحلتك بأمان' : 'Pay & Start Journey' }}
                     </h3>
