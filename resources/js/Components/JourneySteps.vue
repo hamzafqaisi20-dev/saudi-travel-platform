@@ -29,6 +29,7 @@ const { isAr } = useLocale();
                     <div class="w-12 h-12 rounded-2xl bg-blue-50 text-[#1E6BFF] flex items-center justify-center">
                         <Compass class="w-6 h-6" />
                     </div>
+                    <span class="text-xs font-bold text-slate-400 uppercase tracking-widest block">01</span>
                     <h3 class="text-xl font-black text-slate-900">
                         {{ isAr ? 'اختر وجهتك المفضلة' : 'Find Your Destination' }}
                     </h3>
@@ -46,12 +47,12 @@ const { isAr } = useLocale();
                 </div>
             </div>
 
-            <!-- Step 2: Book A Ticket (Highlight Tall Blue Card with Aviation Visual) -->
+            <!-- Step 2: Book A Ticket (Highlight Tall Blue Card with Aviation Visual - Exactly matching image) -->
             <div class="relative bg-gradient-to-br from-[#1E6BFF] to-[#1250C4] text-white rounded-[2.5rem] p-8 lg:p-10 shadow-2xl shadow-blue-500/25 overflow-hidden flex flex-col justify-between min-h-[400px] lg:-translate-y-2 group">
                 <!-- Aviation Window / Clouds Visual (Complements Flight Theme Perfectly) -->
                 <div class="absolute top-0 ltr:right-0 rtl:left-0 w-40 h-40 lg:w-48 lg:h-48 ltr:rounded-bl-[4.5rem] rtl:rounded-br-[4.5rem] overflow-hidden border-b-4 ltr:border-l-4 rtl:border-r-4 border-white/20 shadow-inner">
                     <img
-                        src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=600&q=80"
+                        src="/images/aviation_window.jpg"
                         alt="Flight soaring above clouds"
                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
@@ -59,8 +60,11 @@ const { isAr } = useLocale();
                 </div>
 
                 <div class="relative z-10 space-y-4 max-w-[65%]">
-                    <div class="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-md text-white flex items-center justify-center border border-white/20 shadow-sm">
-                        <AircraftIcon className="w-6 h-6 text-white" :angle="isAr ? -45 : 45" variant="white" />
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-md text-white flex items-center justify-center border border-white/20 shadow-sm">
+                            <AircraftIcon className="w-6 h-6 text-white" :angle="isAr ? -45 : 45" variant="white" />
+                        </div>
+                        <span class="text-xs font-black tracking-widest text-blue-200 uppercase bg-white/10 px-2.5 py-1 rounded-full border border-white/15">02</span>
                     </div>
 
                     <h3 class="text-2xl sm:text-3xl font-black text-white leading-tight">
@@ -90,6 +94,7 @@ const { isAr } = useLocale();
                     <div class="w-12 h-12 rounded-2xl bg-blue-50 text-[#1E6BFF] flex items-center justify-center">
                         <CreditCard class="w-6 h-6" />
                     </div>
+                    <span class="text-xs font-bold text-slate-400 uppercase tracking-widest block">03</span>
                     <h3 class="text-xl font-black text-slate-900">
                         {{ isAr ? 'انطلق في رحلتك بأمان' : 'Pay & Start Journey' }}
                     </h3>
