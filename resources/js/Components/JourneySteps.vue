@@ -49,12 +49,12 @@ const { isAr } = useLocale();
 
             <!-- Step 2: Book A Ticket (Highlight Tall Blue Card with Circular Photo Cutout like Reference) -->
             <div class="relative bg-[#1E6BFF] text-white rounded-[2.5rem] p-8 lg:p-10 shadow-2xl shadow-blue-500/25 overflow-hidden flex flex-col justify-between min-h-[400px] lg:-translate-y-2">
-                <!-- Circular Photo Cutout in Top Corner (Matches Reference) -->
-                <div class="absolute top-0 right-0 w-36 h-36 lg:w-44 lg:h-44 rounded-bl-[4rem] overflow-hidden border-b-4 border-l-4 border-white/20 shadow-inner">
+                <!-- Circular Photo Cutout in Top Corner (Positioned at end of card with horizontal flip to prevent overlap with icon/text) -->
+                <div class="absolute top-0 ltr:right-0 rtl:left-0 w-36 h-36 lg:w-44 lg:h-44 ltr:rounded-bl-[4rem] rtl:rounded-br-[4rem] overflow-hidden border-b-4 ltr:border-l-4 rtl:border-r-4 border-white/20 shadow-inner pointer-events-none">
                     <img
                         src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=400&q=80"
                         alt="Boat in turquoise waters"
-                        class="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                        class="w-full h-full object-cover scale-x-[-1] hover:scale-110 transition-transform duration-500"
                     />
                 </div>
 

@@ -25,8 +25,8 @@ const { isAr } = useLocale();
                     </h1>
                     <p class="text-xs sm:text-sm text-slate-300 font-medium leading-relaxed">
                         {{ isAr 
-                            ? 'نموذج محاكاة ذكي يعتمد على بنية خدمية متطورة في Laravel مهيأة للتكامل مع OpenAI لإنشاء مسارات يومية دقيقة تناسب ميزانيتك وذوقك.' 
-                            : 'An intelligent planning engine designed with a clean Laravel service abstraction, ready for future OpenAI production integration.' }}
+                            ? 'خطط لرحلتك القادمة عبر مساعد السفر الذكي؛ صمم جدول أيامك بحرية واستكشف أرقى الوجهات والأنشطة المناسبة لاهتماماتك وميزانيتك.' 
+                            : 'Curate your next journey with our AI travel concierge: customize your daily itinerary, discover top destinations, and travel with ease.' }}
                     </p>
                 </div>
             </div>

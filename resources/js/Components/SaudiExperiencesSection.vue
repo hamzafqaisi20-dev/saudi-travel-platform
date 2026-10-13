@@ -14,10 +14,10 @@ const { isAr } = useLocale();
             <div>
                 <span class="text-xs font-bold uppercase tracking-widest text-[#1E6BFF] flex items-center gap-1.5 mb-1">
                     <Sparkles class="w-4 h-4" />
-                    {{ isAr ? 'التجارب والرحلات الاستثنائية' : 'SAUDI EXPERIENCES & SACRED JOURNEYS' }}
+                    {{ isAr ? 'رحلات استثنائية في قلب المملكة' : 'SAUDI EXPERIENCES & SACRED JOURNEYS' }}
                 </span>
                 <h2 class="text-2xl sm:text-4xl font-black text-[#0D1527] tracking-tight">
-                    {{ isAr ? 'رحلات ومواسم لا تُنسى في قلب المملكة' : 'Sacred Journeys, Heritage & Iconic Seasons' }}
+                    {{ isAr ? 'التجارب والرحلات الاستثنائية' : 'Exceptional Experiences & Trips' }}
                 </h2>
                 <p class="text-xs sm:text-sm text-slate-500 font-medium mt-1">
                     {{ isAr ? 'من رحاب العمرة في مكة المكرمة وسكينة المدينة المنورة إلى مسرح مرايا بالعلا وغوص البحر الأحمر' : 'From spiritual Umrah in Makkah and serene Madinah to AlUla stargazing and pristine coral diving' }}
@@ -80,10 +80,10 @@ const { isAr } = useLocale();
 
                 <div class="p-5 pt-0">
                     <Link
-                        href="/experiences"
-                        class="w-full py-2.5 rounded-full border border-slate-200 hover:border-[#1E6BFF] hover:text-[#1E6BFF] text-slate-700 text-xs font-bold flex items-center justify-center gap-1.5 transition-colors"
+                        :href="`/destinations?id=${exp.destinationId || (exp.id.includes('umrah') ? 'makkah' : exp.id.includes('madinah') ? 'madinah' : exp.id.includes('tantora') ? 'alula' : 'red-sea')}`"
+                        class="w-full py-2.5 rounded-full border border-slate-200 hover:border-[#1E6BFF] hover:bg-blue-50/50 hover:text-[#1E6BFF] text-slate-700 text-xs font-bold flex items-center justify-center gap-1.5 transition-colors"
                     >
-                        <span>{{ isAr ? (exp.id.includes('umrah') || exp.id.includes('madinah') ? 'استكشف الرحلة' : 'استكشف الفعالية') : 'Discover Journey' }}</span>
+                        <span>{{ isAr ? (exp.id.includes('umrah') || exp.id.includes('madinah') ? 'استكشف الوجهة والرحلة' : 'استكشف تفاصيل الوجهة') : 'Explore Destination' }}</span>
                         <component :is="isAr ? ArrowLeft : ArrowRight" class="w-3.5 h-3.5" />
                     </Link>
                 </div>

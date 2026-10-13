@@ -122,8 +122,8 @@ const generateQuickPlan = async () => {
             </h2>
             <p class="text-xs sm:text-sm text-slate-500 font-medium mt-3 leading-relaxed">
                 {{ isAr 
-                    ? 'صمم رحلتك المثالية في ثوانٍ مع خوارزميات الذكاء الاصطناعي المدربة على فهم خيارات السفر والمواسم والوجهات السعودية الفاخرة.'
-                    : 'Craft tailor-made Saudi itineraries with smart concierge algorithms ready for future OpenAI integration.' }}
+                    ? 'صمم جدول رحلتك المثالي في ثوانٍ مع مساعد السفر الذكي لمساعدتك في اختيار الوجهات والفنادق وأفضل الأوقات للزيارة.'
+                    : 'Craft tailor-made Saudi itineraries and discover curated travel recommendations in seconds.' }}
             </p>
         </div>
 

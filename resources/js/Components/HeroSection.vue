@@ -7,7 +7,6 @@ import AircraftIcon from '@/Components/AircraftIcon.vue';
 
 const { isAr } = useLocale();
 
-const activeStep = ref(1);
 const videoModalOpen = ref(false);
 </script>
 
@@ -40,39 +39,8 @@ const videoModalOpen = ref(false);
             <!-- Hero Content Grid -->
             <div class="relative z-20 max-w-2xl flex flex-col justify-between h-full pt-2 sm:pt-6">
                 <!-- Vertical Progress / Steps (Matches 1, 2, 3 indicators in reference image) -->
-                <div class="flex items-start gap-4 sm:gap-7">
-                    <!-- Vertical Indicator Line & Numbers -->
-                    <div class="hidden sm:flex flex-col items-center gap-2 pt-2 select-none">
-                        <button
-                            type="button"
-                            @click="activeStep = 1"
-                            class="w-7 h-7 rounded-full border text-[11px] font-bold flex items-center justify-center transition-all cursor-pointer"
-                            :class="activeStep === 1 ? 'bg-white text-[#1E6BFF] border-white shadow-md' : 'text-slate-600 border-slate-400/50 hover:border-white'"
-                        >
-                            1
-                        </button>
-                        <div class="w-[1.5px] h-10 bg-slate-400/40"></div>
-                        <button
-                            type="button"
-                            @click="activeStep = 2"
-                            class="w-7 h-7 rounded-full border text-[11px] font-bold flex items-center justify-center transition-all cursor-pointer"
-                            :class="activeStep === 2 ? 'bg-white text-[#1E6BFF] border-white shadow-md' : 'text-slate-600 border-slate-400/50 hover:border-white'"
-                        >
-                            2
-                        </button>
-                        <div class="w-[1.5px] h-10 bg-slate-400/40"></div>
-                        <button
-                            type="button"
-                            @click="activeStep = 3"
-                            class="w-7 h-7 rounded-full border text-[11px] font-bold flex items-center justify-center transition-all cursor-pointer"
-                            :class="activeStep === 3 ? 'bg-white text-[#1E6BFF] border-white shadow-md' : 'text-slate-600 border-slate-400/50 hover:border-white'"
-                        >
-                            3
-                        </button>
-                    </div>
-
-                    <!-- Typography & Call to Action -->
-                    <div class="space-y-3 sm:space-y-6">
+                <!-- Typography & Call to Action -->
+                <div class="space-y-3 sm:space-y-6">
                         <!-- Top Tagline (Reference: ELEVATE YOUR TRAVEL JOURNEY) -->
                         <div class="inline-flex items-center gap-2">
                             <span class="text-[11px] sm:text-sm font-bold tracking-wider uppercase text-slate-700">
@@ -124,7 +92,6 @@ const videoModalOpen = ref(false);
                         </div>
                     </div>
                 </div>
-            </div>
 
             <!-- Signature Bottom Nested Cutout Badge (Direct Match to Reference Image with dynamic placement) -->
             <div

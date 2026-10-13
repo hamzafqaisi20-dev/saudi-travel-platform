@@ -66,8 +66,8 @@ const handleSearch = () => {
             </button>
         </div>
 
-        <!-- Inputs Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 items-center">
+        <!-- Inputs Grid (Responsive 2 to 6 columns) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3.5 items-center">
             <!-- Origin Airport -->
             <div class="relative bg-slate-50 hover:bg-slate-100/80 rounded-2xl p-3.5 border border-slate-200/80 transition-colors">
                 <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">
@@ -78,7 +78,7 @@ const handleSearch = () => {
                     class="w-full bg-transparent font-bold text-slate-900 text-sm focus:outline-none cursor-pointer"
                 >
                     <option v-for="ap in sampleAirportCodes" :key="ap.code" :value="ap.code">
-                        {{ ap.code }} - {{ isAr ? ap.city.ar : ap.city.en }} ({{ isAr ? ap.name.ar : ap.name.en }})
+                        {{ ap.code }} - {{ isAr ? ap.city.ar : ap.city.en }}
                     </option>
                 </select>
             </div>
@@ -102,22 +102,44 @@ const handleSearch = () => {
                     class="w-full bg-transparent font-bold text-slate-900 text-sm focus:outline-none cursor-pointer"
                 >
                     <option v-for="ap in sampleAirportCodes" :key="ap.code" :value="ap.code">
-                        {{ ap.code }} - {{ isAr ? ap.city.ar : ap.city.en }} ({{ isAr ? ap.name.ar : ap.name.en }})
+                        {{ ap.code }} - {{ isAr ? ap.city.ar : ap.city.en }}
                     </option>
                 </select>
             </div>
 
-            <!-- Dates -->
+            <!-- Departure Date -->
             <div class="bg-slate-50 hover:bg-slate-100/80 rounded-2xl p-3.5 border border-slate-200/80 transition-colors">
                 <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1 flex items-center gap-1">
                     <Calendar class="w-3 h-3 text-slate-400" />
-                    {{ isAr ? 'تاريخ السفر' : 'Departure Date' }}
+                    {{ isAr ? 'تاريخ الذهاب' : 'Depart Date' }}
                 </span>
                 <input
                     type="date"
                     v-model="departDate"
                     class="w-full bg-transparent font-bold text-slate-900 text-sm focus:outline-none cursor-pointer"
                 />
+            </div>
+
+            <!-- Return Date: Displayed when Round-Trip, disabled with clear badge when One-Way -->
+            <div
+                class="rounded-2xl p-3.5 border transition-all"
+                :class="tripType === 'oneway' 
+                    ? 'bg-slate-100/50 border-dashed border-slate-200 opacity-60 cursor-not-allowed select-none' 
+                    : 'bg-slate-50 hover:bg-slate-100/80 border-slate-200/80'"
+            >
+                <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1 flex items-center gap-1">
+                    <Calendar class="w-3 h-3 text-slate-400" />
+                    {{ isAr ? 'تاريخ العودة' : 'Return Date' }}
+                </span>
+                <input
+                    v-if="tripType !== 'oneway'"
+                    type="date"
+                    v-model="returnDate"
+                    class="w-full bg-transparent font-bold text-slate-900 text-sm focus:outline-none cursor-pointer"
+                />
+                <span v-else class="text-xs font-bold text-slate-400 block pt-1">
+                    {{ isAr ? 'غير مطلوب (اتجاه واحد)' : 'Not needed (One-Way)' }}
+                </span>
             </div>
 
             <!-- Cabin Class & Travelers -->
@@ -130,9 +152,9 @@ const handleSearch = () => {
                     v-model="cabinClass"
                     class="w-full bg-transparent font-bold text-slate-900 text-sm focus:outline-none cursor-pointer"
                 >
-                    <option value="economy">{{ isAr ? '1 مسافر، الدرجة السياحية' : '1 Traveler, Economy' }}</option>
-                    <option value="business">{{ isAr ? '1 مسافر، درجة الأعمال' : '1 Traveler, Business Class' }}</option>
-                    <option value="first">{{ isAr ? '1 مسافر، الدرجة الأولى الفاخرة' : '1 Traveler, First Suite' }}</option>
+                    <option value="economy">{{ isAr ? '1 مسافر، السياحية' : '1 Traveler, Economy' }}</option>
+                    <option value="business">{{ isAr ? '1 مسافر، الأعمال' : '1 Traveler, Business' }}</option>
+                    <option value="first">{{ isAr ? '1 مسافر، الأولى' : '1 Traveler, First' }}</option>
                 </select>
             </div>
 
@@ -142,7 +164,7 @@ const handleSearch = () => {
                     type="button"
                     @click="handleSearch"
                     :disabled="isSearching"
-                    class="w-full py-4 px-6 rounded-2xl bg-[#1E6BFF] hover:bg-blue-600 text-white font-extrabold text-sm sm:text-base flex items-center justify-center gap-2.5 shadow-lg shadow-blue-500/25 active:scale-98 transition-all cursor-pointer disabled:opacity-75"
+                    class="w-full py-3.5 px-4 rounded-2xl bg-[#1E6BFF] hover:bg-blue-600 text-white font-extrabold text-sm flex items-center justify-center gap-2 shadow-lg shadow-blue-500/25 active:scale-98 transition-all cursor-pointer disabled:opacity-75"
                 >
                     <AircraftIcon v-if="!isSearching" className="w-5 h-5 text-white" :angle="isAr ? -45 : 45" />
                     <svg v-else class="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24">
@@ -154,34 +176,49 @@ const handleSearch = () => {
             </div>
         </div>
 
-        <!-- Quick Route Chips -->
-        <div class="mt-4 pt-3 flex flex-wrap items-center gap-2 text-xs text-slate-500">
-            <span class="font-bold text-slate-600">{{ isAr ? 'المسارات المقترحة:' : 'Popular Routes:' }}</span>
+        <!-- Quick Route Chips (Clickable and interactive) -->
+        <div class="mt-5 pt-3.5 border-t border-slate-100 flex flex-wrap items-center gap-2 text-xs">
+            <span class="font-black text-slate-700 flex items-center gap-1 me-1">
+                <span class="w-2 h-2 rounded-full bg-[#1E6BFF]"></span>
+                {{ isAr ? 'المسارات المقترحة:' : 'Popular Routes:' }}
+            </span>
             <button
                 type="button"
                 @click="origin = 'RUH'; destination = 'MED'"
-                class="px-2.5 py-1 rounded-full bg-slate-100 hover:bg-blue-50 hover:text-[#1E6BFF] transition-colors"
+                class="px-3 py-1.5 rounded-full font-bold transition-all cursor-pointer border"
+                :class="origin === 'RUH' && destination === 'MED'
+                    ? 'bg-[#1E6BFF] text-white border-[#1E6BFF] shadow-sm'
+                    : 'bg-slate-100 text-slate-700 hover:bg-blue-50 hover:text-[#1E6BFF] border-slate-200/60'"
             >
                 {{ isAr ? 'الرياض ⇄ المدينة المنورة' : 'RUH ⇄ MED (Madinah)' }}
             </button>
             <button
                 type="button"
                 @click="origin = 'RUH'; destination = 'JED'"
-                class="px-2.5 py-1 rounded-full bg-slate-100 hover:bg-blue-50 hover:text-[#1E6BFF] transition-colors"
+                class="px-3 py-1.5 rounded-full font-bold transition-all cursor-pointer border"
+                :class="origin === 'RUH' && destination === 'JED'
+                    ? 'bg-[#1E6BFF] text-white border-[#1E6BFF] shadow-sm'
+                    : 'bg-slate-100 text-slate-700 hover:bg-blue-50 hover:text-[#1E6BFF] border-slate-200/60'"
             >
                 {{ isAr ? 'الرياض ⇄ جدة (مكة)' : 'RUH ⇄ JED (Makkah)' }}
             </button>
             <button
                 type="button"
                 @click="origin = 'RUH'; destination = 'ULH'"
-                class="px-2.5 py-1 rounded-full bg-slate-100 hover:bg-blue-50 hover:text-[#1E6BFF] transition-colors"
+                class="px-3 py-1.5 rounded-full font-bold transition-all cursor-pointer border"
+                :class="origin === 'RUH' && destination === 'ULH'
+                    ? 'bg-[#1E6BFF] text-white border-[#1E6BFF] shadow-sm'
+                    : 'bg-slate-100 text-slate-700 hover:bg-blue-50 hover:text-[#1E6BFF] border-slate-200/60'"
             >
                 {{ isAr ? 'الرياض ⇄ العلا' : 'RUH ⇄ ULH (AlUla)' }}
             </button>
             <button
                 type="button"
                 @click="origin = 'RUH'; destination = 'RSI'"
-                class="px-2.5 py-1 rounded-full bg-slate-100 hover:bg-blue-50 hover:text-[#1E6BFF] transition-colors"
+                class="px-3 py-1.5 rounded-full font-bold transition-all cursor-pointer border"
+                :class="origin === 'RUH' && destination === 'RSI'
+                    ? 'bg-[#1E6BFF] text-white border-[#1E6BFF] shadow-sm'
+                    : 'bg-slate-100 text-slate-700 hover:bg-blue-50 hover:text-[#1E6BFF] border-slate-200/60'"
             >
                 {{ isAr ? 'الرياض ⇄ البحر الأحمر' : 'RUH ⇄ RSI (Red Sea)' }}
             </button>

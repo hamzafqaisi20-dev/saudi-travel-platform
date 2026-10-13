@@ -299,19 +299,12 @@ export const travelPartners = [
         ]
     },
     {
-        category: { ar: 'الترفيه والفعاليات والمواسم', en: 'Entertainment & Season Ticketing' },
+        category: { ar: 'منصات التذاكر والفعاليات الكبرى', en: 'Events & Entertainment Ticketing' },
         items: [
-            {
-                name: { ar: 'الهيئة العامة للترفيه (GEA)', en: 'General Entertainment Authority' },
-                badge: { ar: 'منظم المواسم', en: 'Entertainment Regulator' },
-                desc: { ar: 'الجهة المسؤولة عن تنظيم وتطوير قطاع الترفيه ومواسم السعودية الكبرى.', en: 'Leading world-class entertainment, cultural spectacles, and festivals.' },
-                url: 'https://www.gea.gov.sa/',
-                type: 'entertainment'
-            },
             {
                 name: { ar: 'ويبوك (Webook)', en: 'Webook' },
                 badge: { ar: 'منصة التذاكر الرسمية', en: 'Official Mega-Events Ticketing' },
-                desc: { ar: 'المنصة الرسمية لحجز تذاكر الفعاليات الترفيهية والرياضية الكبرى بالمملكة.', en: 'Official ticketing gateway for mega-events, sports bouts, and entertainment.' },
+                desc: { ar: 'المنصة الرسمية لحجز تذاكر الفعاليات الثقافية والترفيهية والرياضية الكبرى بالمملكة.', en: 'Official ticketing gateway for mega-events, sports bouts, and cultural exhibitions.' },
                 url: 'https://webook.com/en',
                 type: 'ticketing'
             }
@@ -331,7 +324,7 @@ export const travelPartners = [
                 name: { ar: 'قطار الحرمين السريع (HHR)', en: 'Haramain High-Speed Railway' },
                 badge: { ar: 'الربط السككي فائق السرعة', en: 'High-Speed Rail 300 km/h' },
                 desc: { ar: 'ربط مكة المكرمة بالمدينة المنورة ومطار الملك عبدالعزيز بجدة برحلات مريحة بسرعة 300 كم/س.', en: 'High-speed electric train connecting Makkah, Madinah, and Jeddah King Abdulaziz Airport.' },
-                url: 'https://sar.com.sa/',
+                url: 'https://sar.hhr.sa/',
                 type: 'transit'
             }
         ]
@@ -341,6 +334,7 @@ export const travelPartners = [
 export const experiences = [
     {
         id: 'umrah-trip',
+        destinationId: 'makkah',
         title: { ar: 'رحلة العمرة وزيارة المسجد الحرام', en: 'Spiritual Umrah & The Grand Mosque' },
         location: { ar: 'المسجد الحرام، مكة المكرمة', en: 'The Grand Mosque, Makkah' },
         image: '/images/destinations/umrah.jpg',
@@ -361,6 +355,7 @@ export const experiences = [
     },
     {
         id: 'madinah-ziyarah',
+        destinationId: 'madinah',
         title: { ar: 'سكينة المدينة المنورة وزيارة مسجد النبي ﷺ', en: 'Peaceful Madinah & The Prophet’s Mosque' },
         location: { ar: 'المسجد النبوي، المدينة المنورة', en: 'The Prophet’s Mosque, Madinah' },
         image: '/images/destinations/madinah_ziyarah.jpg',
@@ -381,6 +376,7 @@ export const experiences = [
     },
     {
         id: 'winter-tantora',
+        destinationId: 'alula',
         title: { ar: 'شتاء طنطورة وسماء العلا', en: 'Winter at Tantora & AlUla Skies' },
         location: { ar: 'وادي عشار ومسرح مرايا، العلا', en: 'Ashar Valley & Maraya, AlUla' },
         image: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=1200&q=80',
@@ -401,6 +397,7 @@ export const experiences = [
     },
     {
         id: 'red-sea-diving',
+        destinationId: 'red-sea',
         title: { ar: 'غوص الشعاب المرجانية البكر', en: 'Pristine Barrier Reef Diving' },
         location: { ar: 'جزر أمهات وشيبارة، البحر الأحمر', en: 'Ummahat & Sheybarah, The Red Sea' },
         image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80',

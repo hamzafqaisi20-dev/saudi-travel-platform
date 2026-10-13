@@ -7,6 +7,19 @@ import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 
 const appName = 'InfoTravel | منصة السفر الذكية';
 
+if (typeof window !== 'undefined') {
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+    window.addEventListener('beforeunload', () => {
+        window.scrollTo(0, 0);
+    });
+    window.addEventListener('load', () => {
+        window.scrollTo(0, 0);
+    });
+    window.scrollTo(0, 0);
+}
+
 createInertiaApp({
     title: (title) => (title ? `${title} - ${appName}` : appName),
     resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue')),

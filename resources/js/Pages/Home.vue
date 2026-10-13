@@ -24,16 +24,16 @@ const { isAr } = useLocale();
         <!-- Reference Inspired Cinematic Hero Section -->
         <HeroSection />
 
-        <!-- Flight Search Widget Section -->
+        <!-- Brand and Social Bar -->
+        <PartnerBar />
+
+        <!-- Top / Featured Tourist Destinations -->
+        <PopularDestinations />
+
+        <!-- Flight Search / Ticket Booking Section -->
         <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 sm:mt-8 lg:mt-10 relative z-30">
             <FlightSearchWidget />
         </section>
-
-        <!-- Brand and Social Bar (Matches Reference Row 2) -->
-        <PartnerBar />
-
-        <!-- Popular Destinations (Matches Reference Row 3) -->
-        <PopularDestinations />
 
         <!-- Journey To The Skies Made Simple (Matches Reference Row 4) -->
         <JourneySteps />

@@ -1,10 +1,26 @@
 <script setup>
+import { ref } from 'vue';
 import { Link } from '@inertiajs/vue3';
 import { useLocale } from '@/composables/useLocale';
 import AircraftIcon from '@/Components/AircraftIcon.vue';
-import { Globe, Shield, Sparkles, Plane, ExternalLink } from 'lucide-vue-next';
+import { Globe, Shield, Sparkles, Plane, ExternalLink, Mail, Phone, Clock, CheckCircle2, ShieldCheck, FileText, X } from 'lucide-vue-next';
 
 const { isAr, toggleLocale } = useLocale();
+
+const activeLegalModal = ref(null);
+const contactSent = ref(false);
+const contactForm = ref({ name: '', email: '', message: '' });
+
+const submitContact = () => {
+    if (contactForm.value.email || contactForm.value.message) {
+        contactSent.value = true;
+        setTimeout(() => {
+            contactSent.value = false;
+            contactForm.value = { name: '', email: '', message: '' };
+            activeLegalModal.value = null;
+        }, 2500);
+    }
+};
 </script>
 
 <template>
@@ -98,13 +114,146 @@ const { isAr, toggleLocale } = useLocale();
                 </button>
             </div>
 
-            <!-- Bottom Copyright -->
+            <!-- Bottom Copyright & Legal Links -->
             <div class="mt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
                 <p>© {{ new Date().getFullYear() }} InfoTravel. {{ isAr ? 'جميع الحقوق محفوظة.' : 'All rights reserved.' }}</p>
                 <div class="flex items-center gap-6">
-                    <Link href="/about" class="hover:text-slate-400">{{ isAr ? 'سياسة الخصوصية' : 'Privacy Policy' }}</Link>
-                    <Link href="/about" class="hover:text-slate-400">{{ isAr ? 'الشروط والأحكام' : 'Terms of Service' }}</Link>
-                    <Link href="/about" class="hover:text-slate-400">{{ isAr ? 'تواصل معنا' : 'Contact Support' }}</Link>
+                    <button type="button" @click="activeLegalModal = 'privacy'" class="hover:text-slate-300 transition-colors cursor-pointer">{{ isAr ? 'سياسة الخصوصية' : 'Privacy Policy' }}</button>
+                    <button type="button" @click="activeLegalModal = 'terms'" class="hover:text-slate-300 transition-colors cursor-pointer">{{ isAr ? 'الشروط والأحكام' : 'Terms of Service' }}</button>
+                    <button type="button" @click="activeLegalModal = 'contact'" class="hover:text-slate-300 transition-colors cursor-pointer">{{ isAr ? 'تواصل معنا' : 'Contact Support' }}</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Legal & Contact Interactive Modals -->
+        <div v-if="activeLegalModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-in fade-in">
+            <div class="bg-white text-slate-900 rounded-3xl p-6 sm:p-8 max-w-lg w-full card-soft-shadow border border-slate-100 space-y-5">
+                <!-- Modal Header -->
+                <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+                    <div class="flex items-center gap-2">
+                        <component
+                            :is="activeLegalModal === 'contact' ? Mail : (activeLegalModal === 'privacy' ? ShieldCheck : FileText)"
+                            class="w-5 h-5 text-[#1E6BFF]"
+                        />
+                        <h3 class="text-base font-black text-slate-900">
+                            <template v-if="activeLegalModal === 'privacy'">{{ isAr ? 'سياسة الخصوصية وحماية البيانات' : 'Privacy Policy & Data Security' }}</template>
+                            <template v-else-if="activeLegalModal === 'terms'">{{ isAr ? 'الشروط والأحكام والترخيص' : 'Terms of Service & Licensing' }}</template>
+                            <template v-else>{{ isAr ? 'تواصل مع فريق InfoTravel' : 'Contact InfoTravel Support' }}</template>
+                        </h3>
+                    </div>
+                    <button @click="activeLegalModal = null" class="text-slate-400 hover:text-slate-700 text-lg cursor-pointer">
+                        <X class="w-5 h-5" />
+                    </button>
+                </div>
+
+                <!-- Modal Body: Privacy Policy -->
+                <div v-if="activeLegalModal === 'privacy'" class="space-y-3 text-xs text-slate-600 leading-relaxed max-h-[60vh] overflow-y-auto pe-1">
+                    <p class="font-bold text-slate-800">
+                        {{ isAr 
+                            ? 'نلتزم في InfoTravel بحماية خصوصية بيانات زوارنا ومستخدمينا وفق أعلى معايير الأمن السيبراني السعودية.' 
+                            : 'At InfoTravel, we adhere to stringent data protection and cybersecurity standards across the Kingdom.' }}
+                    </p>
+                    <p>
+                        {{ isAr
+                            ? '• جمع البيانات: لا نقوم بجمع أو مشاركة أي بيانات مصرفية حساسة خلال هذه المرحلة الاستعراضية، وتقتصر المدخلات على استفسارات البحث السياحي الذكي.'
+                            : '• Data Collection: No payment card or sensitive financial credentials are required or stored during this demonstration phase.' }}
+                    </p>
+                    <p>
+                        {{ isAr
+                            ? '• ملفات تعريف الارتباط (Cookies): نستخدم ملفات تعريف الارتباط التقنية فقط لحفظ تفضيل اللغة (العربية/الإنجليزية) وحالة التصفح.'
+                            : '• Cookies: We utilize strictly essential cookies solely to persist your language preference and UI states.' }}
+                    </p>
+                </div>
+
+                <!-- Modal Body: Terms of Service -->
+                <div v-if="activeLegalModal === 'terms'" class="space-y-3 text-xs text-slate-600 leading-relaxed max-h-[60vh] overflow-y-auto pe-1">
+                    <p class="font-bold text-slate-800">
+                        {{ isAr 
+                            ? 'شروط الاستخدام الخاصة بالنموذج التفاعلي لمنصة InfoTravel:' 
+                            : 'Terms & Conditions governing the InfoTravel interactive showcase platform:' }}
+                    </p>
+                    <p>
+                        {{ isAr
+                            ? '1. طبيعة المنصة: هذا المشروع مصمم كنموذج عرض واجهات وتقنيات حديثة لتجربة مستخدم فاخرة لقطاع السفر والسياحة السعودي.'
+                            : '1. Platform Nature: This software application serves as a high-fidelity frontend UI architecture and technology demonstration.' }}
+                    </p>
+                    <p>
+                        {{ isAr
+                            ? '2. بيانات الرحلات والتسعير: جميع أسعار الرحلات وباقات الطيران وأكواد الخصم المعروضة هي بيانات توضيحية ومحاكاة برمجية وليست عقود حجز نهائية ملزمة.'
+                            : '2. Fares & Schedules: All flight itineraries, schedules, and promo codes are simulated mock values and do not constitute actual ticketing tickets.' }}
+                    </p>
+                </div>
+
+                <!-- Modal Body: Contact Support -->
+                <div v-if="activeLegalModal === 'contact'" class="space-y-4 text-xs text-slate-600">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 p-3 rounded-2xl bg-slate-50 border border-slate-100 text-xs">
+                        <div class="flex items-center gap-2">
+                            <Mail class="w-4 h-4 text-[#1E6BFF] shrink-0" />
+                            <div>
+                                <span class="text-slate-400 block text-[10px]">{{ isAr ? 'البريد الإلكتروني:' : 'Email Support:' }}</span>
+                                <span class="font-bold text-slate-800">support@infotravel.sa</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <Phone class="w-4 h-4 text-[#1E6BFF] shrink-0" />
+                            <div>
+                                <span class="text-slate-400 block text-[10px]">{{ isAr ? 'الرقم الموحد:' : 'Toll Free:' }}</span>
+                                <span class="font-bold text-slate-800" dir="ltr">800 124 2030</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div v-if="contactSent" class="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 flex items-center gap-2 text-xs font-bold">
+                        <CheckCircle2 class="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span>{{ isAr ? 'تم إرسال رسالتك بنجاح! سيتواصل معك فريق الدعم قريباً.' : 'Message sent successfully! Our concierge will respond shortly.' }}</span>
+                    </div>
+
+                    <form v-else @submit.prevent="submitContact" class="space-y-3">
+                        <div>
+                            <input
+                                type="text"
+                                v-model="contactForm.name"
+                                :placeholder="isAr ? 'الاسم الكامل' : 'Your Name'"
+                                class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:outline-none focus:border-[#1E6BFF]"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <input
+                                type="email"
+                                v-model="contactForm.email"
+                                :placeholder="isAr ? 'البريد الإلكتروني' : 'Email Address'"
+                                class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:outline-none focus:border-[#1E6BFF]"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <textarea
+                                v-model="contactForm.message"
+                                rows="3"
+                                :placeholder="isAr ? 'اكتب رسالتك أو استفسارك هنا...' : 'Write your message or inquiry here...'"
+                                class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:outline-none focus:border-[#1E6BFF]"
+                                required
+                            ></textarea>
+                        </div>
+                        <button
+                            type="submit"
+                            class="w-full py-2.5 rounded-full bg-[#1E6BFF] hover:bg-blue-600 text-white font-bold text-xs transition-colors cursor-pointer shadow-md"
+                        >
+                            {{ isAr ? 'إرسال الرسالة' : 'Send Message' }}
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Modal Footer -->
+                <div class="pt-2 border-t border-slate-100 flex justify-end">
+                    <button
+                        type="button"
+                        @click="activeLegalModal = null"
+                        class="px-5 py-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-colors cursor-pointer"
+                    >
+                        {{ isAr ? 'إغلاق' : 'Close' }}
+                    </button>
                 </div>
             </div>
         </div>

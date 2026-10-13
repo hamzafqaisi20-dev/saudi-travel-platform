@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 import { Head, Link } from '@inertiajs/vue3';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import { destinations } from '@/data/mockData';
@@ -11,6 +11,23 @@ const { isAr } = useLocale();
 
 const searchQuery = ref('');
 const selectedCategory = ref('all');
+
+onMounted(() => {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    const filter = params.get('filter') || params.get('topic');
+    if (id) {
+        selectedCategory.value = id;
+        setTimeout(() => {
+            const el = document.getElementById(`dest-${id}`);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }, 150);
+    } else if (filter) {
+        searchQuery.value = filter;
+    }
+});
 
 const filteredDestinations = computed(() => {
     return destinations.filter(d => {
@@ -145,7 +162,9 @@ const filteredDestinations = computed(() => {
                 <div
                     v-for="dest in filteredDestinations"
                     :key="dest.id"
-                    class="bg-white rounded-3xl overflow-hidden card-soft-shadow card-hover border border-slate-100 flex flex-col justify-between group"
+                    :id="`dest-${dest.id}`"
+                    class="bg-white rounded-3xl overflow-hidden card-soft-shadow card-hover border border-slate-100 flex flex-col justify-between group transition-all"
+                    :class="selectedCategory === dest.id ? 'ring-2 ring-[#1E6BFF] ring-offset-4' : ''"
                 >
                     <div>
                         <!-- Destination Photo -->

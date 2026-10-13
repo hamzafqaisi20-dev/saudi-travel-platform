@@ -35,19 +35,21 @@ const isActive = (href) => {
             <div class="flex items-center justify-between h-18 sm:h-20 gap-2 sm:gap-4">
                 <!-- Group 1: Brand Logo & Navigation Links -->
                 <div class="flex items-center gap-3 lg:gap-4 xl:gap-6 min-w-0">
-                    <!-- Brand Logo -->
-                    <Link href="/" class="flex items-center gap-2.5 group shrink-0 select-none">
-                        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-gradient-to-tr from-[#0D1527] to-[#1E6BFF] flex items-center justify-center text-white shadow-lg shadow-blue-500/25 group-hover:scale-105 transition-transform border border-white/20 shrink-0">
-                            <!-- Aerodynamic aircraft icon -->
-                            <AircraftIcon className="w-5 h-5 sm:w-6 sm:h-6" variant="white" :angle="-45" />
-                        </div>
-                        <div class="flex flex-col">
-                            <span class="text-base sm:text-lg font-extrabold tracking-tight text-slate-900 leading-tight inline-flex items-center" dir="ltr">
-                                <span>Info</span><span class="text-[#1E6BFF]">Travel</span>
-                            </span>
-                            <span class="text-[9px] font-medium text-slate-400 tracking-wider">
-                                {{ isAr ? 'منصة السفر الذكية' : 'SMART TRAVEL PLATFORM' }}
-                            </span>
+                    <!-- Unified Brand Logo Unit (Prevents icon and text desynchronization during animations & layout shifts) -->
+                    <Link href="/" class="inline-flex items-center shrink-0 select-none group" id="main-brand-logo">
+                        <div class="inline-flex items-center gap-2.5 transition-transform duration-200 group-hover:scale-[1.02] transform-gpu">
+                            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-gradient-to-tr from-[#0D1527] to-[#1E6BFF] flex items-center justify-center text-white shadow-lg shadow-blue-500/25 border border-white/20 shrink-0">
+                                <!-- Aerodynamic aircraft icon -->
+                                <AircraftIcon className="w-5 h-5 sm:w-6 sm:h-6" variant="white" :angle="-45" />
+                            </div>
+                            <div class="flex flex-col shrink-0">
+                                <span class="text-base sm:text-lg font-extrabold tracking-tight text-slate-900 leading-tight inline-flex items-center" dir="ltr">
+                                    <span>Info</span><span class="text-[#1E6BFF]">Travel</span>
+                                </span>
+                                <span class="text-[9px] font-medium text-slate-400 tracking-wider">
+                                    {{ isAr ? 'منصة السفر الذكية' : 'SMART TRAVEL PLATFORM' }}
+                                </span>
+                            </div>
                         </div>
                     </Link>
 

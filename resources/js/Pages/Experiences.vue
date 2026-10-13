@@ -129,14 +129,23 @@ const activeModal = ref(null);
                     </div>
                 </div>
 
-                <div class="pt-2 flex gap-3">
+                <div class="pt-2 flex flex-col sm:flex-row gap-2">
                     <a
                         :href="activeModal.portal?.url || 'https://www.nusuk.sa/'"
                         target="_blank"
-                        rel="noopener"
+                        rel="noopener noreferrer"
                         class="flex-1 py-3 text-center rounded-full bg-[#0D1527] text-white text-xs font-bold hover:bg-[#1E6BFF] transition-colors"
                     >
                         {{ isAr ? `الانتقال إلى منصة ${activeModal.portal?.name || 'الرسمية'}` : `Open Official ${activeModal.portal?.name || 'Gateway'}` }}
+                    </a>
+                    <a
+                        v-if="activeModal.id?.includes('umrah') || activeModal.id?.includes('madinah')"
+                        href="https://sar.hhr.sa/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="px-4 py-3 text-center rounded-full bg-blue-50 text-[#1E6BFF] border border-blue-200 text-xs font-bold hover:bg-blue-100 transition-colors"
+                    >
+                        {{ isAr ? 'حجز قطار الحرمين' : 'Haramain High-Speed Rail' }}
                     </a>
                 </div>
             </div>

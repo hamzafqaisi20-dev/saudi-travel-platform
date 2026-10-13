@@ -92,22 +92,13 @@ const goToSlide = (index) => {
 };
 
 // Navigation handlers (Locale-aware directional logic requested by user)
-// In English: Left is previous (slides right), Right is next (slides left)
-// In Arabic: Right button sends picture to RIGHT, Left button sends picture to LEFT
-const handleLeftClick = () => {
-    if (isAr.value) {
-        nextSlide(); // sends picture to the left
-    } else {
-        prevSlide(); // english previous
-    }
+// Navigation handlers synchronized with reading direction
+const handleNextClick = () => {
+    nextSlide();
 };
 
-const handleRightClick = () => {
-    if (isAr.value) {
-        prevSlide(); // sends picture to the right
-    } else {
-        nextSlide(); // english next
-    }
+const handlePrevClick = () => {
+    prevSlide();
 };
 
 // Interactive Drag state (real-time 1:1 tracking with hand movement)
@@ -254,12 +245,6 @@ onUnmounted(() => {
         <!-- Section Header -->
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
             <div class="max-w-2xl">
-                <!-- Golden/Blue luxury pill -->
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/60 text-[#1E6BFF] text-xs font-black tracking-wide mb-3 shadow-sm">
-                    <Sparkles class="w-3.5 h-3.5 text-[#1E6BFF] animate-pulse" />
-                    <span>{{ isAr ? 'وجهات سياحية مختارة بعناية' : 'HANDPICKED SAUDI WONDERS' }}</span>
-                </div>
-
                 <h2 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-black text-[#0D1527] tracking-tight leading-tight">
                     {{ isAr ? 'أبرز الوجهات السياحية في المملكة' : 'Popular Destinations in Saudi Arabia' }}
                 </h2>
@@ -280,34 +265,28 @@ onUnmounted(() => {
                     <span>{{ String(maxIndex + 1).padStart(2, '0') }}</span>
                 </div>
 
-                <!-- Navigation Buttons (Intuitive Left/Right arrows) -->
-                <div class="flex items-center gap-2" dir="ltr">
-                    <!-- Left Arrow Button -->
+                <!-- Navigation Buttons (Synchronized with reading direction: Next advances, Prev goes back) -->
+                <div class="flex items-center gap-2">
+                    <!-- Previous Button -->
                     <button
                         type="button"
-                        @click="handleLeftClick"
-                        class="w-11 h-11 rounded-full flex items-center justify-center transition-all cursor-pointer shadow-sm hover:scale-105 active:scale-95"
-                        :class="isAr 
-                            ? 'bg-[#0D1527] hover:bg-[#1E6BFF] text-white shadow-md hover:shadow-blue-500/25' 
-                            : 'border border-slate-200 hover:border-[#1E6BFF] bg-white text-slate-800 hover:text-[#1E6BFF] hover:bg-blue-50/40'"
-                        :aria-label="isAr ? 'تحريك لليسار' : 'Previous destination'"
-                        :title="isAr ? 'تحريك لليسار' : 'Previous'"
+                        @click="handlePrevClick"
+                        class="w-11 h-11 rounded-full flex items-center justify-center transition-all cursor-pointer shadow-sm hover:scale-105 active:scale-95 border border-slate-200 hover:border-[#1E6BFF] bg-white text-slate-800 hover:text-[#1E6BFF] hover:bg-blue-50/40"
+                        :aria-label="isAr ? 'السابق' : 'Previous destination'"
+                        :title="isAr ? 'السابق' : 'Previous'"
                     >
-                        <ChevronLeft class="w-5 h-5" />
+                        <component :is="isAr ? ChevronRight : ChevronLeft" class="w-5 h-5" />
                     </button>
 
-                    <!-- Right Arrow Button -->
+                    <!-- Next Button -->
                     <button
                         type="button"
-                        @click="handleRightClick"
-                        class="w-11 h-11 rounded-full flex items-center justify-center transition-all cursor-pointer shadow-sm hover:scale-105 active:scale-95"
-                        :class="isAr 
-                            ? 'border border-slate-200 hover:border-[#1E6BFF] bg-white text-slate-800 hover:text-[#1E6BFF] hover:bg-blue-50/40' 
-                            : 'bg-[#0D1527] hover:bg-[#1E6BFF] text-white shadow-md hover:shadow-blue-500/25'"
-                        :aria-label="isAr ? 'تحريك لليمين' : 'Next destination'"
-                        :title="isAr ? 'تحريك لليمين' : 'Next'"
+                        @click="handleNextClick"
+                        class="w-11 h-11 rounded-full flex items-center justify-center transition-all cursor-pointer shadow-md hover:shadow-blue-500/25 hover:scale-105 active:scale-95 bg-[#0D1527] hover:bg-[#1E6BFF] text-white"
+                        :aria-label="isAr ? 'التالي' : 'Next destination'"
+                        :title="isAr ? 'التالي' : 'Next'"
                     >
-                        <ChevronRight class="w-5 h-5" />
+                        <component :is="isAr ? ChevronLeft : ChevronRight" class="w-5 h-5" />
                     </button>
                 </div>
             </div>

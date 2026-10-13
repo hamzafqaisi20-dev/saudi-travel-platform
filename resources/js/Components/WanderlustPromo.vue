@@ -19,25 +19,28 @@ const { isAr } = useLocale();
                         class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                     />
 
-                    <!-- White Cutout Discount Badge at Bottom (Matches Reference) -->
-                    <div class="absolute bottom-4 left-4 right-4 sm:left-6 sm:right-6 bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-xl border border-slate-100 flex items-center justify-between">
+                    <!-- Interactive 20% Discount Badge at Bottom (Links directly to flight search with promo applied) -->
+                    <Link
+                        href="/flights?promo=SAUDI20"
+                        class="absolute bottom-4 left-4 right-4 sm:left-6 sm:right-6 bg-white/95 hover:bg-white backdrop-blur-md rounded-2xl p-4 shadow-xl border border-slate-100 flex items-center justify-between transition-all hover:scale-[1.02] cursor-pointer group"
+                    >
                         <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-xl bg-blue-50 text-[#1E6BFF] flex items-center justify-center font-black text-sm">
+                            <div class="w-10 h-10 rounded-xl bg-blue-50 text-[#1E6BFF] flex items-center justify-center font-black text-sm group-hover:bg-[#1E6BFF] group-hover:text-white transition-colors">
                                 <Tag class="w-5 h-5" />
                             </div>
                             <div>
                                 <span class="text-lg sm:text-xl font-black text-[#1E6BFF] block leading-none">
-                                    {{ isAr ? 'خصم 20%' : '20% OFF' }}
+                                    {{ isAr ? 'خصم 20% (كوبون SAUDI20)' : '20% OFF (Code SAUDI20)' }}
                                 </span>
                                 <span class="text-[11px] font-bold text-slate-400 mt-1 block">
-                                    {{ isAr ? 'حتى 20 نوفمبر 2026' : 'Till 20 November, 2026' }}
+                                    {{ isAr ? 'انقر لتفعيل الخصم على الرحلات' : 'Click to apply discount on flights' }}
                                 </span>
                             </div>
                         </div>
-                        <span class="px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase bg-emerald-50 text-emerald-600 border border-emerald-200">
-                            {{ isAr ? 'عرض خاص' : 'PROMO' }}
+                        <span class="px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase bg-emerald-50 text-emerald-600 border border-emerald-200 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                            {{ isAr ? 'تفعيل العرض' : 'APPLY' }}
                         </span>
-                    </div>
+                    </Link>
                 </div>
             </div>
 

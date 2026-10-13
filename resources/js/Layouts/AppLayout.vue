@@ -9,6 +9,9 @@ const { dir, locale } = useLocale();
 onMounted(() => {
     document.documentElement.setAttribute('dir', dir.value);
     document.documentElement.setAttribute('lang', locale.value);
+    if (typeof window !== 'undefined') {
+        window.scrollTo(0, 0);
+    }
 });
 </script>
 

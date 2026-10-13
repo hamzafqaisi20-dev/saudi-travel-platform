@@ -12,12 +12,22 @@ const activeTab = ref('all');
 
 const seasons = [
     {
+        title: { ar: 'موسم الحج المبارك (ذو الحجة)', en: 'The Blessed Hajj Season (Dhul-Hijjah)' },
+        tag: { ar: 'المشاعر المقدسة ومكة المكرمة', en: 'Sacred Holy Sites & Makkah' },
+        desc: {
+            ar: 'أعظم تجمع إيماني في منى وعرفات ومزدلفة والحرم المكي الشريف، مع أرقى الخدمات اللوجستية ومنظومة نقل ذكية ورعاية شاملة لضيوف الرحمن.',
+            en: 'The holiest spiritual gathering across Mina, Arafat, Muzdalifah, and the Grand Mosque, featuring world-class smart logistics and pilgrim care.'
+        },
+        route: '/destinations?id=makkah'
+    },
+    {
         title: { ar: 'موسم العمرة والروحانيات (طوال العام)', en: 'Spiritual Umrah & Pilgrimage (Year-Round)' },
         tag: { ar: 'مكة المكرمة والمدينة المنورة', en: 'Sacred Sanctuaries & Nusuk' },
         desc: {
             ar: 'أجواء إيمانية في رحاب المسجد الحرام والمسجد النبوي، مع سهولة استخراج التصاريح عبر منصة نُسك والتنقل بقطار الحرمين السريع.',
             en: 'Deeply fulfilling spiritual journeys to the Two Holy Mosques, seamlessly booked via official Nusuk portal and Haramain Rail.'
-        }
+        },
+        route: '/destinations?filter=مقدسات'
     },
     {
         title: { ar: 'موسم الشتاء والربيع (أكتوبر — أبريل)', en: 'Winter & Spring (Oct — Apr)' },
@@ -25,7 +35,8 @@ const seasons = [
         desc: {
             ar: 'أفضل الأوقات لزيارة العلا، والرياض، والدرعية، وحضور شتاء طنطورة وفعاليات الصحراء بأجواء معتدلة ممتعة.',
             en: 'Ideal for AlUla, Riyadh, Diriyah, and outdoor desert stargazing under pleasant cool temperatures.'
-        }
+        },
+        route: '/destinations?id=alula'
     },
     {
         title: { ar: 'الموسم الساحلي (طوال العام)', en: 'Coastal & Island Season (Year-Round)' },
@@ -33,7 +44,8 @@ const seasons = [
         desc: {
             ar: 'مياه دافئة نقية، وغوص الحيد المرجاني، وفيلات عائمة مستدامة مع طقس مشمس ومثالي للرياضات البحرية.',
             en: 'Warm crystal waters, pristine barrier reef diving, and ultra-luxury overwater villas.'
-        }
+        },
+        route: '/destinations?id=red-sea'
     },
     {
         title: { ar: 'موسم الصيف الجبلي (مايو — سبتمبر)', en: 'Highland Summer Escapes (May — Sep)' },
@@ -41,7 +53,8 @@ const seasons = [
         desc: {
             ar: 'أجواء باردة منعشة بين الضباب والمطر الأخضر وقرى رجال ألمع الحجرية العريقة.',
             en: 'Cool refreshing mountain weather, lush greenery, fog-covered peaks, and historic stone architecture.'
-        }
+        },
+        route: '/destinations?id=abha'
     }
 ];
 </script>
@@ -85,7 +98,7 @@ const seasons = [
                     {{ isAr ? 'أعمدة السياحة السعودية' : 'THE PILLARS OF SAUDI' }}
                 </span>
                 <h2 class="text-3xl sm:text-4xl font-black text-[#0D1527] tracking-tight">
-                    {{ isAr ? 'تنوع جغرافي وثقافي يسبق التوقعات' : 'Diverse Landscapes, One Transformative Destination' }}
+                    {{ isAr ? 'تنوع جغرافي وثقافي وروحي يسبق التوقعات' : 'Diverse Landscapes, Cultural Depth & Spiritual Wonder' }}
                 </h2>
             </div>
 
@@ -104,8 +117,8 @@ const seasons = [
                         </p>
                     </div>
                     <div class="pt-4 border-t border-slate-50 mt-4">
-                        <Link href="/destinations?id=makkah" class="text-xs font-bold text-[#1E6BFF] flex items-center gap-1">
-                            <span>{{ isAr ? 'استكشف المقدسات' : 'Explore Sanctuaries' }}</span>
+                        <Link href="/destinations?filter=مقدسات" class="text-xs font-bold text-[#1E6BFF] flex items-center gap-1">
+                            <span>{{ isAr ? 'استكشف الوجهات الروحانية' : 'Explore Sanctuaries' }}</span>
                             <component :is="isAr ? ArrowLeft : ArrowRight" class="w-3.5 h-3.5" />
                         </Link>
                     </div>
@@ -125,8 +138,8 @@ const seasons = [
                         </p>
                     </div>
                     <div class="pt-4 border-t border-slate-50 mt-4">
-                        <Link href="/destinations?id=alula" class="text-xs font-bold text-[#1E6BFF] flex items-center gap-1">
-                            <span>{{ isAr ? 'استكشف الآثار' : 'Explore Heritage' }}</span>
+                        <Link href="/destinations?filter=تراث" class="text-xs font-bold text-[#1E6BFF] flex items-center gap-1">
+                            <span>{{ isAr ? 'استكشف الوجهات التراثية' : 'Explore Heritage' }}</span>
                             <component :is="isAr ? ArrowLeft : ArrowRight" class="w-3.5 h-3.5" />
                         </Link>
                     </div>
@@ -146,8 +159,8 @@ const seasons = [
                         </p>
                     </div>
                     <div class="pt-4 border-t border-slate-50 mt-4">
-                        <Link href="/destinations?id=red-sea" class="text-xs font-bold text-[#1E6BFF] flex items-center gap-1">
-                            <span>{{ isAr ? 'استكشف الجزر' : 'Explore Red Sea' }}</span>
+                        <Link href="/destinations?filter=شواطئ" class="text-xs font-bold text-[#1E6BFF] flex items-center gap-1">
+                            <span>{{ isAr ? 'استكشف الوجهات الساحلية' : 'Explore Red Sea' }}</span>
                             <component :is="isAr ? ArrowLeft : ArrowRight" class="w-3.5 h-3.5" />
                         </Link>
                     </div>
@@ -167,8 +180,8 @@ const seasons = [
                         </p>
                     </div>
                     <div class="pt-4 border-t border-slate-50 mt-4">
-                        <Link href="/destinations?id=abha" class="text-xs font-bold text-[#1E6BFF] flex items-center gap-1">
-                            <span>{{ isAr ? 'استكشف عسير' : 'Explore Asir' }}</span>
+                        <Link href="/destinations?filter=طبيعة" class="text-xs font-bold text-[#1E6BFF] flex items-center gap-1">
+                            <span>{{ isAr ? 'استكشف الوجهات الجبلية' : 'Explore Asir' }}</span>
                             <component :is="isAr ? ArrowLeft : ArrowRight" class="w-3.5 h-3.5" />
                         </Link>
                     </div>
@@ -188,8 +201,8 @@ const seasons = [
                         </p>
                     </div>
                     <div class="pt-4 border-t border-slate-50 mt-4">
-                        <Link href="/destinations?id=riyadh" class="text-xs font-bold text-[#1E6BFF] flex items-center gap-1">
-                            <span>{{ isAr ? 'استكشف الرياض' : 'Explore Riyadh' }}</span>
+                        <Link href="/destinations?filter=عاصمة" class="text-xs font-bold text-[#1E6BFF] flex items-center gap-1">
+                            <span>{{ isAr ? 'استكشف الوجهات الحديثة' : 'Explore Riyadh' }}</span>
                             <component :is="isAr ? ArrowLeft : ArrowRight" class="w-3.5 h-3.5" />
                         </Link>
                     </div>
@@ -208,7 +221,7 @@ const seasons = [
                 </h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div
                     v-for="(s, i) in seasons"
                     :key="i"
@@ -227,8 +240,8 @@ const seasons = [
                     </div>
 
                     <div class="pt-6 border-t border-slate-50">
-                        <Link href="/ai-planner" class="text-xs font-bold text-[#1E6BFF] flex items-center gap-1">
-                            <span>{{ isAr ? 'صمم مسار هذا الموسم' : 'Plan Season Trip' }}</span>
+                        <Link :href="s.route || '/ai-planner'" class="text-xs font-bold text-[#1E6BFF] flex items-center gap-1">
+                            <span>{{ isAr ? 'استكشف وجهات ومسار هذا الموسم' : 'Explore Season Destinations' }}</span>
                             <component :is="isAr ? ArrowLeft : ArrowRight" class="w-3.5 h-3.5" />
                         </Link>
                     </div>
