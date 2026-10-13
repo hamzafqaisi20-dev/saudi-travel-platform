@@ -1,25 +1,32 @@
 <script setup>
 import { ref } from 'vue';
-import { Link } from '@inertiajs/vue3';
 import { useLocale } from '@/composables/useLocale';
 
 const { isAr } = useLocale();
 
-const activeTab = ref(null);
+// Track selected partner tab (defaults to first partner)
+const selectedPartner = ref('Saudia');
 
 const partners = [
-    { name: 'Saudia', label: { ar: 'الخطوط السعودية', en: 'Saudia' }, href: '/flights?airline=SV' },
-    { name: 'Riyadh Air', label: { ar: 'طيران الرياض', en: 'Riyadh Air' }, href: '/partners' },
-    { name: 'Almatar', label: { ar: 'المطار', en: 'Almatar' }, href: '/partners' },
-    { name: 'Visit Saudi', label: { ar: 'روح السعودية', en: 'Visit Saudi' }, href: '/discover' },
-    { name: 'Webook', label: { ar: 'ويبوك', en: 'Webook' }, href: '/experiences' },
+    { name: 'Saudia', label: { ar: 'الخطوط السعودية', en: 'Saudia' }, href: 'https://www.saudia.com' },
+    { name: 'Riyadh Air', label: { ar: 'طيران الرياض', en: 'Riyadh Air' }, href: 'https://www.riyadhair.com' },
+    { name: 'Almatar', label: { ar: 'المطار', en: 'Almatar' }, href: 'https://almatar.com' },
+    { name: 'Visit Saudi', label: { ar: 'روح السعودية', en: 'Visit Saudi' }, href: 'https://www.visitsaudi.com' },
+    { name: 'Webook', label: { ar: 'ويبوك', en: 'Webook' }, href: 'https://webook.com' },
 ];
+
+const handlePartnerClick = (partner) => {
+    selectedPartner.value = partner.name;
+    if (typeof window !== 'undefined' && partner.href) {
+        window.open(partner.href, '_blank', 'noopener,noreferrer');
+    }
+};
 </script>
 
 <template>
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 border-b border-slate-100">
         <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
-            <!-- Left: Follow & Social Icons (Identical to reference image) -->
+            <!-- Left: Follow & Social Icons -->
             <div class="flex items-center gap-3">
                 <span class="text-xs font-bold uppercase tracking-wider text-slate-400">
                     {{ isAr ? 'تابعنا' : 'Follow' }}
@@ -40,24 +47,23 @@ const partners = [
                 </div>
             </div>
 
-            <!-- Right: Interactive Partner Brand Tabs with Deep Navigation -->
+            <!-- Right: Interactive Partner Brand Tabs with Active States -->
             <div class="flex flex-wrap items-center justify-center lg:justify-end gap-3 sm:gap-4">
-                <Link
+                <button
                     v-for="partner in partners"
                     :key="partner.name"
-                    :href="partner.href"
-                    @mouseenter="activeTab = partner.name"
-                    @mouseleave="activeTab = null"
-                    class="px-3.5 py-1.5 rounded-xl border transition-all cursor-pointer flex items-center gap-1.5 shadow-sm group"
-                    :class="activeTab === partner.name 
+                    type="button"
+                    @click="handlePartnerClick(partner)"
+                    class="px-3.5 py-1.5 rounded-xl border transition-all cursor-pointer flex items-center shadow-sm select-none"
+                    :class="selectedPartner === partner.name 
                         ? 'bg-[#1E6BFF] text-white border-[#1E6BFF] shadow-md shadow-blue-500/20' 
                         : 'bg-white hover:bg-slate-50 text-slate-800 border-slate-200/80 hover:border-[#1E6BFF]'"
+                    :title="isAr ? `الانتقال إلى منصة ${partner.label.ar}` : `Visit ${partner.label.en}`"
                 >
                     <span class="text-xs sm:text-sm font-extrabold tracking-tight transition-colors">
                         {{ isAr ? partner.label.ar : partner.label.en }}
                     </span>
-                    <span class="text-[10px] opacity-60 group-hover:opacity-100 font-mono">↗</span>
-                </Link>
+                </button>
             </div>
         </div>
     </section>

@@ -48,10 +48,6 @@ const { isAr } = useLocale();
             <div class="lg:col-span-7 space-y-6">
                 <!-- Large Editorial Headline -->
                 <div class="space-y-3">
-                    <span class="text-xs font-bold uppercase tracking-widest text-[#1E6BFF] flex items-center gap-1.5">
-                        <Sparkles class="w-4 h-4" />
-                        {{ isAr ? 'عالم من التجارب الحصرية' : 'EXCLUSIVE TRAVEL DEALS' }}
-                    </span>
                     <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black text-[#0D1527] uppercase tracking-tight leading-[1.08]">
                         <template v-if="isAr">
                             أطلق شغفك للاستكشاف<br/>

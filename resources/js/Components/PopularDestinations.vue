@@ -91,16 +91,22 @@ const goToSlide = (index) => {
     }
 };
 
-// Navigation handlers (Locale-aware directional logic requested by user)
-// Navigation handlers synchronized with reading direction
-const handleNextClick = () => {
-    nextSlide();
+// Directional slide handlers strictly aligned with arrow chevrons (< = Left, > = Right)
+const slideRight = () => {
+    if (currentIndex.value < maxIndex.value) {
+        currentIndex.value++;
+    } else {
+        currentIndex.value = 0;
+    }
 };
 
-const handlePrevClick = () => {
-    prevSlide();
+const slideLeft = () => {
+    if (currentIndex.value > 0) {
+        currentIndex.value--;
+    } else {
+        currentIndex.value = maxIndex.value;
+    }
 };
-
 // Interactive Drag state (real-time 1:1 tracking with hand movement)
 const isDragging = ref(false);
 const dragStartX = ref(0);
@@ -265,28 +271,28 @@ onUnmounted(() => {
                     <span>{{ String(maxIndex + 1).padStart(2, '0') }}</span>
                 </div>
 
-                <!-- Navigation Buttons (Synchronized with reading direction: Next advances, Prev goes back) -->
-                <div class="flex items-center gap-2">
-                    <!-- Previous Button -->
+                <!-- Navigation Buttons (Strictly aligned with chevron directions: < moves left, > moves right) -->
+                <div class="flex items-center gap-2" dir="ltr">
+                    <!-- Left Arrow Button (<): Slides carousel to the left -->
                     <button
                         type="button"
-                        @click="handlePrevClick"
-                        class="w-11 h-11 rounded-full flex items-center justify-center transition-all cursor-pointer shadow-sm hover:scale-105 active:scale-95 border border-slate-200 hover:border-[#1E6BFF] bg-white text-slate-800 hover:text-[#1E6BFF] hover:bg-blue-50/40"
-                        :aria-label="isAr ? 'السابق' : 'Previous destination'"
-                        :title="isAr ? 'السابق' : 'Previous'"
+                        @click="slideLeft"
+                        class="w-11 h-11 rounded-full flex items-center justify-center transition-all cursor-pointer shadow-md hover:shadow-blue-500/25 hover:scale-105 active:scale-95 bg-[#0D1527] hover:bg-[#1E6BFF] text-white"
+                        :aria-label="isAr ? 'تحريك لليسار' : 'Slide left'"
+                        :title="isAr ? 'تحريك لليسار' : 'Slide left'"
                     >
-                        <component :is="isAr ? ChevronRight : ChevronLeft" class="w-5 h-5" />
+                        <ChevronLeft class="w-5 h-5" />
                     </button>
 
-                    <!-- Next Button -->
+                    <!-- Right Arrow Button (>): Slides carousel to the right -->
                     <button
                         type="button"
-                        @click="handleNextClick"
-                        class="w-11 h-11 rounded-full flex items-center justify-center transition-all cursor-pointer shadow-md hover:shadow-blue-500/25 hover:scale-105 active:scale-95 bg-[#0D1527] hover:bg-[#1E6BFF] text-white"
-                        :aria-label="isAr ? 'التالي' : 'Next destination'"
-                        :title="isAr ? 'التالي' : 'Next'"
+                        @click="slideRight"
+                        class="w-11 h-11 rounded-full flex items-center justify-center transition-all cursor-pointer shadow-sm hover:scale-105 active:scale-95 border border-slate-200 hover:border-[#1E6BFF] bg-white text-slate-800 hover:text-[#1E6BFF] hover:bg-blue-50/40"
+                        :aria-label="isAr ? 'تحريك لليمين' : 'Slide right'"
+                        :title="isAr ? 'تحريك لليمين' : 'Slide right'"
                     >
-                        <component :is="isAr ? ChevronLeft : ChevronRight" class="w-5 h-5" />
+                        <ChevronRight class="w-5 h-5" />
                     </button>
                 </div>
             </div>
