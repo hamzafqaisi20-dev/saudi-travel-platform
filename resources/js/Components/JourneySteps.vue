@@ -1,8 +1,7 @@
 <script setup>
 import { Link } from '@inertiajs/vue3';
 import { useLocale } from '@/composables/useLocale';
-import { Compass, Ticket, CreditCard, ArrowRight, ArrowLeft } from 'lucide-vue-next';
-import AircraftIcon from '@/Components/AircraftIcon.vue';
+import { Compass, CreditCard, ArrowRight, ArrowLeft } from 'lucide-vue-next';
 
 const { isAr } = useLocale();
 </script>
@@ -21,7 +20,7 @@ const { isAr } = useLocale();
             </p>
         </div>
 
-        <!-- 3 Step Cards (Exact Reference Arrangement: White Card, Tall Electric Blue Card with photo cutout, White Card) -->
+        <!-- 3 Step Cards (Exact Reference Arrangement: White Card, Tall Electric Blue Card with photo cutout, White Card - No numbers) -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-center">
             <!-- Step 1: Find Your Destination (White soft card) -->
             <div class="bg-white rounded-3xl p-8 card-soft-shadow card-hover border border-slate-100 flex flex-col justify-between min-h-[320px]">
@@ -29,7 +28,6 @@ const { isAr } = useLocale();
                     <div class="w-12 h-12 rounded-2xl bg-blue-50 text-[#1E6BFF] flex items-center justify-center">
                         <Compass class="w-6 h-6" />
                     </div>
-                    <span class="text-xs font-bold text-slate-400 uppercase tracking-widest block">01</span>
                     <h3 class="text-xl font-black text-slate-900">
                         {{ isAr ? 'اختر وجهتك المفضلة' : 'Find Your Destination' }}
                     </h3>
@@ -60,13 +58,6 @@ const { isAr } = useLocale();
                 </div>
 
                 <div class="relative z-10 space-y-4 max-w-[65%]">
-                    <div class="flex items-center gap-3">
-                        <div class="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-md text-white flex items-center justify-center border border-white/20 shadow-sm">
-                            <AircraftIcon className="w-6 h-6 text-white" :angle="isAr ? -45 : 45" variant="white" />
-                        </div>
-                        <span class="text-xs font-black tracking-widest text-blue-200 uppercase bg-white/10 px-2.5 py-1 rounded-full border border-white/15">02</span>
-                    </div>
-
                     <h3 class="text-2xl sm:text-3xl font-black text-white leading-tight">
                         {{ isAr ? 'احجز تذكرتك بسهولة' : 'Book A Ticket' }}
                     </h3>
@@ -94,7 +85,6 @@ const { isAr } = useLocale();
                     <div class="w-12 h-12 rounded-2xl bg-blue-50 text-[#1E6BFF] flex items-center justify-center">
                         <CreditCard class="w-6 h-6" />
                     </div>
-                    <span class="text-xs font-bold text-slate-400 uppercase tracking-widest block">03</span>
                     <h3 class="text-xl font-black text-slate-900">
                         {{ isAr ? 'انطلق في رحلتك بأمان' : 'Pay & Start Journey' }}
                     </h3>
