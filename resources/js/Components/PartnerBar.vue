@@ -74,17 +74,17 @@ onUnmounted(() => {
                 </div>
             </div>
 
-            <!-- Right: Interactive Partner Brand Tabs with Active States -->
-            <div class="flex flex-wrap items-center justify-center lg:justify-end gap-3 sm:gap-4">
+            <!-- Right: Interactive Partner Brand Tabs with Active States (All White, No Blue on Load) -->
+            <div class="flex flex-wrap items-center justify-center lg:justify-end gap-2.5 sm:gap-3.5">
                 <button
                     v-for="partner in partners"
                     :key="partner.name"
                     type="button"
                     @click="handlePartnerClick(partner)"
-                    class="px-3.5 py-1.5 rounded-xl border transition-all cursor-pointer flex items-center shadow-sm select-none"
+                    class="px-4 sm:px-5 py-2 sm:py-2.5 rounded-2xl border transition-all duration-200 cursor-pointer flex items-center shadow-sm select-none"
                     :class="selectedPartner === partner.name 
-                        ? 'bg-[#1E6BFF] text-white border-[#1E6BFF] shadow-md shadow-blue-500/20' 
-                        : 'bg-white hover:bg-slate-50 text-slate-800 border-slate-200/80 hover:border-[#1E6BFF]'"
+                        ? 'bg-[#1E6BFF] text-white border-[#1E6BFF] shadow-md shadow-blue-500/25 scale-[0.98]' 
+                        : 'bg-white hover:bg-slate-50 text-slate-800 border-slate-200/90 hover:border-[#1E6BFF] hover:shadow'"
                     :title="isAr ? `الانتقال إلى منصة ${partner.label.ar}` : `Visit ${partner.label.en}`"
                 >
                     <span class="text-xs sm:text-sm font-extrabold tracking-tight transition-colors">
