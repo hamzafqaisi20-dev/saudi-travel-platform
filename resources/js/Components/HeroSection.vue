@@ -53,12 +53,12 @@ const videoModalOpen = ref(false);
                             <template v-if="isAr">
                                 عِش سحر<br/>
                                 الطيران نحو<br/>
-                                <span class="text-[#1E6BFF]">وجهات المملكة!</span>
+                                <span class="text-[#243E88]">وجهات المملكة!</span>
                             </template>
                             <template v-else>
                                 Experience<br/>
                                 The Magic Of<br/>
-                                <span class="text-[#1E6BFF]">Flight!</span>
+                                <span class="text-[#243E88]">Flight!</span>
                             </template>
                         </h1>
 
@@ -69,14 +69,14 @@ const videoModalOpen = ref(false);
                                 : 'Discover the timeless marvels of AlUla, pristine Red Sea coral archipelagos, and vibrant Riyadh aboard modern flag-carrier fleets.' }}
                         </p>
 
-                        <!-- CTA Row (Reference: Blue Pill Button + Circular Play Button) -->
+                        <!-- CTA Row (Reference: Navy Pill Button + Circular Play Button with Gold Aircraft) -->
                         <div class="pt-2 sm:pt-4 flex flex-wrap items-center gap-3 sm:gap-4">
-                            <!-- Blue Pill CTA: Book A Trip Now -->
+                            <!-- Navy Pill CTA: Book A Trip Now with Gold Aircraft Icon -->
                             <Link
                                 href="/flights"
-                                class="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#1E6BFF] hover:bg-blue-600 text-white font-extrabold text-xs sm:text-base shadow-xl shadow-blue-600/30 hover:shadow-2xl hover:shadow-blue-600/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
+                                class="inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#243E88] hover:bg-[#1B316E] text-white font-black text-xs sm:text-base shadow-xl shadow-[#243E88]/30 hover:shadow-2xl hover:shadow-[#243E88]/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
                             >
-                                <AircraftIcon className="w-4 h-4 sm:w-5 sm:h-5 text-white shrink-0" :angle="isAr ? -45 : 45" />
+                                <AircraftIcon className="w-4 h-4 sm:w-5 sm:h-5 text-[#FAB515] shrink-0" :angle="isAr ? -45 : 45" />
                                 <span>{{ isAr ? 'احجز رحلتك الآن' : 'Book A Trip Now' }}</span>
                             </Link>
 
@@ -84,7 +84,7 @@ const videoModalOpen = ref(false);
                             <button
                                 type="button"
                                 @click="videoModalOpen = true"
-                                class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white hover:bg-slate-50 text-[#1E6BFF] flex items-center justify-center shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer shrink-0"
+                                class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white hover:bg-slate-50 text-[#243E88] hover:text-[#FAB515] flex items-center justify-center shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer shrink-0"
                                 :title="isAr ? 'مشاهدة الفيديو التعريفي' : 'Watch Showcase Reel'"
                             >
                                 <Play class="w-4 h-4 sm:w-5 sm:h-5 fill-current ml-0.5" />
@@ -123,7 +123,7 @@ const videoModalOpen = ref(false);
                 <div class="flex flex-col">
                     <Link
                         href="/discover"
-                        class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-extrabold text-slate-900 hover:text-[#1E6BFF] transition-colors group"
+                        class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-extrabold text-slate-900 hover:text-[#243E88] transition-colors group"
                     >
                         <span>{{ isAr ? 'اكتشف المزيد' : 'Know More' }}</span>
                         <component :is="isAr ? ArrowLeft : ArrowRight" class="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" />
@@ -160,7 +160,7 @@ const videoModalOpen = ref(false);
                         alt="Preview"
                     />
                     <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-6 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent">
-                        <div class="w-16 h-16 rounded-full bg-[#1E6BFF] text-white flex items-center justify-center mb-4 shadow-lg animate-pulse">
+                        <div class="w-16 h-16 rounded-full bg-[#FAB515] text-[#1B316E] flex items-center justify-center mb-4 shadow-lg animate-pulse">
                             <Play class="w-8 h-8 fill-current ml-1" />
                         </div>
                         <p class="text-white font-bold text-lg max-w-md">

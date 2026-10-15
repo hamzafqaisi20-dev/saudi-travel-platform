@@ -29,22 +29,21 @@ const submitContact = () => {
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800/80">
                 <!-- Brand Info & Vision -->
                 <div class="lg:col-span-2 space-y-4">
-                    <div class="flex items-center gap-3">
-                        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-[#0D1527] to-[#1E6BFF] flex items-center justify-center text-white border border-white/20 shadow-lg shadow-blue-500/25">
-                            <AircraftIcon className="w-7 h-7" variant="white" :angle="-45" />
-                        </div>
-                        <span class="text-2xl font-black tracking-tight text-white inline-flex items-center" dir="ltr">
-                            <span>Info</span><span class="text-[#1E6BFF]">Travel</span>
-                        </span>
-                    </div>
+                    <Link href="/" class="inline-flex items-center gap-3 group">
+                        <img 
+                            src="/images/logo-white.png" 
+                            alt="InfoTravel" 
+                            class="h-10 sm:h-12 w-auto object-contain transition-transform duration-200 group-hover:scale-105" 
+                        />
+                    </Link>
                     <p class="text-sm text-slate-400 leading-relaxed max-w-sm">
                         {{ isAr 
                             ? 'المنصة الرقمية المتطورة لاكتشاف وجهات المملكة العربية السعودية وحجز الرحلات الفاخرة عبر InfoTravel، معززة بالذكاء الاصطناعي لتقديم تجارب سفر استثنائية.'
                             : 'The premier smart travel platform celebrating Saudi Arabia’s world-class destinations and luxury flight experiences, powered by InfoTravel AI.' }}
                     </p>
                     <div class="pt-2">
-                        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-[#FAB515]/10 text-[#FAB515] border border-[#FAB515]/20">
+                            <span class="w-2 h-2 rounded-full bg-[#FAB515]"></span>
                             {{ isAr ? 'رؤية السعودية 2030 — نموذج تجريبي' : 'Saudi Vision 2030 — Demo Prototype' }}
                         </span>
                     </div>
@@ -133,7 +132,7 @@ const submitContact = () => {
                     <div class="flex items-center gap-2">
                         <component
                             :is="activeLegalModal === 'contact' ? Mail : (activeLegalModal === 'privacy' ? ShieldCheck : FileText)"
-                            class="w-5 h-5 text-[#1E6BFF]"
+                            class="w-5 h-5 text-[#243E88]"
                         />
                         <h3 class="text-base font-black text-slate-900">
                             <template v-if="activeLegalModal === 'privacy'">{{ isAr ? 'سياسة الخصوصية وحماية البيانات' : 'Privacy Policy & Data Security' }}</template>
@@ -188,14 +187,14 @@ const submitContact = () => {
                 <div v-if="activeLegalModal === 'contact'" class="space-y-4 text-xs text-slate-600">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 p-3 rounded-2xl bg-slate-50 border border-slate-100 text-xs">
                         <div class="flex items-center gap-2">
-                            <Mail class="w-4 h-4 text-[#1E6BFF] shrink-0" />
+                            <Mail class="w-4 h-4 text-[#243E88] shrink-0" />
                             <div>
                                 <span class="text-slate-400 block text-[10px]">{{ isAr ? 'البريد الإلكتروني:' : 'Email Support:' }}</span>
                                 <span class="font-bold text-slate-800">support@infotravel.sa</span>
                             </div>
                         </div>
                         <div class="flex items-center gap-2">
-                            <Phone class="w-4 h-4 text-[#1E6BFF] shrink-0" />
+                            <Phone class="w-4 h-4 text-[#243E88] shrink-0" />
                             <div>
                                 <span class="text-slate-400 block text-[10px]">{{ isAr ? 'الرقم الموحد:' : 'Toll Free:' }}</span>
                                 <span class="font-bold text-slate-800" dir="ltr">800 124 2030</span>
@@ -214,7 +213,7 @@ const submitContact = () => {
                                 type="text"
                                 v-model="contactForm.name"
                                 :placeholder="isAr ? 'الاسم الكامل' : 'Your Name'"
-                                class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:outline-none focus:border-[#1E6BFF]"
+                                class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:outline-none focus:border-[#243E88]"
                                 required
                             />
                         </div>
@@ -223,7 +222,7 @@ const submitContact = () => {
                                 type="email"
                                 v-model="contactForm.email"
                                 :placeholder="isAr ? 'البريد الإلكتروني' : 'Email Address'"
-                                class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:outline-none focus:border-[#1E6BFF]"
+                                class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:outline-none focus:border-[#243E88]"
                                 required
                             />
                         </div>
@@ -232,13 +231,13 @@ const submitContact = () => {
                                 v-model="contactForm.message"
                                 rows="3"
                                 :placeholder="isAr ? 'اكتب رسالتك أو استفسارك هنا...' : 'Write your message or inquiry here...'"
-                                class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:outline-none focus:border-[#1E6BFF]"
+                                class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:outline-none focus:border-[#243E88]"
                                 required
                             ></textarea>
                         </div>
                         <button
                             type="submit"
-                            class="w-full py-2.5 rounded-full bg-[#1E6BFF] hover:bg-blue-600 text-white font-bold text-xs transition-colors cursor-pointer shadow-md"
+                            class="w-full py-2.5 rounded-full bg-[#FAB515] hover:bg-[#e8a50e] text-[#1B316E] font-black text-xs transition-colors cursor-pointer shadow-md"
                         >
                             {{ isAr ? 'إرسال الرسالة' : 'Send Message' }}
                         </button>

@@ -113,8 +113,8 @@ const generateQuickPlan = async () => {
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <!-- Section Header -->
         <div class="text-center max-w-2xl mx-auto mb-12">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/60 text-[#1E6BFF] text-xs font-bold mb-3">
-                <Sparkles class="w-3.5 h-3.5" />
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/60 text-[#243E88] text-xs font-bold mb-3">
+                <Sparkles class="w-3.5 h-3.5 text-[#FAB515]" />
                 <span>{{ isAr ? 'تقنية الذكاء الاصطناعي للمسافرين' : 'AI-POWERED TRAVEL ASSISTANT' }}</span>
             </div>
             <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0D1527] tracking-tight">
@@ -131,9 +131,9 @@ const generateQuickPlan = async () => {
             <!-- Left: Conversational Chat Interface (7 cols) -->
             <div class="lg:col-span-7 bg-white rounded-3xl card-soft-shadow border border-slate-100 overflow-hidden flex flex-col h-[520px]">
                 <!-- Chat Header -->
-                <div class="px-6 py-4 bg-gradient-to-r from-slate-900 to-slate-800 text-white flex items-center justify-between">
+                <div class="px-6 py-4 bg-gradient-to-r from-[#0F1E42] to-[#1B316E] text-white flex items-center justify-between">
                     <div class="flex items-center gap-3">
-                        <div class="w-9 h-9 rounded-full bg-[#1E6BFF] flex items-center justify-center text-white shadow-md">
+                        <div class="w-9 h-9 rounded-full bg-[#FAB515] flex items-center justify-center text-[#1B316E] shadow-md">
                             <Bot class="w-5 h-5" />
                         </div>
                         <div>
@@ -141,10 +141,10 @@ const generateQuickPlan = async () => {
                                 InfoTravel AI Concierge
                                 <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
                             </h4>
-                            <span class="text-[11px] text-slate-300">{{ isAr ? 'مساعد افتراضي مدعوم بالذكاء الاصطناعي' : 'Smart Travel Assistant' }}</span>
+                            <span class="text-[11px] text-slate-200">{{ isAr ? 'مساعد افتراضي مدعوم بالذكاء الاصطناعي' : 'Smart Travel Assistant' }}</span>
                         </div>
                     </div>
-                    <span class="text-[10px] uppercase font-mono px-2.5 py-1 rounded bg-slate-800 border border-slate-700 text-slate-300">
+                    <span class="text-[10px] uppercase font-mono px-2.5 py-1 rounded bg-white/10 border border-white/20 text-white">
                         Prototype Mode
                     </span>
                 </div>
@@ -160,17 +160,17 @@ const generateQuickPlan = async () => {
                         <!-- Avatar -->
                         <div
                             class="w-8 h-8 rounded-full flex items-center justify-center shrink-0 text-white text-xs"
-                            :class="msg.sender === 'user' ? 'bg-[#0D1527]' : 'bg-[#1E6BFF]'"
+                            :class="msg.sender === 'user' ? 'bg-[#0F1E42]' : 'bg-[#243E88]'"
                         >
                             <User v-if="msg.sender === 'user'" class="w-4 h-4" />
-                            <Bot v-else class="w-4 h-4" />
+                            <Bot v-else class="w-4 h-4 text-[#FAB515]" />
                         </div>
 
                         <!-- Bubble -->
                         <div
                             class="max-w-[80%] rounded-2xl p-4 text-xs sm:text-sm leading-relaxed shadow-sm"
                             :class="msg.sender === 'user'
-                                ? 'bg-[#1E6BFF] text-white rounded-tr-none rtl:rounded-tr-2xl rtl:rounded-tl-none'
+                                ? 'bg-[#243E88] text-white rounded-tr-none rtl:rounded-tr-2xl rtl:rounded-tl-none'
                                 : 'bg-white text-slate-800 border border-slate-100 rounded-tl-none rtl:rounded-tl-2xl rtl:rounded-tr-none'"
                         >
                             <p class="whitespace-pre-line">{{ msg.text }}</p>
@@ -181,7 +181,7 @@ const generateQuickPlan = async () => {
                                     v-for="sug in msg.suggestions"
                                     :key="sug"
                                     @click="sendPrompt(sug)"
-                                    class="px-2.5 py-1 rounded-full text-[11px] bg-blue-50 hover:bg-blue-100 text-[#1E6BFF] font-medium transition-colors cursor-pointer"
+                                    class="px-2.5 py-1 rounded-full text-[11px] bg-blue-50 hover:bg-[#243E88]/10 text-[#243E88] font-medium transition-colors cursor-pointer"
                                 >
                                     {{ sug }}
                                 </button>
@@ -191,7 +191,7 @@ const generateQuickPlan = async () => {
 
                     <!-- Typing indicator -->
                     <div v-if="isTyping" class="flex items-center gap-2 text-slate-400 text-xs">
-                        <div class="w-7 h-7 rounded-full bg-blue-100 flex items-center justify-center text-[#1E6BFF]">
+                        <div class="w-7 h-7 rounded-full bg-blue-100 flex items-center justify-center text-[#243E88]">
                             <Bot class="w-4 h-4" />
                         </div>
                         <span class="animate-pulse">{{ isAr ? 'المساعد يفكر ويكتب الإجابة...' : 'AI Concierge is typing...' }}</span>
@@ -206,7 +206,7 @@ const generateQuickPlan = async () => {
                             v-for="p in samplePrompts"
                             :key="p.en"
                             @click="sendPrompt(isAr ? p.ar : p.en)"
-                            class="shrink-0 px-2.5 py-1 rounded-full bg-slate-100 hover:bg-blue-50 hover:text-[#1E6BFF] text-slate-600 text-[11px] transition-colors cursor-pointer"
+                            class="shrink-0 px-2.5 py-1 rounded-full bg-slate-100 hover:bg-amber-50 hover:text-[#1B316E] text-slate-600 text-[11px] transition-colors cursor-pointer"
                         >
                             {{ isAr ? p.ar : p.en }}
                         </button>
@@ -217,12 +217,12 @@ const generateQuickPlan = async () => {
                             v-model="userInput"
                             type="text"
                             :placeholder="isAr ? 'اسأل عن وجهات السعودية، الرحلات، أو خطط لرحلتك...' : 'Ask about Saudi destinations, flights, or plan your journey...'"
-                            class="flex-1 px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-xs sm:text-sm focus:outline-none focus:border-[#1E6BFF]"
+                            class="flex-1 px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-xs sm:text-sm focus:outline-none focus:border-[#243E88]"
                         />
                         <button
                             type="submit"
                             :disabled="!userInput.trim() || isTyping"
-                            class="px-5 py-3 rounded-2xl bg-[#1E6BFF] hover:bg-blue-600 disabled:opacity-50 text-white font-bold text-xs flex items-center gap-1.5 shadow-md transition-all cursor-pointer"
+                            class="px-5 py-3 rounded-2xl bg-[#FAB515] hover:bg-[#e8a50e] disabled:opacity-50 text-[#1B316E] font-black text-xs flex items-center gap-1.5 shadow-md transition-all cursor-pointer"
                         >
                             <Send class="w-4 h-4 rtl:rotate-180" />
                             <span class="hidden sm:inline">{{ isAr ? 'إرسال' : 'Send' }}</span>
@@ -235,7 +235,7 @@ const generateQuickPlan = async () => {
             <div class="lg:col-span-5 bg-white rounded-3xl p-6 sm:p-8 card-soft-shadow border border-slate-100 space-y-6">
                 <div>
                     <h3 class="text-xl font-black text-slate-900 flex items-center gap-2">
-                        <Compass class="w-5 h-5 text-[#1E6BFF]" />
+                        <Compass class="w-5 h-5 text-[#243E88]" />
                         {{ isAr ? 'مولّد المسارات السريعة' : 'Instant Itinerary Builder' }}
                     </h3>
                     <p class="text-xs text-slate-500 mt-1">
@@ -283,27 +283,27 @@ const generateQuickPlan = async () => {
                         type="button"
                         @click="generateQuickPlan"
                         :disabled="isGenerating"
-                        class="w-full py-3.5 rounded-2xl bg-[#0D1527] hover:bg-[#1E6BFF] text-white font-extrabold text-xs sm:text-sm shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-75"
+                        class="w-full py-3.5 rounded-2xl bg-[#243E88] hover:bg-[#1B316E] text-white font-extrabold text-xs sm:text-sm shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-75"
                     >
-                        <Sparkles class="w-4 h-4 text-blue-400" />
+                        <Sparkles class="w-4 h-4 text-[#FAB515]" />
                         <span>{{ isGenerating ? (isAr ? 'جاري التوليد...' : 'Generating...') : (isAr ? 'توليد المسار الذكي' : 'Generate AI Plan') }}</span>
                     </button>
                 </div>
 
                 <!-- Generated Output Preview -->
-                <div v-if="generatedItinerary" class="p-4 rounded-2xl bg-blue-50/60 border border-blue-100 text-xs space-y-3 animate-in fade-in">
+                <div v-if="generatedItinerary" class="p-4 rounded-2xl bg-amber-50/70 border border-amber-200/80 text-xs space-y-3 animate-in fade-in">
                     <div class="flex items-center justify-between gap-3">
                         <span class="font-black text-slate-900 text-sm">{{ generatedItinerary.title }}</span>
-                        <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-100/80 text-[#1E6BFF] font-black text-xs shrink-0 shadow-xs">
+                        <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-100 text-[#1B316E] font-black text-xs shrink-0 shadow-xs">
                             <span>{{ String(generatedItinerary.estimatedCost).replace('ر.س', '').replace('SAR', '').trim() }}</span>
-                            <SaudiRiyalIcon className="h-3.5 w-auto" color="#1E6BFF" />
+                            <SaudiRiyalIcon className="h-3.5 w-auto" color="#1B316E" />
                         </div>
                     </div>
                     <p class="text-slate-600 leading-relaxed">{{ generatedItinerary.highlight }}</p>
 
-                    <div class="space-y-2 pt-2 border-t border-blue-100">
+                    <div class="space-y-2 pt-2 border-t border-amber-200/60">
                         <div v-for="d in generatedItinerary.itinerary" :key="d.day" class="p-2.5 rounded-xl bg-white border border-slate-100">
-                            <span class="font-bold text-[#1E6BFF] block">{{ isAr ? `اليوم ${d.day}: ${d.title}` : `Day ${d.day}: ${d.title}` }}</span>
+                            <span class="font-bold text-[#243E88] block">{{ isAr ? `اليوم ${d.day}: ${d.title}` : `Day ${d.day}: ${d.title}` }}</span>
                             <ul class="list-disc list-inside text-slate-600 mt-1 space-y-0.5">
                                 <li v-for="(act, i) in d.activities" :key="i">{{ act }}</li>
                             </ul>

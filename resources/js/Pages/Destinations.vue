@@ -82,7 +82,7 @@ const filteredDestinations = computed(() => {
                         type="text"
                         v-model="searchQuery"
                         :placeholder="isAr ? 'ابحث باسم المدينة أو كود المطار (مثال: مكة، العلا، MED)...' : 'Search by city or airport code (e.g. Makkah, AlUla, MED)...'"
-                        class="w-full ps-11 pe-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-xs sm:text-sm focus:outline-none focus:border-[#1E6BFF]"
+                        class="w-full ps-11 pe-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-xs sm:text-sm focus:outline-none focus:border-[#243E88]"
                     />
                 </div>
 
@@ -92,7 +92,7 @@ const filteredDestinations = computed(() => {
                         type="button"
                         @click="selectedCategory = 'all'"
                         class="px-4 py-2 rounded-full font-bold transition-all cursor-pointer shrink-0"
-                        :class="selectedCategory === 'all' ? 'bg-[#1E6BFF] text-white shadow-md' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'"
+                        :class="selectedCategory === 'all' ? 'bg-[#243E88] text-white shadow-md' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'"
                     >
                         {{ isAr ? 'جميع الوجهات' : 'All Places' }}
                     </button>
@@ -100,7 +100,7 @@ const filteredDestinations = computed(() => {
                         type="button"
                         @click="selectedCategory = 'makkah'"
                         class="px-4 py-2 rounded-full font-bold transition-all cursor-pointer shrink-0"
-                        :class="selectedCategory === 'makkah' ? 'bg-[#1E6BFF] text-white shadow-md' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'"
+                        :class="selectedCategory === 'makkah' ? 'bg-[#243E88] text-white shadow-md' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'"
                     >
                         {{ isAr ? 'مكة المكرمة' : 'Makkah' }}
                     </button>
@@ -108,7 +108,7 @@ const filteredDestinations = computed(() => {
                         type="button"
                         @click="selectedCategory = 'madinah'"
                         class="px-4 py-2 rounded-full font-bold transition-all cursor-pointer shrink-0"
-                        :class="selectedCategory === 'madinah' ? 'bg-[#1E6BFF] text-white shadow-md' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'"
+                        :class="selectedCategory === 'madinah' ? 'bg-[#243E88] text-white shadow-md' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'"
                     >
                         {{ isAr ? 'المدينة المنورة' : 'Madinah' }}
                     </button>
@@ -116,7 +116,7 @@ const filteredDestinations = computed(() => {
                         type="button"
                         @click="selectedCategory = 'alula'"
                         class="px-4 py-2 rounded-full font-bold transition-all cursor-pointer shrink-0"
-                        :class="selectedCategory === 'alula' ? 'bg-[#1E6BFF] text-white shadow-md' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'"
+                        :class="selectedCategory === 'alula' ? 'bg-[#243E88] text-white shadow-md' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'"
                     >
                         {{ isAr ? 'العلا' : 'AlUla' }}
                     </button>
@@ -124,7 +124,7 @@ const filteredDestinations = computed(() => {
                         type="button"
                         @click="selectedCategory = 'red-sea'"
                         class="px-4 py-2 rounded-full font-bold transition-all cursor-pointer shrink-0"
-                        :class="selectedCategory === 'red-sea' ? 'bg-[#1E6BFF] text-white shadow-md' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'"
+                        :class="selectedCategory === 'red-sea' ? 'bg-[#243E88] text-white shadow-md' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'"
                     >
                         {{ isAr ? 'البحر الأحمر' : 'The Red Sea' }}
                     </button>
@@ -132,7 +132,7 @@ const filteredDestinations = computed(() => {
                         type="button"
                         @click="selectedCategory = 'riyadh'"
                         class="px-4 py-2 rounded-full font-bold transition-all cursor-pointer shrink-0"
-                        :class="selectedCategory === 'riyadh' ? 'bg-[#1E6BFF] text-white shadow-md' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'"
+                        :class="selectedCategory === 'riyadh' ? 'bg-[#243E88] text-white shadow-md' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'"
                     >
                         {{ isAr ? 'الرياض' : 'Riyadh' }}
                     </button>
@@ -140,7 +140,7 @@ const filteredDestinations = computed(() => {
                         type="button"
                         @click="selectedCategory = 'jeddah'"
                         class="px-4 py-2 rounded-full font-bold transition-all cursor-pointer shrink-0"
-                        :class="selectedCategory === 'jeddah' ? 'bg-[#1E6BFF] text-white shadow-md' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'"
+                        :class="selectedCategory === 'jeddah' ? 'bg-[#243E88] text-white shadow-md' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'"
                     >
                         {{ isAr ? 'جدة' : 'Jeddah' }}
                     </button>
@@ -148,7 +148,7 @@ const filteredDestinations = computed(() => {
                         type="button"
                         @click="selectedCategory = 'abha'"
                         class="px-4 py-2 rounded-full font-bold transition-all cursor-pointer shrink-0"
-                        :class="selectedCategory === 'abha' ? 'bg-[#1E6BFF] text-white shadow-md' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'"
+                        :class="selectedCategory === 'abha' ? 'bg-[#243E88] text-white shadow-md' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'"
                     >
                         {{ isAr ? 'أبها' : 'Abha' }}
                     </button>
@@ -164,7 +164,7 @@ const filteredDestinations = computed(() => {
                     :key="dest.id"
                     :id="`dest-${dest.id}`"
                     class="bg-white rounded-3xl overflow-hidden card-soft-shadow card-hover border border-slate-100 flex flex-col justify-between group transition-all"
-                    :class="selectedCategory === dest.id ? 'ring-2 ring-[#1E6BFF] ring-offset-4' : ''"
+                    :class="selectedCategory === dest.id ? 'ring-2 ring-[#243E88] ring-offset-4' : ''"
                 >
                     <div>
                         <!-- Destination Photo -->
@@ -178,7 +178,7 @@ const filteredDestinations = computed(() => {
                                 <span class="px-3 py-1 rounded-full text-xs font-bold bg-white/95 text-slate-900 shadow-sm">
                                     {{ isAr ? dest.category.ar : dest.category.en }}
                                 </span>
-                                <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-[#1E6BFF] text-white shadow-sm font-mono">
+                                <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-[#243E88] text-white shadow-sm font-mono">
                                     {{ dest.code }}
                                 </span>
                             </div>
@@ -187,11 +187,11 @@ const filteredDestinations = computed(() => {
                         <!-- Content -->
                         <div class="p-6">
                             <div class="flex items-start justify-between gap-2 mb-2">
-                                <h3 class="text-lg font-black text-slate-900 group-hover:text-[#1E6BFF] transition-colors">
+                                <h3 class="text-lg font-black text-slate-900 group-hover:text-[#243E88] transition-colors">
                                     {{ isAr ? dest.title.ar : dest.title.en }}
                                 </h3>
-                                <div class="shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#1E6BFF] text-white text-xs font-black shadow-sm">
-                                    <Star class="w-3 h-3 fill-current" />
+                                <div class="shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#243E88] text-white text-xs font-black shadow-sm">
+                                    <Star class="w-3 h-3 fill-current text-[#FAB515]" />
                                     <span>{{ dest.rating }}</span>
                                 </div>
                             </div>
@@ -230,7 +230,7 @@ const filteredDestinations = computed(() => {
 
                         <Link
                             :href="`/flights?destination=${dest.code}`"
-                            class="px-4 py-2 rounded-full bg-[#0D1527] hover:bg-[#1E6BFF] text-white text-xs font-bold transition-colors"
+                            class="px-4 py-2 rounded-full bg-[#0D1527] hover:bg-[#243E88] text-white text-xs font-bold transition-colors"
                         >
                             {{ isAr ? 'حجز رحلة للوجهة' : 'Find Flights' }}
                         </Link>

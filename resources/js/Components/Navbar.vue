@@ -35,21 +35,14 @@ const isActive = (href) => {
             <div class="flex items-center justify-between h-18 sm:h-20 gap-2 sm:gap-4">
                 <!-- Group 1: Brand Logo & Navigation Links -->
                 <div class="flex items-center gap-3 lg:gap-4 xl:gap-6 min-w-0">
-                    <!-- Unified Brand Logo Unit (Prevents icon and text desynchronization during animations & layout shifts) -->
+                    <!-- Unified Brand Logo Unit with New Official Logo -->
                     <Link href="/" class="inline-flex items-center shrink-0 select-none group" id="main-brand-logo">
-                        <div class="inline-flex items-center gap-2.5 transition-transform duration-200 group-hover:scale-[1.02] transform-gpu">
-                            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-gradient-to-tr from-[#0D1527] to-[#1E6BFF] flex items-center justify-center text-white shadow-lg shadow-blue-500/25 border border-white/20 shrink-0">
-                                <!-- Aerodynamic aircraft icon -->
-                                <AircraftIcon className="w-5 h-5 sm:w-6 sm:h-6" variant="white" :angle="-45" />
-                            </div>
-                            <div class="flex flex-col shrink-0">
-                                <span class="text-base sm:text-lg font-extrabold tracking-tight text-slate-900 leading-tight inline-flex items-center" dir="ltr">
-                                    <span>Info</span><span class="text-[#1E6BFF]">Travel</span>
-                                </span>
-                                <span class="text-[9px] font-medium text-slate-400 tracking-wider">
-                                    {{ isAr ? 'منصة السفر الذكية' : 'SMART TRAVEL PLATFORM' }}
-                                </span>
-                            </div>
+                        <div class="flex items-center gap-2.5 transition-transform duration-200 group-hover:scale-[1.03] transform-gpu">
+                            <img 
+                                src="/images/logo-transparent.png" 
+                                alt="InfoTravel" 
+                                class="h-9 sm:h-11 w-auto object-contain"
+                            />
                         </div>
                     </Link>
 
@@ -61,13 +54,13 @@ const isActive = (href) => {
                             :href="link.href"
                             class="px-2.5 xl:px-3 py-1.5 text-xs xl:text-[13px] 2xl:text-sm rounded-full transition-all duration-200 flex items-center gap-1.5 font-semibold shrink-0 whitespace-nowrap leading-none tracking-normal"
                             :class="isActive(link.href)
-                                ? 'bg-[#1E6BFF] text-white shadow-sm shadow-blue-500/25 font-bold'
-                                : 'text-slate-600 hover:text-[#1E6BFF] hover:bg-slate-100/70'"
+                                ? 'bg-[#243E88] text-white shadow-sm shadow-[#243E88]/30 font-bold'
+                                : 'text-slate-700 hover:text-[#243E88] hover:bg-[#243E88]/5'"
                         >
                             <span
                                 v-if="link.isAi"
                                 class="inline-flex items-center justify-center w-1.5 h-1.5 rounded-full animate-pulse shrink-0"
-                                :class="isActive(link.href) ? 'bg-white' : 'bg-[#1E6BFF]'"
+                                :class="isActive(link.href) ? 'bg-[#FAB515]' : 'bg-[#FAB515]'"
                             ></span>
                             <span>{{ isAr ? link.label.ar : link.label.en }}</span>
                         </Link>
@@ -79,17 +72,17 @@ const isActive = (href) => {
                     <!-- Language Selector Button -->
                     <button
                         @click="toggleLocale"
-                        class="hidden sm:flex items-center gap-1.5 px-2.5 xl:px-3 py-1.5 rounded-full border border-slate-200 text-[11px] xl:text-xs font-bold text-slate-700 hover:border-[#1E6BFF] hover:text-[#1E6BFF] hover:bg-slate-50 transition-all cursor-pointer shrink-0"
+                        class="hidden sm:flex items-center gap-1.5 px-2.5 xl:px-3 py-1.5 rounded-full border border-slate-200 text-[11px] xl:text-xs font-bold text-slate-700 hover:border-[#243E88] hover:text-[#243E88] hover:bg-slate-50 transition-all cursor-pointer shrink-0"
                         :title="isAr ? 'Switch to English' : 'التحويل إلى العربية'"
                     >
                         <Globe class="w-3.5 h-3.5 text-slate-500" />
                         <span>{{ isAr ? 'English' : 'العربية' }}</span>
                     </button>
 
-                    <!-- Primary Pill CTA Button -->
+                    <!-- Primary Pill CTA Button (Golden Yellow Brand Color) -->
                     <Link
                         href="/flights"
-                        class="hidden sm:inline-flex items-center justify-center px-4 xl:px-5 py-2 rounded-full text-xs xl:text-sm font-bold bg-[#0D1527] text-white hover:bg-[#1E6BFF] transition-all duration-200 shadow-md hover:shadow-lg hover:shadow-blue-500/20 active:scale-95 shrink-0"
+                        class="hidden sm:inline-flex items-center justify-center px-4 xl:px-5 py-2 rounded-full text-xs xl:text-sm font-black bg-[#FAB515] text-[#1B316E] hover:bg-[#e8a50e] transition-all duration-200 shadow-md shadow-[#FAB515]/25 hover:shadow-lg hover:shadow-[#FAB515]/40 active:scale-95 shrink-0"
                     >
                         {{ isAr ? 'احجز رحلتك' : 'Book Trip' }}
                     </Link>
@@ -124,14 +117,14 @@ const isActive = (href) => {
                 @click="mobileMenuOpen = false"
                 class="px-4 py-3 rounded-2xl text-sm font-bold transition-all flex items-center justify-between"
                 :class="isActive(link.href)
-                    ? 'bg-[#1E6BFF] text-white shadow-md shadow-blue-500/20 font-black'
-                    : 'text-slate-700 hover:bg-blue-50 hover:text-[#1E6BFF]'"
+                    ? 'bg-[#243E88] text-white shadow-md shadow-[#243E88]/20 font-black'
+                    : 'text-slate-700 hover:bg-[#243E88]/5 hover:text-[#243E88]'"
             >
                 <div class="flex items-center gap-2">
                     <span
                         v-if="link.isAi"
                         class="inline-flex items-center justify-center w-2 h-2 rounded-full animate-pulse"
-                        :class="isActive(link.href) ? 'bg-white' : 'bg-[#1E6BFF]'"
+                        :class="isActive(link.href) ? 'bg-[#FAB515]' : 'bg-[#FAB515]'"
                     ></span>
                     <span>{{ isAr ? link.label.ar : link.label.en }}</span>
                 </div>
@@ -141,7 +134,7 @@ const isActive = (href) => {
                 <Link
                     href="/flights"
                     @click="mobileMenuOpen = false"
-                    class="w-full text-center py-3 rounded-full text-sm font-bold bg-[#0D1527] text-white hover:bg-[#1E6BFF]"
+                    class="w-full text-center py-3 rounded-full text-sm font-black bg-[#FAB515] text-[#1B316E] hover:bg-[#e8a50e] shadow-md shadow-[#FAB515]/20"
                 >
                     {{ isAr ? 'احجز رحلتك الآن' : 'Book Trip Now' }}
                 </Link>

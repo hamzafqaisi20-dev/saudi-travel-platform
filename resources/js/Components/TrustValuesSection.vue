@@ -42,16 +42,16 @@ const values = [
 
 <template>
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div class="bg-gradient-to-br from-[#0D1527] to-[#16233B] text-white rounded-[2.5rem] p-8 sm:p-12 lg:p-16 shadow-2xl relative overflow-hidden">
+        <div class="bg-gradient-to-br from-[#0F1E42] via-[#162752] to-[#0B1530] text-white rounded-[2.5rem] p-8 sm:p-12 lg:p-16 shadow-2xl relative overflow-hidden border border-white/10">
             <!-- Subtle background accent glow -->
-            <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#1E6BFF]/20 blur-3xl pointer-events-none"></div>
+            <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#FAB515]/15 blur-3xl pointer-events-none"></div>
 
             <div class="relative z-10 max-w-3xl mb-12">
-                <span class="text-xs font-bold uppercase tracking-widest text-[#1E6BFF] block mb-2">
+                <span class="text-xs font-bold uppercase tracking-widest text-[#FAB515] block mb-2">
                     {{ isAr ? 'قيم المنصة ومزاياها' : 'OUR CORE PILLARS & VALUE' }}
                 </span>
                 <h2 class="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
-                    {{ isAr ? 'لماذا تختار أجنحة السعودية لتخطيط رحلتك القادمة؟' : 'Crafting Next-Generation Travel Experiences' }}
+                    {{ isAr ? 'لماذا تختار InfoTravel لتخطيط رحلتك القادمة؟' : 'Why Choose InfoTravel For Your Next Journey?' }}
                 </h2>
                 <p class="text-xs sm:text-sm text-slate-300 font-medium mt-3 leading-relaxed">
                     {{ isAr 
@@ -67,8 +67,8 @@ const values = [
                     :key="idx"
                     class="bg-white/5 hover:bg-white/10 backdrop-blur-md rounded-3xl p-6 border border-white/10 transition-all hover:-translate-y-1"
                 >
-                    <div class="w-12 h-12 rounded-2xl bg-[#1E6BFF] text-white flex items-center justify-center mb-5 shadow-lg shadow-blue-500/30">
-                        <component :is="val.icon" class="w-6 h-6" />
+                    <div class="w-12 h-12 rounded-2xl bg-[#FAB515] text-[#1B316E] flex items-center justify-center mb-5 shadow-lg shadow-[#FAB515]/20">
+                        <component :is="val.icon" class="w-6 h-6 stroke-[2.2]" />
                     </div>
                     <h3 class="text-lg font-bold text-white mb-2">
                         {{ isAr ? val.title.ar : val.title.en }}

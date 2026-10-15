@@ -58,12 +58,12 @@ const activeModal = ref(null);
                     <!-- Details -->
                     <div class="p-6 md:w-1/2 flex flex-col justify-between">
                         <div class="space-y-3">
-                            <div class="flex items-center gap-1.5 text-xs font-bold text-[#1E6BFF]">
-                                <Calendar class="w-3.5 h-3.5" />
+                            <div class="flex items-center gap-1.5 text-xs font-bold text-[#243E88]">
+                                <Calendar class="w-3.5 h-3.5 text-[#FAB515]" />
                                 <span>{{ isAr ? exp.date.ar : exp.date.en }}</span>
                             </div>
 
-                            <h3 class="text-lg font-black text-slate-900 group-hover:text-[#1E6BFF] transition-colors leading-snug">
+                            <h3 class="text-lg font-black text-slate-900 group-hover:text-[#243E88] transition-colors leading-snug">
                                 {{ isAr ? exp.title.ar : exp.title.en }}
                             </h3>
 
@@ -81,9 +81,9 @@ const activeModal = ref(null);
                             <button
                                 type="button"
                                 @click="activeModal = exp"
-                                class="px-4 py-2 rounded-full bg-[#1E6BFF] hover:bg-blue-600 text-white text-xs font-bold flex items-center gap-1.5 transition-colors cursor-pointer"
+                                class="px-4 py-2 rounded-full bg-[#243E88] hover:bg-[#1B316E] text-white text-xs font-bold flex items-center gap-1.5 transition-colors cursor-pointer"
                             >
-                                <Ticket class="w-3.5 h-3.5" />
+                                <Ticket class="w-3.5 h-3.5 text-[#FAB515]" />
                                 <span>{{ isAr ? (exp.id.includes('umrah') || exp.id.includes('madinah') ? 'تفاصيل وتصاريح الرحلة' : 'استعراض التذاكر') : (exp.id.includes('umrah') || exp.id.includes('madinah') ? 'Permits & Journey' : 'Ticket Preview') }}</span>
                             </button>
 
@@ -114,8 +114,8 @@ const activeModal = ref(null);
 
                 <div class="p-4 rounded-2xl bg-amber-50 text-xs text-amber-900 border border-amber-200 leading-relaxed">
                     {{ isAr 
-                        ? (activeModal.portal?.notice?.ar || 'تنبيه: الحجوزات والتصاريح تصدر عبر المنصات الرسمية المعتمدة بالمملكة. توفر أجنحة السعودية باقات الطيران والإقامة المتكاملة.') 
-                        : (activeModal.portal?.notice?.en || 'Notice: Official bookings and permits are issued through authorized Saudi gateways. SaudiWings provides curated flight and hospitality pairing.') }}
+                        ? (activeModal.portal?.notice?.ar || 'تنبيه: الحجوزات والتصاريح تصدر عبر المنصات الرسمية المعتمدة بالمملكة. توفر InfoTravel باقات الطيران والإقامة المتكاملة.') 
+                        : (activeModal.portal?.notice?.en || 'Notice: Official bookings and permits are issued through authorized Saudi gateways. InfoTravel provides curated flight and hospitality pairing.') }}
                 </div>
 
                 <div class="space-y-2 text-xs text-slate-600">
@@ -134,7 +134,7 @@ const activeModal = ref(null);
                         :href="activeModal.portal?.url || 'https://www.nusuk.sa/'"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="flex-1 py-3 text-center rounded-full bg-[#0D1527] text-white text-xs font-bold hover:bg-[#1E6BFF] transition-colors"
+                        class="flex-1 py-3 text-center rounded-full bg-[#0D1527] text-white text-xs font-bold hover:bg-[#243E88] transition-colors"
                     >
                         {{ isAr ? `الانتقال إلى منصة ${activeModal.portal?.name || 'الرسمية'}` : `Open Official ${activeModal.portal?.name || 'Gateway'}` }}
                     </a>
@@ -143,7 +143,7 @@ const activeModal = ref(null);
                         href="https://sar.hhr.sa/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="px-4 py-3 text-center rounded-full bg-blue-50 text-[#1E6BFF] border border-blue-200 text-xs font-bold hover:bg-blue-100 transition-colors"
+                        class="px-4 py-3 text-center rounded-full bg-blue-50 text-[#243E88] border border-blue-200 text-xs font-bold hover:bg-blue-100 transition-colors"
                     >
                         {{ isAr ? 'حجز قطار الحرمين' : 'Haramain High-Speed Rail' }}
                     </a>

@@ -27,7 +27,7 @@ defineProps({
         <span
             v-if="amount !== null"
             class="font-black tracking-tight"
-            :class="size === 'lg' ? 'text-2xl sm:text-3xl text-[#1E6BFF]' : (size === 'sm' ? 'text-sm font-extrabold text-[#1E6BFF]' : 'text-lg sm:text-xl text-[#1E6BFF]')"
+            :class="size === 'lg' ? 'text-2xl sm:text-3xl text-[#243E88]' : (size === 'sm' ? 'text-sm font-extrabold text-[#243E88]' : 'text-lg sm:text-xl text-[#243E88]')"
         >
             {{ typeof amount === 'number' ? amount.toLocaleString('en-US') : amount }}
         </span>
@@ -39,7 +39,7 @@ defineProps({
         >
             <SaudiRiyalIcon
                 :className="size === 'lg' ? 'h-6 sm:h-7' : (size === 'sm' ? 'h-3.5' : 'h-4 sm:h-5')"
-                :color="variant === 'white' ? '#FFFFFF' : (variant === 'gold' ? '#D97706' : (variant === 'black' ? '#0D1527' : '#1E6BFF'))"
+                :color="variant === 'white' ? '#FFFFFF' : (variant === 'gold' ? '#FAB515' : (variant === 'black' ? '#0D1527' : '#243E88'))"
             />
         </span>
 

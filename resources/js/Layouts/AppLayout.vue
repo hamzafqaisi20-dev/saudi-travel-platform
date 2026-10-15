@@ -17,7 +17,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <div :dir="dir" class="min-h-screen flex flex-col bg-[#F8FAFC] text-slate-900 font-sans selection:bg-[#1E6BFF] selection:text-white transition-colors duration-200 relative">
+    <div :dir="dir" class="min-h-screen flex flex-col bg-[#F8FAFC] text-slate-900 font-sans selection:bg-[#FAB515] selection:text-[#1B316E] transition-colors duration-200 relative">
         <Navbar />
         <main class="flex-1">
             <slot />

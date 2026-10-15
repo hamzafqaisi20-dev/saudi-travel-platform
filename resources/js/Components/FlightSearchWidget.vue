@@ -83,7 +83,7 @@ const handleSearch = () => {
                 @click="tripType = 'round'"
                 class="px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-2"
                 :class="tripType === 'round' 
-                    ? 'bg-[#1E6BFF] text-white shadow-md shadow-blue-500/20' 
+                    ? 'bg-[#243E88] text-white shadow-md shadow-[#243E88]/25' 
                     : 'text-slate-600 hover:bg-slate-100'"
             >
                 <span>{{ isAr ? 'ذهاب وعودة' : 'Round Trip' }}</span>
@@ -98,7 +98,7 @@ const handleSearch = () => {
                 @click="tripType = 'oneway'"
                 class="px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-2"
                 :class="tripType === 'oneway' 
-                    ? 'bg-[#1E6BFF] text-white shadow-md shadow-blue-500/20' 
+                    ? 'bg-[#243E88] text-white shadow-md shadow-[#243E88]/25' 
                     : 'text-slate-600 hover:bg-slate-100'"
             >
                 <span>{{ isAr ? 'اتجاه واحد' : 'One Way' }}</span>
@@ -113,15 +113,15 @@ const handleSearch = () => {
                 @click="tripType = 'multi'"
                 class="px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-2"
                 :class="tripType === 'multi' 
-                    ? 'bg-[#1E6BFF] text-white shadow-md shadow-blue-500/20' 
+                    ? 'bg-[#243E88] text-white shadow-md shadow-[#243E88]/25' 
                     : 'text-slate-600 hover:bg-slate-100'"
             >
                 <span>{{ isAr ? 'وجهات متعددة' : 'Multi-City' }}</span>
                 <span 
                     class="text-[10px] px-2 py-0.5 rounded-full font-black tracking-wide"
                     :class="tripType === 'multi' 
-                        ? 'bg-amber-400 text-slate-900 shadow-xs' 
-                        : 'bg-blue-100 text-[#1E6BFF]'"
+                        ? 'bg-[#FAB515] text-[#1B316E] shadow-xs' 
+                        : 'bg-amber-100 text-[#1B316E]'"
                 >
                     {{ isAr ? 'عدة محطات متتالية' : 'Multi-Leg' }}
                 </span>
@@ -151,7 +151,7 @@ const handleSearch = () => {
                 <button
                     type="button"
                     @click="swapAirports"
-                    class="absolute -top-3.5 sm:top-1/2 sm:-translate-y-1/2 -start-3 z-10 w-7 h-7 rounded-full bg-white border border-slate-200 text-slate-600 hover:text-[#1E6BFF] hover:border-[#1E6BFF] flex items-center justify-center shadow-sm cursor-pointer"
+                    class="absolute -top-3.5 sm:top-1/2 sm:-translate-y-1/2 -start-3 z-10 w-7 h-7 rounded-full bg-white border border-slate-200 text-slate-600 hover:text-[#243E88] hover:border-[#243E88] flex items-center justify-center shadow-sm cursor-pointer"
                     :title="isAr ? 'تبديل الوجهات' : 'Swap Airports'"
                 >
                     <ArrowRightLeft class="w-3.5 h-3.5" />
@@ -220,15 +220,15 @@ const handleSearch = () => {
                 </select>
             </div>
 
-            <!-- Submit CTA Button (Clean Text Without Aircraft Icon Inside as requested) -->
+            <!-- Submit CTA Button (Golden Yellow Brand Color) -->
             <div>
                 <button
                     type="button"
                     @click="handleSearch"
                     :disabled="isSearching"
-                    class="w-full py-3.5 px-4 rounded-2xl bg-[#1E6BFF] hover:bg-blue-600 text-white font-extrabold text-sm flex items-center justify-center gap-2 shadow-lg shadow-blue-500/25 active:scale-98 transition-all cursor-pointer disabled:opacity-75"
+                    class="w-full py-3.5 px-4 rounded-2xl bg-[#FAB515] hover:bg-[#e8a50e] text-[#1B316E] font-black text-sm flex items-center justify-center gap-2 shadow-lg shadow-[#FAB515]/25 active:scale-98 transition-all cursor-pointer disabled:opacity-75"
                 >
-                    <svg v-if="isSearching" class="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24">
+                    <svg v-if="isSearching" class="animate-spin h-5 w-5 text-[#1B316E]" viewBox="0 0 24 24">
                         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle>
                         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
                     </svg>
@@ -244,7 +244,7 @@ const handleSearch = () => {
                 <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
                     <div class="space-y-1">
                         <div class="flex items-center gap-2">
-                            <span class="px-2.5 py-0.5 rounded-md bg-[#1E6BFF] text-white text-[11px] font-black">
+                            <span class="px-2.5 py-0.5 rounded-md bg-[#243E88] text-white text-[11px] font-black">
                                 {{ isAr ? 'توضيح تبويب الوجهات المتعددة' : 'Multi-City Guide' }}
                             </span>
                             <h4 class="text-xs sm:text-sm font-black text-slate-900">
@@ -258,7 +258,7 @@ const handleSearch = () => {
                         </p>
                     </div>
                     <div class="flex items-center gap-2 self-start md:self-auto shrink-0">
-                        <span class="text-xs font-bold text-[#1E6BFF] bg-white px-3 py-1.5 rounded-xl border border-blue-200 shadow-xs">
+                        <span class="text-xs font-bold text-[#243E88] bg-white px-3 py-1.5 rounded-xl border border-blue-200 shadow-xs">
                             {{ isAr ? `المسار: ${multiSegments.length} محطات سفر` : `${multiSegments.length} Flight Legs` }}
                         </span>
                     </div>
@@ -270,11 +270,11 @@ const handleSearch = () => {
                 <div
                     v-for="(seg, idx) in multiSegments"
                     :key="seg.id"
-                    class="p-4 sm:p-5 rounded-2xl bg-slate-50/90 hover:bg-slate-50 border border-slate-200/80 transition-all hover:border-[#1E6BFF]/40"
+                    class="p-4 sm:p-5 rounded-2xl bg-slate-50/90 hover:bg-slate-50 border border-slate-200/80 transition-all hover:border-[#243E88]/40"
                 >
                     <div class="flex items-center justify-between mb-3">
                         <div class="flex items-center gap-2">
-                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black bg-[#1E6BFF] text-white shadow-xs">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black bg-[#243E88] text-white shadow-xs">
                                 {{ isAr ? `المحطة ${idx + 1} (الرحلة ${idx + 1})` : `Stop ${idx + 1} (Flight ${idx + 1})` }}
                             </span>
                             <span class="text-xs font-bold text-slate-500">
@@ -349,7 +349,7 @@ const handleSearch = () => {
                     type="button"
                     @click="addSegment"
                     :disabled="multiSegments.length >= 4"
-                    class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border-2 border-dashed border-[#1E6BFF]/40 text-[#1E6BFF] hover:bg-blue-50/70 font-bold text-xs sm:text-sm transition-all cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
+                    class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border-2 border-dashed border-[#243E88]/40 text-[#243E88] hover:bg-blue-50/70 font-bold text-xs sm:text-sm transition-all cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                     <Plus class="w-4 h-4" />
                     <span>{{ isAr ? 'إضافة محطة رحلة أخرى (+)' : 'Add Another Stop (+)' }}</span>
@@ -373,9 +373,9 @@ const handleSearch = () => {
                         type="button"
                         @click="handleSearch"
                         :disabled="isSearching"
-                        class="w-full sm:w-auto py-3 px-6 rounded-xl bg-[#1E6BFF] hover:bg-blue-600 text-white font-extrabold text-sm flex items-center justify-center gap-2 shadow-lg shadow-blue-500/25 active:scale-98 transition-all cursor-pointer"
+                        class="w-full sm:w-auto py-3 px-6 rounded-xl bg-[#FAB515] hover:bg-[#e8a50e] text-[#1B316E] font-black text-sm flex items-center justify-center gap-2 shadow-lg shadow-[#FAB515]/25 active:scale-98 transition-all cursor-pointer"
                     >
-                        <svg v-if="isSearching" class="animate-spin h-4 w-4 text-white" viewBox="0 0 24 24">
+                        <svg v-if="isSearching" class="animate-spin h-4 w-4 text-[#1B316E]" viewBox="0 0 24 24">
                             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle>
                             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
                         </svg>
@@ -390,7 +390,7 @@ const handleSearch = () => {
             <!-- Normal Route Chips for Round/One-way -->
             <template v-if="tripType !== 'multi'">
                 <span class="font-black text-slate-700 flex items-center gap-1 me-1">
-                    <span class="w-2 h-2 rounded-full bg-[#1E6BFF]"></span>
+                    <span class="w-2 h-2 rounded-full bg-[#FAB515]"></span>
                     {{ isAr ? 'المسارات المقترحة:' : 'Popular Routes:' }}
                 </span>
                 <button
@@ -398,8 +398,8 @@ const handleSearch = () => {
                     @click="origin = 'RUH'; destination = 'MED'"
                     class="px-3 py-1.5 rounded-full font-bold transition-all cursor-pointer border"
                     :class="origin === 'RUH' && destination === 'MED'
-                        ? 'bg-[#1E6BFF] text-white border-[#1E6BFF] shadow-sm'
-                        : 'bg-slate-100 text-slate-700 hover:bg-blue-50 hover:text-[#1E6BFF] border-slate-200/60'"
+                        ? 'bg-[#243E88] text-white border-[#243E88] shadow-sm'
+                        : 'bg-slate-100 text-slate-700 hover:bg-[#243E88]/5 hover:text-[#243E88] border-slate-200/60'"
                 >
                     {{ isAr ? 'الرياض ⇄ المدينة المنورة' : 'RUH ⇄ MED (Madinah)' }}
                 </button>
@@ -408,8 +408,8 @@ const handleSearch = () => {
                     @click="origin = 'RUH'; destination = 'JED'"
                     class="px-3 py-1.5 rounded-full font-bold transition-all cursor-pointer border"
                     :class="origin === 'RUH' && destination === 'JED'
-                        ? 'bg-[#1E6BFF] text-white border-[#1E6BFF] shadow-sm'
-                        : 'bg-slate-100 text-slate-700 hover:bg-blue-50 hover:text-[#1E6BFF] border-slate-200/60'"
+                        ? 'bg-[#243E88] text-white border-[#243E88] shadow-sm'
+                        : 'bg-slate-100 text-slate-700 hover:bg-[#243E88]/5 hover:text-[#243E88] border-slate-200/60'"
                 >
                     {{ isAr ? 'الرياض ⇄ جدة (مكة)' : 'RUH ⇄ JED (Makkah)' }}
                 </button>
@@ -418,8 +418,8 @@ const handleSearch = () => {
                     @click="origin = 'RUH'; destination = 'ULH'"
                     class="px-3 py-1.5 rounded-full font-bold transition-all cursor-pointer border"
                     :class="origin === 'RUH' && destination === 'ULH'
-                        ? 'bg-[#1E6BFF] text-white border-[#1E6BFF] shadow-sm'
-                        : 'bg-slate-100 text-slate-700 hover:bg-blue-50 hover:text-[#1E6BFF] border-slate-200/60'"
+                        ? 'bg-[#243E88] text-white border-[#243E88] shadow-sm'
+                        : 'bg-slate-100 text-slate-700 hover:bg-[#243E88]/5 hover:text-[#243E88] border-slate-200/60'"
                 >
                     {{ isAr ? 'الرياض ⇄ العلا' : 'RUH ⇄ ULH (AlUla)' }}
                 </button>
@@ -428,8 +428,8 @@ const handleSearch = () => {
                     @click="origin = 'RUH'; destination = 'RSI'"
                     class="px-3 py-1.5 rounded-full font-bold transition-all cursor-pointer border"
                     :class="origin === 'RUH' && destination === 'RSI'
-                        ? 'bg-[#1E6BFF] text-white border-[#1E6BFF] shadow-sm'
-                        : 'bg-slate-100 text-slate-700 hover:bg-blue-50 hover:text-[#1E6BFF] border-slate-200/60'"
+                        ? 'bg-[#243E88] text-white border-[#243E88] shadow-sm'
+                        : 'bg-slate-100 text-slate-700 hover:bg-[#243E88]/5 hover:text-[#243E88] border-slate-200/60'"
                 >
                     {{ isAr ? 'الرياض ⇄ البحر الأحمر' : 'RUH ⇄ RSI (Red Sea)' }}
                 </button>
@@ -438,7 +438,7 @@ const handleSearch = () => {
             <!-- Suggested Itineraries for Multi-City -->
             <template v-else>
                 <span class="font-black text-slate-700 flex items-center gap-1 me-1">
-                    <Sparkles class="w-3.5 h-3.5 text-[#1E6BFF]" />
+                    <Sparkles class="w-3.5 h-3.5 text-[#FAB515]" />
                     {{ isAr ? 'مسارات متعددة مقترحة:' : 'Suggested Multi-City Trips:' }}
                 </span>
                 <button
@@ -448,7 +448,7 @@ const handleSearch = () => {
                         { origin: 'ULH', destination: 'JED', date: '2026-11-20' },
                         { origin: 'JED', destination: 'RUH', date: '2026-11-25' }
                     ])"
-                    class="px-3 py-1.5 rounded-full font-bold transition-all cursor-pointer border bg-slate-100 text-slate-700 hover:bg-blue-50 hover:text-[#1E6BFF] border-slate-200/60"
+                    class="px-3 py-1.5 rounded-full font-bold transition-all cursor-pointer border bg-slate-100 text-slate-700 hover:bg-blue-50 hover:text-[#243E88] border-slate-200/60"
                 >
                     {{ isAr ? 'الرياض ➔ العلا ➔ جدة ➔ الرياض' : 'RUH ➔ ULH ➔ JED ➔ RUH' }}
                 </button>
@@ -458,7 +458,7 @@ const handleSearch = () => {
                         { origin: 'RUH', destination: 'RSI', date: '2026-11-15' },
                         { origin: 'RSI', destination: 'MED', date: '2026-11-20' }
                     ])"
-                    class="px-3 py-1.5 rounded-full font-bold transition-all cursor-pointer border bg-slate-100 text-slate-700 hover:bg-blue-50 hover:text-[#1E6BFF] border-slate-200/60"
+                    class="px-3 py-1.5 rounded-full font-bold transition-all cursor-pointer border bg-slate-100 text-slate-700 hover:bg-blue-50 hover:text-[#243E88] border-slate-200/60"
                 >
                     {{ isAr ? 'الرياض ➔ البحر الأحمر ➔ المدينة' : 'RUH ➔ RSI ➔ MED' }}
                 </button>
@@ -468,7 +468,7 @@ const handleSearch = () => {
                         { origin: 'DMM', destination: 'RUH', date: '2026-11-15' },
                         { origin: 'RUH', destination: 'AHB', date: '2026-11-20' }
                     ])"
-                    class="px-3 py-1.5 rounded-full font-bold transition-all cursor-pointer border bg-slate-100 text-slate-700 hover:bg-blue-50 hover:text-[#1E6BFF] border-slate-200/60"
+                    class="px-3 py-1.5 rounded-full font-bold transition-all cursor-pointer border bg-slate-100 text-slate-700 hover:bg-blue-50 hover:text-[#243E88] border-slate-200/60"
                 >
                     {{ isAr ? 'الدمام ➔ الرياض ➔ أبها' : 'DMM ➔ RUH ➔ AHB' }}
                 </button>

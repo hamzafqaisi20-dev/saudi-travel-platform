@@ -8,6 +8,8 @@
 
     <title inertia>{{ config('app.name', 'InfoTravel | منصة السفر الذكية') }}</title>
 
+    <link rel="icon" type="image/png" href="/images/logo-transparent.png">
+
     <!-- Google Fonts: Tajawal & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +18,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @inertiaHead
 </head>
-<body class="font-sans antialiased bg-[#F8FAFC] text-[#0F172A] selection:bg-[#0284C7] selection:text-white min-h-screen">
+<body class="font-sans antialiased bg-[#F8FAFC] text-[#0F172A] selection:bg-[#FAB515] selection:text-[#1B316E] min-h-screen">
     @inertia
 </body>
 </html>

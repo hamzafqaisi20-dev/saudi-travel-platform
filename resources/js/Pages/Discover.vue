@@ -94,7 +94,7 @@ const seasons = [
         <!-- Curated Discovery Pillars -->
         <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
             <div class="text-center max-w-2xl mx-auto mb-14">
-                <span class="text-xs font-bold uppercase tracking-widest text-[#1E6BFF] block mb-1">
+                <span class="text-xs font-bold uppercase tracking-widest text-[#243E88] block mb-1">
                     {{ isAr ? 'أعمدة السياحة السعودية' : 'THE PILLARS OF SAUDI' }}
                 </span>
                 <h2 class="text-3xl sm:text-4xl font-black text-[#0D1527] tracking-tight">
@@ -117,7 +117,7 @@ const seasons = [
                         </p>
                     </div>
                     <div class="pt-4 border-t border-slate-50 mt-4">
-                        <Link href="/destinations?filter=مقدسات" class="text-xs font-bold text-[#1E6BFF] flex items-center gap-1">
+                        <Link href="/destinations?filter=مقدسات" class="text-xs font-bold text-[#243E88] flex items-center gap-1 hover:text-[#FAB515] transition-colors">
                             <span>{{ isAr ? 'استكشف الوجهات الروحانية' : 'Explore Sanctuaries' }}</span>
                             <component :is="isAr ? ArrowLeft : ArrowRight" class="w-3.5 h-3.5" />
                         </Link>
@@ -138,7 +138,7 @@ const seasons = [
                         </p>
                     </div>
                     <div class="pt-4 border-t border-slate-50 mt-4">
-                        <Link href="/destinations?filter=تراث" class="text-xs font-bold text-[#1E6BFF] flex items-center gap-1">
+                        <Link href="/destinations?filter=تراث" class="text-xs font-bold text-[#243E88] flex items-center gap-1 hover:text-[#FAB515] transition-colors">
                             <span>{{ isAr ? 'استكشف الوجهات التراثية' : 'Explore Heritage' }}</span>
                             <component :is="isAr ? ArrowLeft : ArrowRight" class="w-3.5 h-3.5" />
                         </Link>
@@ -159,7 +159,7 @@ const seasons = [
                         </p>
                     </div>
                     <div class="pt-4 border-t border-slate-50 mt-4">
-                        <Link href="/destinations?filter=شواطئ" class="text-xs font-bold text-[#1E6BFF] flex items-center gap-1">
+                        <Link href="/destinations?filter=شواطئ" class="text-xs font-bold text-[#243E88] flex items-center gap-1 hover:text-[#FAB515] transition-colors">
                             <span>{{ isAr ? 'استكشف الوجهات الساحلية' : 'Explore Red Sea' }}</span>
                             <component :is="isAr ? ArrowLeft : ArrowRight" class="w-3.5 h-3.5" />
                         </Link>
@@ -180,7 +180,7 @@ const seasons = [
                         </p>
                     </div>
                     <div class="pt-4 border-t border-slate-50 mt-4">
-                        <Link href="/destinations?filter=طبيعة" class="text-xs font-bold text-[#1E6BFF] flex items-center gap-1">
+                        <Link href="/destinations?filter=طبيعة" class="text-xs font-bold text-[#243E88] flex items-center gap-1 hover:text-[#FAB515] transition-colors">
                             <span>{{ isAr ? 'استكشف الوجهات الجبلية' : 'Explore Asir' }}</span>
                             <component :is="isAr ? ArrowLeft : ArrowRight" class="w-3.5 h-3.5" />
                         </Link>
@@ -201,7 +201,7 @@ const seasons = [
                         </p>
                     </div>
                     <div class="pt-4 border-t border-slate-50 mt-4">
-                        <Link href="/destinations?filter=عاصمة" class="text-xs font-bold text-[#1E6BFF] flex items-center gap-1">
+                        <Link href="/destinations?filter=عاصمة" class="text-xs font-bold text-[#243E88] flex items-center gap-1 hover:text-[#FAB515] transition-colors">
                             <span>{{ isAr ? 'استكشف الوجهات الحديثة' : 'Explore Riyadh' }}</span>
                             <component :is="isAr ? ArrowLeft : ArrowRight" class="w-3.5 h-3.5" />
                         </Link>
@@ -213,7 +213,7 @@ const seasons = [
         <!-- Travel Seasons & Guidelines -->
         <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-slate-50 rounded-3xl my-10 border border-slate-100">
             <div class="max-w-3xl mb-10">
-                <span class="text-xs font-bold uppercase tracking-widest text-[#1E6BFF] block mb-1">
+                <span class="text-xs font-bold uppercase tracking-widest text-[#243E88] block mb-1">
                     {{ isAr ? 'دليل مواسم السفر' : 'WHEN TO VISIT' }}
                 </span>
                 <h2 class="text-2xl sm:text-4xl font-black text-[#0D1527] tracking-tight">
@@ -228,7 +228,7 @@ const seasons = [
                     class="bg-white rounded-3xl p-6 card-soft-shadow border border-slate-100 flex flex-col justify-between"
                 >
                     <div class="space-y-3">
-                        <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-blue-50 text-[#1E6BFF]">
+                        <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-blue-50 text-[#243E88]">
                             {{ isAr ? s.tag.ar : s.tag.en }}
                         </span>
                         <h3 class="text-base font-black text-slate-900">
@@ -240,7 +240,7 @@ const seasons = [
                     </div>
 
                     <div class="pt-6 border-t border-slate-50">
-                        <Link :href="s.route || '/ai-planner'" class="text-xs font-bold text-[#1E6BFF] flex items-center gap-1">
+                        <Link :href="s.route || '/ai-planner'" class="text-xs font-bold text-[#243E88] flex items-center gap-1 hover:text-[#FAB515] transition-colors">
                             <span>{{ isAr ? 'استكشف وجهات ومسار هذا الموسم' : 'Explore Season Destinations' }}</span>
                             <component :is="isAr ? ArrowLeft : ArrowRight" class="w-3.5 h-3.5" />
                         </Link>

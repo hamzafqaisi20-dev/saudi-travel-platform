@@ -10,7 +10,7 @@ const { isAr } = useLocale();
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <!-- Section Header -->
         <div class="max-w-3xl mb-12">
-            <span class="text-xs font-bold uppercase tracking-widest text-[#1E6BFF] block mb-1">
+            <span class="text-xs font-bold uppercase tracking-widest text-[#243E88] block mb-1">
                 {{ isAr ? 'منظومة الشركاء والمصادر الرسمية' : 'TRAVEL PARTNERS & OFFICIAL RESOURCES' }}
             </span>
             <h2 class="text-2xl sm:text-4xl font-black text-[#0D1527] tracking-tight">
@@ -32,7 +32,7 @@ const { isAr } = useLocale();
             >
                 <!-- Category Title -->
                 <div class="flex items-center gap-3 pb-5 border-b border-slate-100 mb-6">
-                    <div class="w-8 h-8 rounded-xl bg-blue-50 text-[#1E6BFF] flex items-center justify-center">
+                    <div class="w-8 h-8 rounded-xl bg-blue-50 text-[#243E88] border border-blue-100 flex items-center justify-center">
                         <Building2 class="w-4 h-4" />
                     </div>
                     <h3 class="text-base sm:text-lg font-black text-slate-900">
@@ -48,17 +48,17 @@ const { isAr } = useLocale();
                         :href="item.url"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="group p-5 rounded-2xl bg-slate-50/80 hover:bg-white border border-slate-200/80 hover:border-[#1E6BFF] card-hover flex flex-col justify-between transition-all"
+                        class="group p-5 rounded-2xl bg-slate-50/80 hover:bg-white border border-slate-200/80 hover:border-[#FAB515] card-hover flex flex-col justify-between transition-all"
                     >
                         <div>
                             <div class="flex items-start justify-between gap-2 mb-2">
-                                <span class="text-base font-extrabold text-slate-900 group-hover:text-[#1E6BFF] transition-colors">
+                                <span class="text-base font-extrabold text-slate-900 group-hover:text-[#243E88] transition-colors">
                                     {{ isAr ? item.name.ar : item.name.en }}
                                 </span>
-                                <ExternalLink class="w-4 h-4 text-slate-400 group-hover:text-[#1E6BFF] shrink-0 transition-colors" />
+                                <ExternalLink class="w-4 h-4 text-slate-400 group-hover:text-[#243E88] shrink-0 transition-colors" />
                             </div>
 
-                            <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-blue-50 text-[#1E6BFF] border border-blue-200/60 mb-3">
+                            <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-50 text-[#1B316E] border border-amber-200/60 mb-3">
                                 {{ isAr ? item.badge.ar : item.badge.en }}
                             </span>
 
@@ -67,7 +67,7 @@ const { isAr } = useLocale();
                             </p>
                         </div>
 
-                        <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-bold text-slate-400 group-hover:text-[#1E6BFF]">
+                        <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-bold text-slate-400 group-hover:text-[#243E88]">
                             <span>{{ isAr ? 'زيارة البوابة الرسمية' : 'Visit Official Portal' }}</span>
                             <span class="text-xs font-mono">↗</span>
                         </div>
@@ -83,7 +83,7 @@ const { isAr } = useLocale();
                     ? 'منظومة مفتوحة وقابلة للتوسع: يمكن ربط المزيد من شركات الطيران، المطارات، ومزودي الفنادق والنقل مستقبلاً.' 
                     : 'Extensible architecture: easily onboard additional international airlines, airports, and luxury hospitality providers.' }}
             </span>
-            <span class="font-bold text-[#1E6BFF] hidden sm:inline">Vision 2030 Ecosystem</span>
+            <span class="font-bold text-[#243E88] hidden sm:inline">Vision 2030 Ecosystem</span>
         </div>
     </section>
 </template>

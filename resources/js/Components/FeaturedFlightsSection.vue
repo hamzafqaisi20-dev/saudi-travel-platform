@@ -22,7 +22,7 @@ const openOfferModal = (offer) => {
         <!-- Section Header -->
         <div class="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-10">
             <div>
-                <span class="text-xs font-bold uppercase tracking-widest text-[#1E6BFF] block mb-1">
+                <span class="text-xs font-bold uppercase tracking-widest text-[#243E88] block mb-1">
                     {{ isAr ? 'عروض الطيران المميزة' : 'FEATURED FLIGHT OFFERS' }}
                 </span>
                 <h2 class="text-2xl sm:text-4xl font-black text-[#0D1527] tracking-tight">
@@ -48,7 +48,7 @@ const openOfferModal = (offer) => {
                     <!-- Top Airline & Class Bar -->
                     <div class="flex items-center justify-between pb-4 border-b border-slate-100">
                         <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-2xl bg-blue-50 text-[#1E6BFF] flex items-center justify-center font-black text-sm">
+                            <div class="w-10 h-10 rounded-2xl bg-blue-50 text-[#243E88] border border-blue-100 flex items-center justify-center font-black text-sm">
                                 {{ flight.airlineCode }}
                             </div>
                             <div>
@@ -85,11 +85,11 @@ const openOfferModal = (offer) => {
                                 {{ flight.duration }}
                             </span>
                             <div class="w-full flex items-center gap-1">
-                                <div class="w-2 h-2 rounded-full bg-[#1E6BFF]"></div>
+                                <div class="w-2 h-2 rounded-full bg-[#FAB515]"></div>
                                 <div class="flex-1 border-t-2 border-dashed border-slate-300 relative">
-                                    <AircraftIcon className="w-5 h-5 text-[#1E6BFF] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" :angle="isAr ? -90 : 90" />
+                                    <AircraftIcon className="w-5 h-5 text-[#243E88] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" :angle="isAr ? -90 : 90" />
                                 </div>
-                                <div class="w-2 h-2 rounded-full bg-[#0D1527]"></div>
+                                <div class="w-2 h-2 rounded-full bg-[#243E88]"></div>
                             </div>
                             <span class="text-[10px] font-bold text-emerald-600 mt-1">
                                 {{ isAr ? flight.stops.ar : flight.stops.en }}
@@ -125,7 +125,7 @@ const openOfferModal = (offer) => {
                     <button
                         type="button"
                         @click="openOfferModal(flight)"
-                        class="px-5 py-2.5 rounded-full bg-[#0D1527] hover:bg-[#1E6BFF] text-white text-xs font-bold transition-all shadow-md active:scale-95 cursor-pointer"
+                        class="px-5 py-2.5 rounded-full bg-[#243E88] hover:bg-[#1B316E] text-white hover:text-[#FAB515] text-xs font-bold transition-all shadow-md active:scale-95 cursor-pointer"
                     >
                         {{ isAr ? 'استعراض الرحلة' : 'Select Flight' }}
                     </button>
@@ -138,7 +138,7 @@ const openOfferModal = (offer) => {
             <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-lg w-full card-soft-shadow border border-slate-100 space-y-6">
                 <div class="flex items-center justify-between pb-3 border-b border-slate-100">
                     <div class="flex items-center gap-2">
-                        <Plane class="w-5 h-5 text-[#1E6BFF]" />
+                        <Plane class="w-5 h-5 text-[#FAB515]" />
                         <h3 class="text-lg font-black text-slate-900">
                             {{ isAr ? 'تفاصيل الرحلة النموذجية' : 'Sample Flight Preview' }}
                         </h3>
@@ -147,8 +147,8 @@ const openOfferModal = (offer) => {
                 </div>
 
                 <div class="p-4 rounded-2xl bg-blue-50/70 border border-blue-100 text-xs text-blue-900 space-y-2">
-                    <div class="flex items-center gap-2 font-bold text-sm text-[#1E6BFF]">
-                        <ShieldCheck class="w-4 h-4" />
+                    <div class="flex items-center gap-2 font-bold text-sm text-[#243E88]">
+                        <ShieldCheck class="w-4 h-4 text-[#FAB515]" />
                         <span>{{ isAr ? 'تنبيه العرض التجريبي (Phase One)' : 'Prototype Demonstration Only' }}</span>
                     </div>
                     <p>
@@ -180,7 +180,7 @@ const openOfferModal = (offer) => {
                 <div class="pt-2 flex gap-3">
                     <button
                         @click="modalOpen = false"
-                        class="w-full py-3 rounded-full bg-[#1E6BFF] text-white text-xs font-bold hover:bg-blue-600 transition-colors"
+                        class="w-full py-3 rounded-full bg-[#243E88] text-white text-xs font-bold hover:bg-[#1B316E] transition-colors"
                     >
                         {{ isAr ? 'إغلاق المعاينة' : 'Close Preview' }}
                     </button>

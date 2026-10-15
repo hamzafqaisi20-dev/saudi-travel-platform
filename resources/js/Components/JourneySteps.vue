@@ -25,7 +25,7 @@ const { isAr } = useLocale();
             <!-- Step 1: Find Your Destination (White soft card) -->
             <div class="bg-white rounded-3xl p-8 card-soft-shadow card-hover border border-slate-100 flex flex-col justify-between min-h-[320px]">
                 <div class="space-y-4">
-                    <div class="w-12 h-12 rounded-2xl bg-blue-50 text-[#1E6BFF] flex items-center justify-center">
+                    <div class="w-12 h-12 rounded-2xl bg-blue-50 text-[#243E88] border border-blue-100 flex items-center justify-center">
                         <Compass class="w-6 h-6" />
                     </div>
                     <h3 class="text-xl font-black text-slate-900">
@@ -38,15 +38,15 @@ const { isAr } = useLocale();
                     </p>
                 </div>
                 <div class="pt-6 border-t border-slate-50">
-                    <Link href="/destinations" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#1E6BFF] hover:underline">
+                    <Link href="/destinations" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#243E88] hover:text-[#FAB515] transition-colors">
                         <span>{{ isAr ? 'استكشف الوجهات' : 'Explore Places' }}</span>
                         <component :is="isAr ? ArrowLeft : ArrowRight" class="w-3.5 h-3.5" />
                     </Link>
                 </div>
             </div>
 
-            <!-- Step 2: Book A Ticket (Highlight Tall Blue Card with Aviation Visual - Exactly matching image) -->
-            <div class="relative bg-gradient-to-br from-[#1E6BFF] to-[#1250C4] text-white rounded-[2.5rem] p-7 sm:p-8 lg:p-9 shadow-2xl shadow-blue-500/25 overflow-hidden flex flex-col justify-between min-h-[410px] lg:-translate-y-2 group">
+            <!-- Step 2: Book A Ticket (Highlight Tall Navy Card with Aviation Visual) -->
+            <div class="relative bg-gradient-to-br from-[#243E88] via-[#1B316E] to-[#122352] text-white rounded-[2.5rem] p-7 sm:p-8 lg:p-9 shadow-2xl shadow-[#243E88]/30 overflow-hidden flex flex-col justify-between min-h-[410px] lg:-translate-y-2 group">
                 <!-- Aviation Window / Clouds Visual (Complements Flight Theme Perfectly) -->
                 <div class="absolute top-0 ltr:right-0 rtl:left-0 w-36 h-36 sm:w-40 sm:h-40 lg:w-44 lg:h-44 ltr:rounded-bl-[4rem] rtl:rounded-br-[4rem] overflow-hidden border-b-4 ltr:border-l-4 rtl:border-r-4 border-white/20 shadow-inner z-0 pointer-events-none">
                     <img
@@ -54,7 +54,7 @@ const { isAr } = useLocale();
                         alt="Flight soaring above clouds"
                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
-                    <div class="absolute inset-0 bg-blue-900/20 mix-blend-multiply"></div>
+                    <div class="absolute inset-0 bg-[#122352]/40 mix-blend-multiply"></div>
                 </div>
 
                 <!-- Card Content -->
@@ -79,7 +79,7 @@ const { isAr } = useLocale();
                 <div class="relative z-10 pt-5 border-t border-white/20 flex items-center justify-between mt-2">
                     <Link
                         href="/flights"
-                        class="inline-flex items-center gap-2 text-xs sm:text-sm font-black text-white tracking-wider hover:translate-x-1 rtl:hover:-translate-x-1 transition-transform group/link"
+                        class="inline-flex items-center gap-2 text-xs sm:text-sm font-black text-[#FAB515] hover:text-white tracking-wider hover:translate-x-1 rtl:hover:-translate-x-1 transition-all group/link"
                     >
                         <span>{{ isAr ? 'احجز التذكرة الآن' : 'LEARN MORE' }}</span>
                         <component :is="isAr ? ArrowLeft : ArrowRight" class="w-4 h-4" />
@@ -90,7 +90,7 @@ const { isAr } = useLocale();
             <!-- Step 3: Pay & Start Journey (White soft card) -->
             <div class="bg-white rounded-3xl p-8 card-soft-shadow card-hover border border-slate-100 flex flex-col justify-between min-h-[320px]">
                 <div class="space-y-4">
-                    <div class="w-12 h-12 rounded-2xl bg-blue-50 text-[#1E6BFF] flex items-center justify-center">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-50 text-[#FAB515] border border-amber-100 flex items-center justify-center">
                         <CreditCard class="w-6 h-6" />
                     </div>
                     <h3 class="text-xl font-black text-slate-900">
@@ -103,7 +103,7 @@ const { isAr } = useLocale();
                     </p>
                 </div>
                 <div class="pt-6 border-t border-slate-50">
-                    <Link href="/ai-planner" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#1E6BFF] hover:underline">
+                    <Link href="/ai-planner" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#243E88] hover:text-[#FAB515] transition-colors">
                         <span>{{ isAr ? 'جرّب المخطط الذكي' : 'Plan with AI' }}</span>
                         <component :is="isAr ? ArrowLeft : ArrowRight" class="w-3.5 h-3.5" />
                     </Link>

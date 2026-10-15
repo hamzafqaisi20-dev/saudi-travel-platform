@@ -12,8 +12,8 @@ const { isAr } = useLocale();
         <!-- Section Header -->
         <div class="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-10">
             <div>
-                <span class="text-xs font-bold uppercase tracking-widest text-[#1E6BFF] flex items-center gap-1.5 mb-1">
-                    <Sparkles class="w-4 h-4" />
+                <span class="text-xs font-bold uppercase tracking-widest text-[#243E88] flex items-center gap-1.5 mb-1">
+                    <Sparkles class="w-4 h-4 text-[#FAB515]" />
                     {{ isAr ? 'رحلات استثنائية في قلب المملكة' : 'SAUDI EXPERIENCES & SACRED JOURNEYS' }}
                 </span>
                 <h2 class="text-2xl sm:text-4xl font-black text-[#0D1527] tracking-tight">
@@ -26,7 +26,7 @@ const { isAr } = useLocale();
 
             <Link
                 href="/experiences"
-                class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#1E6BFF] hover:underline"
+                class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#243E88] hover:text-[#FAB515] transition-colors"
             >
                 <span>{{ isAr ? 'عرض جميع التجارب والرحلات' : 'View All Experiences' }}</span>
                 <component :is="isAr ? ArrowLeft : ArrowRight" class="w-4 h-4" />
@@ -58,12 +58,12 @@ const { isAr } = useLocale();
 
                     <!-- Body -->
                     <div class="p-5">
-                        <div class="flex items-center gap-1.5 text-[11px] font-bold text-[#1E6BFF] mb-2">
-                            <Calendar class="w-3.5 h-3.5 shrink-0" />
+                        <div class="flex items-center gap-1.5 text-[11px] font-bold text-[#243E88] mb-2">
+                            <Calendar class="w-3.5 h-3.5 text-[#FAB515] shrink-0" />
                             <span>{{ isAr ? exp.date.ar : exp.date.en }}</span>
                         </div>
 
-                        <h3 class="text-base font-extrabold text-slate-900 group-hover:text-[#1E6BFF] transition-colors leading-snug mb-2">
+                        <h3 class="text-base font-extrabold text-slate-900 group-hover:text-[#243E88] transition-colors leading-snug mb-2">
                             {{ isAr ? exp.title.ar : exp.title.en }}
                         </h3>
 
@@ -81,7 +81,7 @@ const { isAr } = useLocale();
                 <div class="p-5 pt-0">
                     <Link
                         :href="`/destinations?id=${exp.destinationId || (exp.id.includes('umrah') ? 'makkah' : exp.id.includes('madinah') ? 'madinah' : exp.id.includes('tantora') ? 'alula' : 'red-sea')}`"
-                        class="w-full py-2.5 rounded-full border border-slate-200 hover:border-[#1E6BFF] hover:bg-blue-50/50 hover:text-[#1E6BFF] text-slate-700 text-xs font-bold flex items-center justify-center gap-1.5 transition-colors"
+                        class="w-full py-2.5 rounded-full border border-slate-200 hover:border-[#243E88] hover:bg-[#243E88]/5 hover:text-[#243E88] text-slate-700 text-xs font-bold flex items-center justify-center gap-1.5 transition-colors"
                     >
                         <span>{{ isAr ? (exp.id.includes('umrah') || exp.id.includes('madinah') ? 'استكشف الوجهة والرحلة' : 'استكشف تفاصيل الوجهة') : 'Explore Destination' }}</span>
                         <component :is="isAr ? ArrowLeft : ArrowRight" class="w-3.5 h-3.5" />

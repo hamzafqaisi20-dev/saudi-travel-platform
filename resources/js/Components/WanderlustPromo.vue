@@ -25,11 +25,11 @@ const { isAr } = useLocale();
                         class="absolute bottom-4 left-4 right-4 sm:left-6 sm:right-6 bg-white/95 hover:bg-white backdrop-blur-md rounded-2xl p-4 shadow-xl border border-slate-100 flex items-center justify-between transition-all hover:scale-[1.02] cursor-pointer group"
                     >
                         <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-xl bg-blue-50 text-[#1E6BFF] flex items-center justify-center font-black text-sm group-hover:bg-[#1E6BFF] group-hover:text-white transition-colors">
+                            <div class="w-10 h-10 rounded-xl bg-amber-50 text-[#FAB515] flex items-center justify-center font-black text-sm group-hover:bg-[#FAB515] group-hover:text-[#1B316E] transition-colors">
                                 <Tag class="w-5 h-5" />
                             </div>
                             <div>
-                                <span class="text-lg sm:text-xl font-black text-[#1E6BFF] block leading-none">
+                                <span class="text-lg sm:text-xl font-black text-[#243E88] block leading-none">
                                     {{ isAr ? 'خصم 20% (كوبون SAUDI20)' : '20% OFF (Code SAUDI20)' }}
                                 </span>
                                 <span class="text-[11px] font-bold text-slate-400 mt-1 block">
@@ -51,12 +51,12 @@ const { isAr } = useLocale();
                     <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black text-[#0D1527] uppercase tracking-tight leading-[1.08]">
                         <template v-if="isAr">
                             أطلق شغفك للاستكشاف<br/>
-                            مع <span class="text-[#1E6BFF]">InfoTravel</span>
+                            مع <span class="text-[#243E88]">Info</span><span class="text-[#FAB515]">Travel</span>
                         </template>
                         <template v-else>
                             UNLEASH<br/>
                             WANDERLUST WITH<br/>
-                            <span class="text-[#1E6BFF]">INFOTRAVEL</span>
+                            <span class="text-[#243E88]">INFO</span><span class="text-[#FAB515]">TRAVEL</span>
                         </template>
                     </h2>
                 </div>
@@ -79,11 +79,11 @@ const { isAr } = useLocale();
                 <div class="pt-4">
                     <Link
                         href="/flights"
-                        class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-5 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100 border border-blue-200/60 text-[#0D1527] font-black text-base shadow-sm hover:shadow-md transition-all duration-200 group"
+                        class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-5 rounded-2xl bg-gradient-to-r from-slate-50 to-amber-50/50 hover:from-slate-100 hover:to-amber-100/70 border border-slate-200 text-[#0D1527] font-black text-base shadow-sm hover:shadow-md transition-all duration-200 group"
                     >
-                        <AircraftIcon className="w-5 h-5 text-[#1E6BFF]" :angle="isAr ? -45 : 45" />
+                        <AircraftIcon className="w-5 h-5 text-[#FAB515]" :angle="isAr ? -45 : 45" />
                         <span>{{ isAr ? 'احجز رحلة طيران الآن' : 'Book A Flight Now' }}</span>
-                        <component :is="isAr ? ArrowLeft : ArrowRight" class="w-5 h-5 text-[#1E6BFF] group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" />
+                        <component :is="isAr ? ArrowLeft : ArrowRight" class="w-5 h-5 text-[#243E88] group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" />
                     </Link>
                 </div>
             </div>

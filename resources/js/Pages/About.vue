@@ -52,8 +52,8 @@ const submitContact = () => {
         <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <div class="bg-white rounded-3xl p-8 card-soft-shadow border border-slate-100 space-y-3">
-                    <div class="w-12 h-12 rounded-2xl bg-blue-50 text-[#1E6BFF] flex items-center justify-center font-bold">
-                        <Sparkles class="w-6 h-6" />
+                    <div class="w-12 h-12 rounded-2xl bg-blue-50 text-[#243E88] flex items-center justify-center font-bold">
+                        <Sparkles class="w-6 h-6 text-[#FAB515]" />
                     </div>
                     <h3 class="text-lg font-black text-slate-900">
                         {{ isAr ? 'الابتكار والذكاء الاصطناعي' : 'Smart AI Innovation' }}
@@ -102,7 +102,7 @@ const submitContact = () => {
                     <!-- Left: Info -->
                     <div class="space-y-6">
                         <div>
-                            <span class="text-xs font-bold uppercase tracking-widest text-[#1E6BFF] block mb-1">
+                            <span class="text-xs font-bold uppercase tracking-widest text-[#243E88] block mb-1">
                                 {{ isAr ? 'تواصل معنا' : 'CONTACT & COLLABORATION' }}
                             </span>
                             <h2 class="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
@@ -118,15 +118,15 @@ const submitContact = () => {
                         <div class="space-y-4 text-xs sm:text-sm text-slate-600">
                             <div class="flex items-center gap-3">
                                 <div class="w-9 h-9 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center shrink-0">
-                                    <MapPin class="w-4 h-4 text-[#1E6BFF]" />
+                                    <MapPin class="w-4 h-4 text-[#243E88]" />
                                 </div>
                                 <span>{{ isAr ? 'مركز الملك عبدالله المالي (KAFD)، الرياض، المملكة العربية السعودية' : 'KAFD, Riyadh, Kingdom of Saudi Arabia' }}</span>
                             </div>
                             <div class="flex items-center gap-3">
                                 <div class="w-9 h-9 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center shrink-0">
-                                    <Mail class="w-4 h-4 text-[#1E6BFF]" />
+                                    <Mail class="w-4 h-4 text-[#243E88]" />
                                 </div>
-                                <span class="font-mono">partners@saudiwings.travel</span>
+                                <span class="font-mono">partners@infotravel.sa</span>
                             </div>
                         </div>
 
@@ -155,7 +155,7 @@ const submitContact = () => {
                                     required
                                     type="text"
                                     placeholder="e.g. Sultan Al-Otaibi"
-                                    class="w-full p-3 bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-[#1E6BFF]"
+                                    class="w-full p-3 bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-[#243E88]"
                                 />
                             </div>
 
@@ -166,7 +166,7 @@ const submitContact = () => {
                                     required
                                     type="email"
                                     placeholder="name@domain.com"
-                                    class="w-full p-3 bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-[#1E6BFF]"
+                                    class="w-full p-3 bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-[#243E88]"
                                 />
                             </div>
 
@@ -187,13 +187,13 @@ const submitContact = () => {
                                     required
                                     rows="4"
                                     :placeholder="isAr ? 'اكتب تفاصيل رسالتك أو استفسارك...' : 'Please write your message or partnership proposal...'"
-                                    class="w-full p-3 bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-[#1E6BFF]"
+                                    class="w-full p-3 bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-[#243E88]"
                                 ></textarea>
                             </div>
 
                             <button
                                 type="submit"
-                                class="w-full py-3.5 rounded-full bg-[#1E6BFF] hover:bg-blue-600 text-white font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-blue-500/25 transition-all cursor-pointer"
+                                class="w-full py-3.5 rounded-full bg-[#FAB515] hover:bg-amber-400 text-[#1B316E] font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20 transition-all cursor-pointer"
                             >
                                 <Send class="w-4 h-4 rtl:rotate-180" />
                                 <span>{{ isAr ? 'إرسال الرسالة' : 'Send Message' }}</span>

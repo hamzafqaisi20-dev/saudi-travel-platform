@@ -122,12 +122,12 @@ const activeModalFlight = ref(null);
                 <div class="bg-white rounded-3xl p-6 card-soft-shadow border border-slate-100 h-fit space-y-6">
                     <div class="flex items-center justify-between pb-4 border-b border-slate-100">
                         <h3 class="font-bold text-slate-900 text-sm flex items-center gap-2">
-                            <SlidersHorizontal class="w-4 h-4 text-[#1E6BFF]" />
+                            <SlidersHorizontal class="w-4 h-4 text-[#243E88]" />
                             {{ isAr ? 'تصفية النتائج' : 'Filter Flights' }}
                         </h3>
                         <button
                             @click="selectedAirline = 'all'; maxPrice = 2500; sortBy = 'price_asc'"
-                            class="text-xs text-[#1E6BFF] hover:underline"
+                            class="text-xs text-[#243E88] hover:underline"
                         >
                             {{ isAr ? 'إعادة ضبط' : 'Reset' }}
                         </button>
@@ -156,7 +156,7 @@ const activeModalFlight = ref(null);
                             max="3000"
                             step="100"
                             v-model.number="maxPrice"
-                            class="w-full accent-[#1E6BFF] cursor-pointer"
+                            class="w-full accent-[#243E88] cursor-pointer"
                         />
                     </div>
 
@@ -172,8 +172,8 @@ const activeModalFlight = ref(null);
                     <!-- Promo Code / 20% Discount Feature -->
                     <div class="pt-4 border-t border-slate-100 space-y-2 text-xs">
                         <label class="font-bold text-slate-700 flex items-center justify-between">
-                            <span class="flex items-center gap-1.5 text-[#1E6BFF]">
-                                <Tag class="w-3.5 h-3.5" />
+                            <span class="flex items-center gap-1.5 text-[#243E88]">
+                                <Tag class="w-3.5 h-3.5 text-[#FAB515]" />
                                 {{ isAr ? 'كوبون الخصم (20% OFF)' : 'Promo Code (20% OFF)' }}
                             </span>
                             <span v-if="promoApplied" class="text-[10px] font-extrabold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
@@ -192,7 +192,7 @@ const activeModalFlight = ref(null);
                             <button
                                 type="button"
                                 @click="applyPromoCode(promoInput)"
-                                class="px-3 py-2 rounded-xl bg-[#1E6BFF] hover:bg-blue-600 text-white font-bold text-xs shrink-0 transition-colors"
+                                class="px-3 py-2 rounded-xl bg-[#243E88] hover:bg-[#1B316E] text-white font-bold text-xs shrink-0 transition-colors"
                             >
                                 {{ isAr ? 'تطبيق' : 'Apply' }}
                             </button>
@@ -240,7 +240,7 @@ const activeModalFlight = ref(null);
                     >
                         <!-- Airline & Flight Info -->
                         <div class="flex items-center gap-4 w-full md:w-auto">
-                            <div class="w-12 h-12 rounded-2xl bg-blue-50 text-[#1E6BFF] flex items-center justify-center font-black text-sm shrink-0">
+                            <div class="w-12 h-12 rounded-2xl bg-blue-50 text-[#243E88] flex items-center justify-center font-black text-sm shrink-0">
                                 {{ flight.airlineCode }}
                             </div>
                             <div>
@@ -268,9 +268,9 @@ const activeModalFlight = ref(null);
                                     {{ flight.duration }}
                                 </span>
                                 <div class="w-full flex items-center gap-1">
-                                    <div class="w-1.5 h-1.5 rounded-full bg-[#1E6BFF]"></div>
+                                    <div class="w-1.5 h-1.5 rounded-full bg-[#243E88]"></div>
                                     <div class="flex-1 border-t border-dashed border-slate-300 relative">
-                                        <AircraftIcon className="w-4 h-4 text-[#1E6BFF] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" :angle="isAr ? -90 : 90" />
+                                        <AircraftIcon className="w-4 h-4 text-[#FAB515] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" :angle="isAr ? -90 : 90" />
                                     </div>
                                     <div class="w-1.5 h-1.5 rounded-full bg-slate-900"></div>
                                 </div>
@@ -304,7 +304,7 @@ const activeModalFlight = ref(null);
                             <button
                                 type="button"
                                 @click="activeModalFlight = flight"
-                                class="px-6 py-2.5 rounded-full bg-[#0D1527] hover:bg-[#1E6BFF] text-white text-xs font-bold transition-all shadow-md active:scale-95 cursor-pointer"
+                                class="px-6 py-2.5 rounded-full bg-[#243E88] hover:bg-[#1B316E] text-white text-xs font-bold transition-all shadow-md active:scale-95 cursor-pointer"
                             >
                                 {{ isAr ? 'حجز تجريبي' : 'Book Mock Flight' }}
                             </button>
@@ -361,7 +361,7 @@ const activeModalFlight = ref(null);
 
                 <button
                     @click="activeModalFlight = null"
-                    class="w-full py-3 rounded-full bg-[#1E6BFF] text-white text-xs font-bold hover:bg-blue-600 transition-colors"
+                    class="w-full py-3 rounded-full bg-[#243E88] text-white text-xs font-bold hover:bg-[#1B316E] transition-colors"
                 >
                     {{ isAr ? 'العودة لصفحة الرحلات' : 'Back to Flights' }}
                 </button>

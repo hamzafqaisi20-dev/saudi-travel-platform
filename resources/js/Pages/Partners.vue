@@ -44,14 +44,14 @@ const { isAr } = useLocale();
                     </h3>
                     <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
                         {{ isAr 
-                            ? 'صممت معمارية أجنحة السعودية لتكون قابلة للتكامل والتوسع السريع مع بروتوكولات NDC وأنظمة حجز الفنادق العالمية عبر واجهات API حديثة.' 
-                            : 'SaudiWings architecture is built for rapid extensibility with IATA NDC flight APIs, GDS distribution, and luxury hospitality channels.' }}
+                            ? 'صممت معمارية InfoTravel لتكون قابلة للتكامل والتوسع السريع مع بروتوكولات NDC وأنظمة حجز الفنادق العالمية عبر واجهات API حديثة.' 
+                            : 'InfoTravel architecture is built for rapid extensibility with IATA NDC flight APIs, GDS distribution, and luxury hospitality channels.' }}
                     </p>
                 </div>
 
                 <Link
                     href="/about"
-                    class="shrink-0 px-6 py-3 rounded-full bg-[#0D1527] hover:bg-[#1E6BFF] text-white text-xs font-bold transition-all shadow-md"
+                    class="shrink-0 px-6 py-3 rounded-full bg-[#243E88] hover:bg-[#1B316E] text-white text-xs font-bold transition-all shadow-md hover:shadow-blue-900/20"
                 >
                     {{ isAr ? 'تواصل مع فريق التطوير' : 'Partner Inquiries' }}
                 </Link>

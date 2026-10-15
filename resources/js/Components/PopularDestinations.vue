@@ -266,7 +266,7 @@ onUnmounted(() => {
             <div class="flex items-center gap-3 shrink-0 self-end md:self-auto">
                 <!-- Slide index counter badge -->
                 <div class="hidden sm:flex items-center gap-1 px-3 py-1.5 rounded-full bg-slate-100/80 border border-slate-200/60 text-xs font-mono font-bold text-slate-600" dir="ltr">
-                    <span class="text-[#1E6BFF]">{{ String(currentIndex + 1).padStart(2, '0') }}</span>
+                    <span class="text-[#243E88]">{{ String(currentIndex + 1).padStart(2, '0') }}</span>
                     <span>/</span>
                     <span>{{ String(maxIndex + 1).padStart(2, '0') }}</span>
                 </div>
@@ -277,7 +277,7 @@ onUnmounted(() => {
                     <button
                         type="button"
                         @click="slideLeft"
-                        class="w-11 h-11 rounded-full flex items-center justify-center transition-all cursor-pointer shadow-md hover:shadow-blue-500/25 hover:scale-105 active:scale-95 bg-[#0D1527] hover:bg-[#1E6BFF] text-white"
+                        class="w-11 h-11 rounded-full flex items-center justify-center transition-all cursor-pointer shadow-md hover:shadow-blue-900/25 hover:scale-105 active:scale-95 bg-[#0D1527] hover:bg-[#243E88] text-white"
                         :aria-label="isAr ? 'تحريك لليسار' : 'Slide left'"
                         :title="isAr ? 'تحريك لليسار' : 'Slide left'"
                     >
@@ -288,7 +288,7 @@ onUnmounted(() => {
                     <button
                         type="button"
                         @click="slideRight"
-                        class="w-11 h-11 rounded-full flex items-center justify-center transition-all cursor-pointer shadow-sm hover:scale-105 active:scale-95 border border-slate-200 hover:border-[#1E6BFF] bg-white text-slate-800 hover:text-[#1E6BFF] hover:bg-blue-50/40"
+                        class="w-11 h-11 rounded-full flex items-center justify-center transition-all cursor-pointer shadow-sm hover:scale-105 active:scale-95 border border-slate-200 hover:border-[#243E88] bg-white text-slate-800 hover:text-[#243E88] hover:bg-blue-50/40"
                         :aria-label="isAr ? 'تحريك لليمين' : 'Slide right'"
                         :title="isAr ? 'تحريك لليمين' : 'Slide right'"
                     >
@@ -307,8 +307,8 @@ onUnmounted(() => {
                 @click="selectedCategory = cat.id"
                 class="px-4 py-2 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer shrink-0"
                 :class="selectedCategory === cat.id
-                    ? 'bg-[#1E6BFF] text-white shadow-md shadow-blue-500/20'
-                    : 'bg-white text-slate-600 hover:text-[#1E6BFF] hover:bg-slate-100/80 border border-slate-200/70'"
+                    ? 'bg-[#243E88] text-white shadow-md shadow-blue-900/20'
+                    : 'bg-white text-slate-600 hover:text-[#243E88] hover:bg-slate-100/80 border border-slate-200/70'"
             >
                 {{ isAr ? cat.label.ar : cat.label.en }}
             </button>
@@ -380,13 +380,13 @@ onUnmounted(() => {
                         <div class="p-5 sm:p-6">
                             <!-- Title & Rating Header -->
                             <div class="flex items-start justify-between gap-2 mb-2">
-                                <h3 class="text-lg sm:text-xl font-black text-slate-900 group-hover:text-[#1E6BFF] transition-colors leading-snug">
+                                <h3 class="text-lg sm:text-xl font-black text-slate-900 group-hover:text-[#243E88] transition-colors leading-snug">
                                     {{ isAr ? item.title.ar : item.title.en }}
                                 </h3>
 
                                 <!-- Star Rating Badge -->
-                                <div class="shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#1E6BFF] text-white text-xs font-black shadow-sm">
-                                    <Star class="w-3 h-3 fill-current text-amber-300" />
+                                <div class="shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#243E88] text-white text-xs font-black shadow-sm">
+                                    <Star class="w-3 h-3 fill-current text-[#FAB515]" />
                                     <span>{{ item.rating }}</span>
                                 </div>
                             </div>
@@ -401,7 +401,7 @@ onUnmounted(() => {
                                 <span
                                     v-for="(tag, tIdx) in (isAr ? item.highlights.ar.slice(0, 3) : item.highlights.en.slice(0, 3))"
                                     :key="tIdx"
-                                    class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-slate-100 text-slate-600 group-hover:bg-blue-50 group-hover:text-[#1E6BFF] transition-colors"
+                                    class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-slate-100 text-slate-600 group-hover:bg-blue-50 group-hover:text-[#243E88] transition-colors"
                                 >
                                     {{ tag }}
                                 </span>
@@ -420,7 +420,7 @@ onUnmounted(() => {
 
                         <Link
                             :href="`/destinations?id=${item.id}`"
-                            class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-bold bg-slate-900 text-white group-hover:bg-[#1E6BFF] transition-all shadow-sm group-hover:shadow-md group-hover:shadow-blue-500/20 active:scale-95"
+                            class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-bold bg-[#243E88] text-white hover:bg-[#1B316E] transition-all shadow-sm hover:shadow-md hover:shadow-blue-900/20 active:scale-95"
                         >
                             <span>{{ isAr ? 'استكشف الوجهة' : 'View Details' }}</span>
                             <component :is="isAr ? ArrowLeft : ArrowRight" class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -438,7 +438,7 @@ onUnmounted(() => {
                 type="button"
                 @click="goToSlide(idx)"
                 class="h-2 rounded-full transition-all duration-300 cursor-pointer"
-                :class="currentIndex === idx ? 'w-8 bg-[#1E6BFF]' : 'w-2 bg-slate-300 hover:bg-slate-400'"
+                :class="currentIndex === idx ? 'w-8 bg-[#243E88]' : 'w-2 bg-slate-300 hover:bg-slate-400'"
                 :aria-label="`Slide ${idx + 1}`"
             ></button>
         </div>
@@ -447,9 +447,9 @@ onUnmounted(() => {
         <div class="mt-10 text-center">
             <Link
                 href="/destinations"
-                class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs sm:text-sm font-bold bg-white text-slate-800 hover:text-[#1E6BFF] border border-slate-200 hover:border-[#1E6BFF] shadow-sm hover:shadow-md transition-all active:scale-95"
+                class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs sm:text-sm font-bold bg-white text-slate-800 hover:text-[#243E88] border border-slate-200 hover:border-[#243E88] shadow-sm hover:shadow-md transition-all active:scale-95"
             >
-                <Compass class="w-4 h-4 text-[#1E6BFF]" />
+                <Compass class="w-4 h-4 text-[#243E88]" />
                 <span>{{ isAr ? 'استعرض كافة الوجهات والمعالم السياحية بالمملكة (12+ وجهة)' : 'Browse All 12+ Saudi Destinations & Attractions' }}</span>
                 <component :is="isAr ? ArrowLeft : ArrowRight" class="w-4 h-4" />
             </Link>
